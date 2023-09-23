@@ -8,46 +8,22 @@ $$ |  $$ |$$ |  $$ |$$ | $$ | $$ |$$   ____|$$ | $$ | $$ |$$ |  $$ |$$ |      $$
 $$ |  $$ |\$$$$$$  |$$ | $$ | $$ |\$$$$$$$\ \$$$$$\$$$$  |\$$$$$$  |$$ |      $$ | \$$\       $$$$$$\ 
 \__|  \__| \______/ \__| \__| \__| \_______| \_____\____/  \______/ \__|      \__|  \__|      \______|
                                                                                                       
-  Flips a coin, H = Heads , T = Tails
-  Count which result has the longest un-interrupted run
-  Input will be a text file
+A simple c script meant to process a string of characters through STDIN, searching for the longest string of either H or T.
+Script will return H if the longest string consists of H's, T if T's, and B if there are two strings of H's and T's of equal length.
+Script will also return the length of the longest string.
 
-  Read the file from STDIN, report result and stats to STDOUT, report errors to STDERR
+This program requires only C and a C compiler. In order to run, the code must first be compiled, then the output file should function.
 
-  Function - 'longestRun'. Reads characters from STDIN and analyzes them to find longest number of consecutive heads or tails.
-  MUST display 2 values:
-  - number of max consecutive for winner
-  - character (H or T) depending on what won. If tie, print B.
+In order for this program to run properly, input must be send to the script via STDIN (using a pipe)
+e.g. =cat inputfile | program_executable=
 
-  Program should read file through STDIN:
-  - cat myinputfile.txt | myprogram
-
-  feof(stdin) - returns true if reached end of file
-  while (!feof(stdin))
-  {
-
-  }
-
-
-_________          _______           _______          _________ _______ 
-\__   __/|\     /|(  ___  )|\     /|(  ____ \|\     /|\__   __/(  ____ \
-   ) (   | )   ( || (   ) || )   ( || (    \/| )   ( |   ) (   | (    \/
-   | |   | (___) || |   | || |   | || |      | (___) |   | |   | (_____ 
-   | |   |  ___  || |   | || |   | || | ____ |  ___  |   | |   (_____  )
-   | |   | (   ) || |   | || |   | || | \_  )| (   ) |   | |         ) |
-   | |   | )   ( || (___) || (___) || (___) || )   ( |   | |   /\____) |
-   )_(   |/     \|(_______)(_______)(_______)|/     \|   )_(   \_______)
-                                                                        
-
-As long as the file isn't over, check a character.
-If that character isn't H or T, ignore it.
-
-Check characters value
-
-
-
-   
+Results:
+When run with the small text file: "T, 7"
+When run with the large text file: "B, 14"
 */
+
+
+
 #include <stdio.h>
 
 int main() {
