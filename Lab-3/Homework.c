@@ -133,6 +133,7 @@ int file_ops( char *input, float wait ) {
     // printf("Retrieved line of length %zu :  ", read);
     printf("%s", line);
     reverse(line);
+    fflush(stdout);
   }
 
   return 0;
