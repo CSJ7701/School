@@ -21,6 +21,8 @@ Expected command format - ./Homework.out -d delay(#) -? -? -? File File File
 #include <stdio.h>
 #include <getopt.h>
 #include <math.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 // Check if file exists
 // Returns error if not found
@@ -28,7 +30,7 @@ int exists( char *input ) {
   FILE *file;
   if ( file = fopen(input, "r")) {
     fclose(file);
-    printf("File Exists\n");
+    // printf("File Exists\n");
     return 0;
   }
   else {
@@ -84,7 +86,7 @@ int file_ops( char *input, float wait, int rev ) {
 
   file = fopen(input, "r");
   if (file == NULL) {
-    printf("File not found\n");
+    //printf("File not found\n");
     return(1);
   }
 
@@ -106,12 +108,75 @@ int file_ops( char *input, float wait, int rev ) {
   return 0;
 }
 
+void printHelp(char **argv) {
+  printf("Usage: %s [OPTIONS] File\n", argv[0]);
+  printf("Takes an input file, reads contents, and prints to STDOUT line by line.\n\n");  
+  printf("Options:\n");
+  printf("  -h            Display this help message\n");
+  printf("  -r            Reverse each line\n");
+  printf("  -d [delay]    Specify a delay in seconds or fractions thereof\n");
+  printf("                Example: -d 0.5 for a 500 milliseconds delay\n");
+}
+
+
+
 
 int main( int argc, char **argv ) {
+  // argc - num of args ; argv[] is index
+  // argc - 1=no args 2=one arg
 
-  // Getopt to process options
-  // DO NOT CALL FUNCTIONS, Set variables in getopt.
-  // h, d
+  opterr=0; // Prevents getopt from sending default errors
+  int opt;
+  int opt_help=0;
+  int opt_delay=0;
+  float opt_delay_time=0;
+  int opt_reverse=0;
+
+  // Usage statement on no arguments
+  if (argc < 2) {
+    printHelp(argv);
+    return 1;
+  }
+
+  while((opt = getopt(argc, argv, "rhd:")) != -1)
+    {
+      switch(opt)
+	{
+	case 'h':
+	  opt_help=1;
+	  break;
+	  
+	case 'r':
+	  opt_reverse=1;
+	  break;
+	  
+	case 'd':
+	  if (optarg == NULL) {
+	    fprintf(stderr, "Please enter a delay time.\n");
+	    return 1;
+	  }
+	  else {
+	    opt_delay=1;
+	    opt_delay_time=atof(optarg);
+	  }
+	  break;
+	  
+	case '?':
+	  fprintf(stderr, "Option not recognized: %c\n", optopt);
+	  return 1;
+	}
+    }
+
+  if (opt_help == 1) {
+    printHelp(argv);
+  }
+
+  while(optind < argc && *argv[optind] != '-'){
+    exists(argv[optind]);
+    file_ops(argv[optind], opt_delay_time, opt_reverse);
+    optind++;
+  }
+  
 
   return 0; // End of program
 }
