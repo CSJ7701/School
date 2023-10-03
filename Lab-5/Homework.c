@@ -83,15 +83,33 @@ int file_ops( char *input, float wait, int rev ) {
   char *line = NULL;
   size_t len = 0;
   ssize_t read;
+  int input_type;
+  // File descriptor for stdin is 0
 
-  file = fopen(input, "r");
-  if (file == NULL) {
-    //printf("File not found\n");
-    return(1);
+  if(input==NULL){
+    input_type=0;
+  }
+  else{
+    file = fopen(input, "r");
+    input_type=file;
+    if (file == NULL) {
+      //printf("File not found\n");
+      return(1);
+    }
   }
 
+  /* if(type == 0){ */
+  /*   input_type=file; */
+  /* } */
+  /* else if (type == 1){ */
+  /*   input_type=0; */
+  /* } */
+  /* else{ */
+  /*   return 1; */
+  /* } */
+
   if (rev == 1) {
-    while ((read = getline(&line, &len, file)) != -1) {
+    while ((read = getline(&line, &len, input_type)) != -1) {
       sleepp(wait);
       printf("%s", line);
       reverse(line);
@@ -99,7 +117,7 @@ int file_ops( char *input, float wait, int rev ) {
     }
   }
   else if (rev == 0) {
-    while ((read = getline(&line, &len, file)) != -1) {
+    while ((read = getline(&line, &len, input_type)) != -1) {
       sleepp(wait);
       printf("%s", line);
       fflush(stdout);
@@ -204,7 +222,7 @@ int main( int argc, char **argv ) {
     }
   }
   else {
-    stdin_ops(opt_delay_time, opt_reverse);
+    file_ops(NULL, opt_delay_time, opt_reverse);
   }
 
 
