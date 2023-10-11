@@ -84,72 +84,40 @@ int file_ops( char *input, float wait, int rev ) {
   size_t len = 0;
   ssize_t read;
   int input_type;
+  int wait_time = (int)wait*1000000;
   // File descriptor for stdin is 0
 
   if(input==NULL){
     input_type=0;
+    file=fdopen(0, "r");
   }
   else{
     file = fopen(input, "r");
-    input_type=file;
+    //input_type=file;
     if (file == NULL) {
       //printf("File not found\n");
       return(1);
     }
   }
 
-  /* if(type == 0){ */
-  /*   input_type=file; */
-  /* } */
-  /* else if (type == 1){ */
-  /*   input_type=0; */
-  /* } */
-  /* else{ */
-  /*   return 1; */
-  /* } */
-
   if (rev == 1) {
-    while ((read = getline(&line, &len, input_type)) != -1) {
-      sleepp(wait);
+    while ((read = getline(&line, &len, file)) != -1) {
+      usleep(wait_time); 
       printf("%s", line);
       reverse(line);
       fflush(stdout);
     }
   }
+
   else if (rev == 0) {
-    while ((read = getline(&line, &len, input_type)) != -1) {
-      sleepp(wait);
+    while ((read = getline(&line, &len, file)) != -1) {
+      usleep(wait_time);
       printf("%s", line);
       fflush(stdout);
     }
   }
   return 0;
 }
-
-int stdin_ops(float wait, int rev) {
-  char *line = NULL;
-  size_t len = 0;
-  ssize_t read;
-  while (!feof(stdin)) {
-    if (rev == 1) {
-      while ((read = getline(&line, &len, stdin)) != -1) {
-        sleepp(wait);
-        printf("%s", line);
-        reverse(line);
-        fflush(stdout);
-      }
-    }
-    else if (rev == 0) {
-      while ((read = getline(&line, &len, stdin)) != -1) {
-        sleepp(wait);
-        printf("%s", line);
-        fflush(stdout);
-      }
-    }
-  }
-}
-
-
 
 void printHelp(char **argv) {
   printf("Usage: %s [OPTIONS] File\n", argv[0]);

@@ -14,7 +14,9 @@ Expected command format - ./Homework.out -d delay(#) -? -? -? File File File
  - Options can be in any order (this is getopt default)
  - File names should be only remaining arguments after options.
 
-
+[]  Ensure All files have proper extensions (not necessary, but instructor wants)
+[]  Submit documentation as a PDF - add pictures
+[]  Add Code Comments
 
 
 */
@@ -28,15 +30,15 @@ Expected command format - ./Homework.out -d delay(#) -? -? -? File File File
 // Returns error if not found
 int exists( char *input ) {
   FILE *file;
-  if ( file = fopen(input, "r")) {
+  if ( file = fopen(input, "r")) { 
     fclose(file);
     // printf("File Exists\n");
     return 0;
-  }
+  } // If file can be opened in "read" state, then it exists and return default state
   else {
     printf("File \'%s\' not found.\n", input);
     return 1;
-  }
+  } // If file cannot be opened, return an error
 }
 
 // Sleeps program
@@ -44,18 +46,18 @@ int exists( char *input ) {
 int sleepp( float fsecs ) {
   int secs = (int)fsecs;
 
-  if(ceilf(fsecs) == fsecs) {
-    sleep(secs);
+  if(ceilf(fsecs) == fsecs) { // Checks if the time input is an integer. Could have also used floor()
+    sleep(secs); // If integer, use integer sleep function
     return 0;
   }
   else {
     float sleep_dec = fsecs - floor(fsecs);
     float sleep_who = fsecs - sleep_dec;
     float sleep_mic = sleep_dec * 1000000;
-    sleep(sleep_who);
+    sleep(sleep_who); 
     usleep(sleep_mic);
-    return 0;
-  }
+    return 0; // If not an integer, seperate into integer and decimal components, convert decimal to microseconds, then use appropriate sleep functions accordingly
+  } 
   return 0;
 }
 
@@ -73,7 +75,7 @@ int reverse( char *input ) {
     rev_length--;
   }
   printf("%c", input[length-1]);
-  return 0;
+  return 0; // Takes line array, and indexes into it in reverse
 }
 
 // Handles sleeping and printing
@@ -87,7 +89,7 @@ int file_ops( char *input, float wait, int rev ) {
   file = fopen(input, "r");
   if (file == NULL) {
     //printf("File not found\n");
-    return(1);
+    return 1; // Throws error if "file" is not defined
   }
 
   if (rev == 1) {
@@ -95,14 +97,14 @@ int file_ops( char *input, float wait, int rev ) {
       sleepp(wait);
       printf("%s", line);
       reverse(line);
-      fflush(stdout);
+      fflush(stdout); // prints line, reverses line, flushes 
     }
   }
   else if (rev == 0) {
     while ((read = getline(&line, &len, file)) != -1) {
       sleepp(wait);
       printf("%s", line);
-      fflush(stdout);
+      fflush(stdout); // prints line, flushes
     }
   }
   return 0;
@@ -116,7 +118,7 @@ void printHelp(char **argv) {
   printf("  -r            Reverse each line\n");
   printf("  -d [delay]    Specify a delay in seconds or fractions thereof\n");
   printf("                Example: -d 0.5 for a 500 milliseconds delay\n");
-}
+} // Prints help message
 
 
 
@@ -136,21 +138,21 @@ int main( int argc, char **argv ) {
   if (argc < 2) {
     printHelp(argv);
     return 1;
-  }
+  } // If no arguments are passed, print usage/help
 
   while((opt = getopt(argc, argv, "rhd:")) != -1)
     {
       switch(opt)
 	{
-	case 'h':
+	case 'h': // If -h found, set opt_help=1
 	  opt_help=1;
 	  break;
 	  
-	case 'r':
+	case 'r': // If -r found, set opt_reverse = 1 
 	  opt_reverse=1;
 	  break;
 	  
-	case 'd':
+	case 'd': // If -d found, and no extra arg, throw error. If -d found with arg, set opt_delay=1 and opt_delay_time=the converted value of the arg
 	  if (optarg == NULL) {
 	    fprintf(stderr, "Please enter a delay time.\n");
 	    return 1;
@@ -161,7 +163,7 @@ int main( int argc, char **argv ) {
 	  }
 	  break;
 	  
-	case '?':
+	case '?': // Extra cases, throw error
 	  fprintf(stderr, "Option not recognized: %c\n", optopt);
 	  return 1;
 	}
@@ -171,7 +173,7 @@ int main( int argc, char **argv ) {
     printHelp(argv);
   }
 
-  while(optind < argc && *argv[optind] != '-'){
+  while(optind < argc && *argv[optind] != '-'){ // Process non option args as files to run the file_ops command off of
     exists(argv[optind]);
     file_ops(argv[optind], opt_delay_time, opt_reverse);
     optind++;
