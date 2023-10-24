@@ -13,7 +13,7 @@
 
   * Add [-P] flag that will run the program in parallel - default setting is to run multiple files in serial.
 
-  * Add [-L logfilename] that will APPEND error messages to the logfile
+  * Add [-L logfilename] that will APPEND status messages to the logfile
   IFF user chooses to run this program in the "parallel" setting, append ".xxxxx" extension where xxxxx is the PID of the child process.
      - For each file, before the first line, log timestamp and filename. ONLY these go to logfile, normal output is printed to STDOUT.
      - If the program cannot print to logfile, throw an error and exit.
@@ -101,7 +101,9 @@ int printHelp(char **argv) {
 }
 
 int printHTTP() {
-
+  printf("HTTP/1.0 200\n");
+  printf("Content-type: text/plain\n");
+  printf("\n");
   return 0;
 }
 
@@ -112,8 +114,10 @@ int main( int argc, char **argv ) {
   int opt_delay=0;
   float opt_delay_time=0;
   int opt_reverse=0;
+  int opt_http=0;
   int child = -1;
   int wait_status;
+  char *opt_log=NULL;
 
   while((opt = getopt(argc, argv, "rHphd:L:")) != -1)
     {
@@ -138,16 +142,18 @@ int main( int argc, char **argv ) {
           }
           break;
 
-        case H:
-          printf("FIX ME\n");
+        case 'H':
+          opt_http=1;
           break;
 
-        case p:
+        case 'p':
           printf("FIX ME2\n");
           break;
 
-        case L:
+        case 'L':
           printf("FIX ME, BUT FIRST: %s\n", optarg);
+          opt_log=optarg;
+          printf("File is %s\n", opt_log);
           break;
 
         case '?':
@@ -155,11 +161,15 @@ int main( int argc, char **argv ) {
           return 1;
         }
     }
+  if (opt_http == 1) {
+    printHTTP();
+    // Rest of code goes here
 
   if (opt_help == 1) {
     printHelp(argv);
     return 0;
   }
+
 
   if(optind < argc){
     while(optind < argc){
@@ -172,9 +182,7 @@ int main( int argc, char **argv ) {
       }
       optind++;
     } // Should create a child for each file. This removes the need to run file_ops in the while loop.
-
     waitpid(-1, &wait_status, 0);
-
       // Run code for each file argument, dont forget optind++
       // file_ops(argv[optind], opt_delay_time, opt_reverse);
     }
@@ -183,5 +191,7 @@ int main( int argc, char **argv ) {
     file_ops(NULL, opt_delay_time, opt_reverse);
   }
 
+
+} // End of http print part
   return 0;
 }
