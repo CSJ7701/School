@@ -1,0 +1,804 @@
+Proof of Part 2:
+
+Files Used:
+Moby-Duck.txt
+P1.txt (process info from last lab)
+P2.txt (same)
+/etc/group
+/boot/grub/grub.cfg
+
+
+Moby Duck Lyrics
+sciryL kcuD yboM
+by The Longest Johns
+snhoJ tsegnoL ehT yb
+
+
+[Verse 1]
+]1 esreV[
+After fourteen years I left the sea, for a life upon a lake
+ekal a nopu efil a rof ,aes eht tfel I sraey neetruof retfA
+After all the√¢‚Ç¨‚Ä¶storms√¢‚Ç¨‚Ä¶I'd seen, I√¢‚Ç¨‚Ä¶needed a good break
+kaerb doog a dedeen¶Ä‚¨Ç‚¢√I ,nees d'I¶Ä‚¨Ç‚¢√smrots¶Ä‚¨Ç‚¢√eht lla retfA
+I thought still√¢‚Ç¨‚Ä¶waters would mean peace for me
+em rof ecaep naem dluow sretaw¶Ä‚¨Ç‚¢√llits thguoht I
+But that was a mistake
+ekatsim a saw taht tuB
+For the place I chose was bedeviled by a giant evil drake
+ekard live tnaig a yb delivedeb saw esohc I ecalp eht roF
+
+
+[Verse 2]
+]2 esreV[
+A mallard of such malice, twice the size of any man
+nam yna fo ezis eht eciwt ,ecilam hcus fo drallam A
+A bill to give you nightmares and a monstrous wingspan
+napsgniw suortsnom a dna seramthgin uoy evig ot llib A
+You cannot hope to fight it so avoid him if you can
+nac uoy fi mih diova os ti thgif ot epoh tonnac uoY
+That terrifying waterfowl, the beast beyond the dam
+mad eht dnoyeb tsaeb eht ,lwofretaw gniyfirret tahT
+
+
+[Chorus]
+]surohC[
+Row-ho Row-ho Row with all our might
+thgim ruo lla htiw woR oh-woR oh-woR
+Row with harpoons loaded and spoiling for a fight
+thgif a rof gniliops dna dedaol snooprah htiw woR
+Row-ho Row-ho and with any luck
+kcul yna htiw dna oh-woR oh-woR
+We'll win the day and do away the dreaded Moby Duck
+kcuD yboM dedaerd eht yawa od dna yad eht niw ll'eW
+
+
+[Verse 3]
+]3 esreV[
+I'm not one for surrender so a vengeful oath I swore
+erows I htao lufegnev a os rednerrus rof eno ton m'I
+I gathered up me hearties like so many times before
+erofeb semit ynam os ekil seitraeh em pu derehtag I
+We shot our ship with weapons and prepared to go to war
+raw ot og ot deraperp dna snopaew htiw pihs ruo tohs eW
+'Til the fetid feathered fearsome flying duck will breathe no more
+erom on ehtaerb lliw kcud gniylf emosraef derehtaef ditef eht liT'
+
+
+[Chorus]
+]surohC[
+Row-ho Row-ho Row with all our might
+thgim ruo lla htiw woR oh-woR oh-woR
+Row with harpoons loaded and spoiling for a fight
+thgif a rof gniliops dna dedaol snooprah htiw woR
+Row-ho Row-ho and with any luck
+kcul yna htiw dna oh-woR oh-woR
+We'll win the day and do away the dreaded Moby Duck
+kcuD yboM dedaerd eht yawa od dna yad eht niw ll'eW
+
+
+[Verse 4]
+]4 esreV[
+There was bonnie brave Marie, who to her arms had waved goodbye
+eybdoog devaw dah smra reh ot ohw ,eiraM evarb einnob saw erehT
+And handsome Jack whose duck-attack left him without an eye
+eye na tuohtiw mih tfel kcatta-kcud esohw kcaJ emosdnah dnA
+The Derby twins with one leg each on deck were standing by
+yb gnidnats erew kced no hcae gel eno htiw sniwt ybreD ehT
+Only a couple dozen limbs between a crew of twenty-five
+evif-ytnewt fo werc a neewteb sbmil nezod elpuoc a ylnO
+
+
+[Chorus]
+]surohC[
+Row-ho Row-ho Row with all our might
+thgim ruo lla htiw woR oh-woR oh-woR
+Row with harpoons loaded and spoiling for a fight
+thgif a rof gniliops dna dedaol snooprah htiw woR
+Row-ho Row-ho and with any luck
+kcul yna htiw dna oh-woR oh-woR
+We'll win the day and do away the dreaded Moby Duck
+kcuD yboM dedaerd eht yawa od dna yad eht niw ll'eW
+
+
+[Verse 5]
+]5 esreV[
+The fight raged on for several hours, defend and then attack
+kcatta neht dna dnefed ,sruoh lareves rof no degar thgif ehT
+With beatings from those wicked wings our boat began to crack
+kcarc ot nageb taob ruo sgniw dekciw esoht morf sgnitaeb htiW
+The beast reared up to finish the job, and with a mighty quack...
+...kcauq ythgim a htiw dna ,boj eht hsinif ot pu deraer tsaeb ehT
+(quack)
+)kcauq(
+I rammed my harpoon in his throat and made a tasty snack
+kcans ytsat a edam dna taorht sih ni nooprah ym demmar I
+
+
+[Chorus]
+]surohC[
+Row-ho Row-ho Row us back to shore
+erohs ot kcab su woR oh-woR oh-woR
+We'll drag his broken body back and roast it on an oar
+rao na no ti tsaor dna kcab ydob nekorb sih gard ll'eW
+Row-ho Row-ho barbecue the beast, with hoisin sauce and pancakes
+sekacnap dna ecuas nisioh htiw ,tsaeb eht eucebrab oh-woR oh-woR
+We will have the biggest feast
+tsaef tseggib eht evah lliw eW
+
+
+Row-ho Row-ho Row with all our might
+thgim ruo lla htiw woR oh-woR oh-woR
+We rowed with harpoons loaded and spoiling for a fight
+thgif a rof gniliops dna dedaol snooprah htiw dewor eW
+Row-ho Row-ho Row we had all the luck
+kcul eht lla dah ew woR oh-woR oh-woR
+We won the day and did away the dreaded Moby Duck
+kcuD yboM dedaerd eht yawa did dna yad eht now eW
+We won the day and did away the dreaded Moby Duck!
+!kcuD yboM dedaerd eht yawa did dna yad eht now eW
+
+
+(quack)
+)kcauq(
+SHELL=/bin/bashsab/nib/=LLEHShSHELL=/bin/bashsab/nib/=LLEHShroot:x:0:
+:0:x:toor
+daemon:x:1:
+:1:x:nomead
+bin:x:2:
+:2:x:nib
+sys:x:3:
+:3:x:sys
+adm:x:4:syslog,cyberadm
+mdarebyc,golsys:4:x:mda
+tty:x:5:
+:5:x:ytt
+disk:x:6:
+:6:x:ksid
+lp:x:7:
+:7:x:pl
+mail:x:8:
+:8:x:liam
+news:x:9:
+:9:x:swen
+uucp:x:10:
+:01:x:pcuu
+man:x:12:
+:21:x:nam
+proxy:x:13:
+:31:x:yxorp
+kmem:x:15:
+:51:x:memk
+dialout:x:20:
+:02:x:tuolaid
+fax:x:21:
+:12:x:xaf
+voice:x:22:
+:22:x:eciov
+cdrom:x:24:cyberadm
+mdarebyc:42:x:mordc
+floppy:x:25:
+:52:x:yppolf
+tape:x:26:
+:62:x:epat
+sudo:x:27:cyberadm
+mdarebyc:72:x:odus
+audio:x:29:pulse
+eslup:92:x:oidua
+dip:x:30:cyberadm
+mdarebyc:03:x:pid
+www-data:x:33:
+:33:x:atad-www
+backup:x:34:
+:43:x:pukcab
+operator:x:37:
+:73:x:rotarepo
+list:x:38:
+:83:x:tsil
+irc:x:39:
+:93:x:cri
+src:x:40:
+:04:x:crs
+gnats:x:41:
+:14:x:stang
+shadow:x:42:
+:24:x:wodahs
+utmp:x:43:
+:34:x:pmtu
+video:x:44:
+:44:x:oediv
+sasl:x:45:
+:54:x:lsas
+plugdev:x:46:cyberadm
+mdarebyc:64:x:vedgulp
+staff:x:50:
+:05:x:ffats
+games:x:60:
+:06:x:semag
+users:x:100:
+:001:x:sresu
+nogroup:x:65534:
+:43556:x:puorgon
+systemd-journal:x:101:
+:101:x:lanruoj-dmetsys
+systemd-network:x:102:
+:201:x:krowten-dmetsys
+systemd-resolve:x:103:
+:301:x:evloser-dmetsys
+crontab:x:104:
+:401:x:batnorc
+messagebus:x:105:
+:501:x:subegassem
+systemd-timesync:x:106:
+:601:x:cnysemit-dmetsys
+input:x:107:
+:701:x:tupni
+sgx:x:108:
+:801:x:xgs
+kvm:x:109:
+:901:x:mvk
+render:x:110:
+:011:x:redner
+syslog:x:111:
+:111:x:golsys
+tss:x:112:
+:211:x:sst
+bluetooth:x:113:
+:311:x:htooteulb
+ssl-cert:x:114:
+:411:x:trec-lss
+uuidd:x:115:
+:511:x:ddiuu
+systemd-oom:x:116:
+:611:x:moo-dmetsys
+tcpdump:x:117:
+:711:x:pmudpct
+_ssh:x:118:
+:811:x:hss_
+avahi-autoipd:x:119:
+:911:x:dpiotua-ihava
+netdev:x:120:
+:021:x:vedten
+avahi:x:121:
+:121:x:ihava
+lpadmin:x:122:cyberadm
+mdarebyc:221:x:nimdapl
+rtkit:x:123:
+:321:x:tiktr
+whoopsie:x:124:
+:421:x:eispoohw
+sssd:x:125:
+:521:x:dsss
+fwupd-refresh:x:126:
+:621:x:hserfer-dpuwf
+nm-openvpn:x:127:
+:721:x:npvnepo-mn
+scanner:x:128:saned
+denas:821:x:rennacs
+saned:x:129:
+:921:x:denas
+colord:x:130:
+:031:x:droloc
+geoclue:x:131:
+:131:x:eulcoeg
+pulse:x:132:
+:231:x:eslup
+pulse-access:x:133:
+:331:x:ssecca-eslup
+gdm:x:134:
+:431:x:mdg
+lxd:x:135:cyberadm
+mdarebyc:531:x:dxl
+cyberadm:x:1000:
+:0001:x:mdarebyc
+sambashare:x:136:cyberadm
+mdarebyc:631:x:erahsabmas
+#
+#
+# DO NOT EDIT THIS FILE
+ELIF SIHT TIDE TON OD #
+#
+#
+# It is automatically generated by grub-mkconfig using templates
+setalpmet gnisu gifnockm-burg yb detareneg yllacitamotua si tI #
+# from /etc/grub.d and settings from /etc/default/grub
+burg/tluafed/cte/ morf sgnittes dna d.burg/cte/ morf #
+#
+#
+
+
+### BEGIN /etc/grub.d/00_header ###
+### redaeh_00/d.burg/cte/ NIGEB ###
+if [ -s $prefix/grubenv ]; then
+neht ;] vneburg/xiferp$ s- [ fi
+  set have_grubenv=true
+eurt=vneburg_evah tes  
+  load_env
+vne_daol  
+fi
+if
+if [ "${initrdfail}" = 2 ]; then
+neht ;] 2 = "}liafdrtini{$" [ fi
+   set initrdfail=
+=liafdrtini tes   
+elif [ "${initrdfail}" = 1 ]; then
+neht ;] 1 = "}liafdrtini{$" [ file
+   set next_entry="${prev_entry}"
+"}yrtne_verp{$"=yrtne_txen tes   
+   set prev_entry=
+=yrtne_verp tes   
+   save_env prev_entry
+yrtne_verp vne_evas   
+   if [ "${next_entry}" ]; then
+neht ;] "}yrtne_txen{$" [ fi   
+      set initrdfail=2
+2=liafdrtini tes      
+   fi
+if   
+fi
+if
+if [ "${next_entry}" ] ; then
+neht ; ] "}yrtne_txen{$" [ fi
+   set default="${next_entry}"
+"}yrtne_txen{$"=tluafed tes   
+   set next_entry=
+=yrtne_txen tes   
+   save_env next_entry
+yrtne_txen vne_evas   
+   set boot_once=true
+eurt=ecno_toob tes   
+else
+esle
+   set default="0"
+"0"=tluafed tes   
+fi
+if
+
+
+if [ x"${feature_menuentry_id}" = xy ]; then
+neht ;] yx = "}di_yrtneunem_erutaef{$"x [ fi
+  menuentry_id_option="--id"
+"di--"=noitpo_di_yrtneunem  
+else
+esle
+  menuentry_id_option=""
+""=noitpo_di_yrtneunem  
+fi
+if
+
+
+export menuentry_id_option
+noitpo_di_yrtneunem tropxe
+
+
+if [ "${prev_saved_entry}" ]; then
+neht ;] "}yrtne_devas_verp{$" [ fi
+  set saved_entry="${prev_saved_entry}"
+"}yrtne_devas_verp{$"=yrtne_devas tes  
+  save_env saved_entry
+yrtne_devas vne_evas  
+  set prev_saved_entry=
+=yrtne_devas_verp tes  
+  save_env prev_saved_entry
+yrtne_devas_verp vne_evas  
+  set boot_once=true
+eurt=ecno_toob tes  
+fi
+if
+
+
+function savedefault {
+{ tluafedevas noitcnuf
+  if [ -z "${boot_once}" ]; then
+neht ;] "}ecno_toob{$" z- [ fi  
+    saved_entry="${chosen}"
+"}nesohc{$"=yrtne_devas    
+    save_env saved_entry
+yrtne_devas vne_evas    
+  fi
+if  
+}
+}
+function initrdfail {
+{ liafdrtini noitcnuf
+    if [ -n "${have_grubenv}" ]; then if [ -n "${partuuid}" ]; then
+neht ;] "}diuutrap{$" n- [ fi neht ;] "}vneburg_evah{$" n- [ fi    
+      if [ -z "${initrdfail}" ]; then
+neht ;] "}liafdrtini{$" z- [ fi      
+        set initrdfail=1
+1=liafdrtini tes        
+        if [ -n "${boot_once}" ]; then
+neht ;] "}ecno_toob{$" n- [ fi        
+          set prev_entry="${default}"
+"}tluafed{$"=yrtne_verp tes          
+          save_env prev_entry
+yrtne_verp vne_evas          
+        fi
+if        
+      fi
+if      
+      save_env initrdfail
+liafdrtini vne_evas      
+    fi; fi
+if ;if    
+}
+}
+function recordfail {
+{ liafdrocer noitcnuf
+  set recordfail=1
+1=liafdrocer tes  
+  if [ -n "${have_grubenv}" ]; then if [ -z "${boot_once}" ]; then save_env recordfail; fi; fi
+if ;if ;liafdrocer vne_evas neht ;] "}ecno_toob{$" z- [ fi neht ;] "}vneburg_evah{$" n- [ fi  
+}
+}
+function load_video {
+{ oediv_daol noitcnuf
+  if [ x$feature_all_video_module = xy ]; then
+neht ;] yx = eludom_oediv_lla_erutaef$x [ fi  
+    insmod all_video
+oediv_lla domsni    
+  else
+esle  
+    insmod efi_gop
+pog_ife domsni    
+    insmod efi_uga
+agu_ife domsni    
+    insmod ieee1275_fb
+bf_5721eeei domsni    
+    insmod vbe
+ebv domsni    
+    insmod vga
+agv domsni    
+    insmod video_bochs
+shcob_oediv domsni    
+    insmod video_cirrus
+surric_oediv domsni    
+  fi
+if  
+}
+}
+
+
+if [ x$feature_default_font_path = xy ] ; then
+neht ; ] yx = htap_tnof_tluafed_erutaef$x [ fi
+   font=unicode
+edocinu=tnof   
+else
+esle
+insmod part_gpt
+tpg_trap domsni
+insmod ext2
+2txe domsni
+search --no-floppy --fs-uuid --set=root 0a207332-3693-49fe-b195-d6d1066defca
+acfed6601d6d-591b-ef94-3963-233702a0 toor=tes-- diuu-sf-- yppolf-on-- hcraes
+    font="/usr/share/grub/unicode.pf2"
+"2fp.edocinu/burg/erahs/rsu/"=tnof    
+fi
+if
+
+
+if loadfont $font ; then
+neht ; tnof$ tnofdaol fi
+  set gfxmode=auto
+otua=edomxfg tes  
+  load_video
+oediv_daol  
+  insmod gfxterm
+mretxfg domsni  
+  set locale_dir=$prefix/locale
+elacol/xiferp$=rid_elacol tes  
+  set lang=en_US
+SU_ne=gnal tes  
+  insmod gettext
+txetteg domsni  
+fi
+if
+terminal_output gfxterm
+mretxfg tuptuo_lanimret
+if [ "${recordfail}" = 1 ] ; then
+neht ; ] 1 = "}liafdrocer{$" [ fi
+  set timeout=30
+03=tuoemit tes  
+else
+esle
+  if [ x$feature_timeout_style = xy ] ; then
+neht ; ] yx = elyts_tuoemit_erutaef$x [ fi  
+    set timeout_style=hidden
+neddih=elyts_tuoemit tes    
+    set timeout=0
+0=tuoemit tes    
+  # Fallback hidden-timeout code in case the timeout_style feature is
+si erutaef elyts_tuoemit eht esac ni edoc tuoemit-neddih kcabllaF #  
+  # unavailable.
+.elbaliavanu #  
+  elif sleep --interruptible 0 ; then
+neht ; 0 elbitpurretni-- peels file  
+    set timeout=0
+0=tuoemit tes    
+  fi
+if  
+fi
+if
+### END /etc/grub.d/00_header ###
+### redaeh_00/d.burg/cte/ DNE ###
+
+
+### BEGIN /etc/grub.d/05_debian_theme ###
+### emeht_naibed_50/d.burg/cte/ NIGEB ###
+set menu_color_normal=white/black
+kcalb/etihw=lamron_roloc_unem tes
+set menu_color_highlight=black/light-gray
+yarg-thgil/kcalb=thgilhgih_roloc_unem tes
+### END /etc/grub.d/05_debian_theme ###
+### emeht_naibed_50/d.burg/cte/ DNE ###
+
+
+### BEGIN /etc/grub.d/10_linux ###
+### xunil_01/d.burg/cte/ NIGEB ###
+function gfxmode {
+{ edomxfg noitcnuf
+	set gfxpayload="${1}"
+"}1{$"=daolyapxfg tes	
+	if [ "${1}" = "keep" ]; then
+neht ;] "peek" = "}1{$" [ fi	
+		set vt_handoff=vt.handoff=7
+7=ffodnah.tv=ffodnah_tv tes		
+	else
+esle	
+		set vt_handoff=
+=ffodnah_tv tes		
+	fi
+if	
+}
+}
+if [ "${recordfail}" != 1 ]; then
+neht ;] 1 =! "}liafdrocer{$" [ fi
+  if [ -e ${prefix}/gfxblacklist.txt ]; then
+neht ;] txt.tsilkcalbxfg/}xiferp{$ e- [ fi  
+    if [ ${grub_platform} != pc ]; then
+neht ;] cp =! }mroftalp_burg{$ [ fi    
+      set linux_gfx_mode=keep
+peek=edom_xfg_xunil tes      
+    elif hwmatch ${prefix}/gfxblacklist.txt 3; then
+neht ;3 txt.tsilkcalbxfg/}xiferp{$ hctamwh file    
+      if [ ${match} = 0 ]; then
+neht ;] 0 = }hctam{$ [ fi      
+        set linux_gfx_mode=keep
+peek=edom_xfg_xunil tes        
+      else
+esle      
+        set linux_gfx_mode=text
+txet=edom_xfg_xunil tes        
+      fi
+if      
+    else
+esle    
+      set linux_gfx_mode=text
+txet=edom_xfg_xunil tes      
+    fi
+if    
+  else
+esle  
+    set linux_gfx_mode=keep
+peek=edom_xfg_xunil tes    
+  fi
+if  
+else
+esle
+  set linux_gfx_mode=text
+txet=edom_xfg_xunil tes  
+fi
+if
+export linux_gfx_mode
+edom_xfg_xunil tropxe
+menuentry 'Ubuntu' --class ubuntu --class gnu-linux --class gnu --class os $menuentry_id_option 'gnulinux-simple-0a207332-3693-49fe-b195-d6d1066defca' {
+{ 'acfed6601d6d-591b-ef94-3963-233702a0-elpmis-xunilung' noitpo_di_yrtneunem$ so ssalc-- ung ssalc-- xunil-ung ssalc-- utnubu ssalc-- 'utnubU' yrtneunem
+	recordfail
+liafdrocer	
+	load_video
+oediv_daol	
+	gfxmode $linux_gfx_mode
+edom_xfg_xunil$ edomxfg	
+	insmod gzio
+oizg domsni	
+	if [ x$grub_platform = xxen ]; then insmod xzio; insmod lzopio; fi
+if ;oipozl domsni ;oizx domsni neht ;] nexx = mroftalp_burg$x [ fi	
+	insmod part_gpt
+tpg_trap domsni	
+	insmod ext2
+2txe domsni	
+	search --no-floppy --fs-uuid --set=root 0a207332-3693-49fe-b195-d6d1066defca
+acfed6601d6d-591b-ef94-3963-233702a0 toor=tes-- diuu-sf-- yppolf-on-- hcraes	
+	linux	/boot/vmlinuz-6.2.0-34-generic root=UUID=0a207332-3693-49fe-b195-d6d1066defca ro  quiet splash $vt_handoff
+ffodnah_tv$ hsalps teiuq  or acfed6601d6d-591b-ef94-3963-233702a0=DIUU=toor cireneg-43-0.2.6-zunilmv/toob/	xunil	
+	initrd	/boot/initrd.img-6.2.0-34-generic
+cireneg-43-0.2.6-gmi.drtini/toob/	drtini	
+}
+}
+submenu 'Advanced options for Ubuntu' $menuentry_id_option 'gnulinux-advanced-0a207332-3693-49fe-b195-d6d1066defca' {
+{ 'acfed6601d6d-591b-ef94-3963-233702a0-decnavda-xunilung' noitpo_di_yrtneunem$ 'utnubU rof snoitpo decnavdA' unembus
+	menuentry 'Ubuntu, with Linux 6.2.0-34-generic' --class ubuntu --class gnu-linux --class gnu --class os $menuentry_id_option 'gnulinux-6.2.0-34-generic-advanced-0a207332-3693-49fe-b195-d6d1066defca' {
+{ 'acfed6601d6d-591b-ef94-3963-233702a0-decnavda-cireneg-43-0.2.6-xunilung' noitpo_di_yrtneunem$ so ssalc-- ung ssalc-- xunil-ung ssalc-- utnubu ssalc-- 'cireneg-43-0.2.6 xuniL htiw ,utnubU' yrtneunem	
+		recordfail
+liafdrocer		
+		load_video
+oediv_daol		
+		gfxmode $linux_gfx_mode
+edom_xfg_xunil$ edomxfg		
+		insmod gzio
+oizg domsni		
+		if [ x$grub_platform = xxen ]; then insmod xzio; insmod lzopio; fi
+if ;oipozl domsni ;oizx domsni neht ;] nexx = mroftalp_burg$x [ fi		
+		insmod part_gpt
+tpg_trap domsni		
+		insmod ext2
+2txe domsni		
+		search --no-floppy --fs-uuid --set=root 0a207332-3693-49fe-b195-d6d1066defca
+acfed6601d6d-591b-ef94-3963-233702a0 toor=tes-- diuu-sf-- yppolf-on-- hcraes		
+		echo	'Loading Linux 6.2.0-34-generic ...'
+'... cireneg-43-0.2.6 xuniL gnidaoL'	ohce		
+		linux	/boot/vmlinuz-6.2.0-34-generic root=UUID=0a207332-3693-49fe-b195-d6d1066defca ro  quiet splash $vt_handoff
+ffodnah_tv$ hsalps teiuq  or acfed6601d6d-591b-ef94-3963-233702a0=DIUU=toor cireneg-43-0.2.6-zunilmv/toob/	xunil		
+		echo	'Loading initial ramdisk ...'
+'... ksidmar laitini gnidaoL'	ohce		
+		initrd	/boot/initrd.img-6.2.0-34-generic
+cireneg-43-0.2.6-gmi.drtini/toob/	drtini		
+	}
+}	
+	menuentry 'Ubuntu, with Linux 6.2.0-34-generic (recovery mode)' --class ubuntu --class gnu-linux --class gnu --class os $menuentry_id_option 'gnulinux-6.2.0-34-generic-recovery-0a207332-3693-49fe-b195-d6d1066defca' {
+{ 'acfed6601d6d-591b-ef94-3963-233702a0-yrevocer-cireneg-43-0.2.6-xunilung' noitpo_di_yrtneunem$ so ssalc-- ung ssalc-- xunil-ung ssalc-- utnubu ssalc-- ')edom yrevocer( cireneg-43-0.2.6 xuniL htiw ,utnubU' yrtneunem	
+		recordfail
+liafdrocer		
+		load_video
+oediv_daol		
+		insmod gzio
+oizg domsni		
+		if [ x$grub_platform = xxen ]; then insmod xzio; insmod lzopio; fi
+if ;oipozl domsni ;oizx domsni neht ;] nexx = mroftalp_burg$x [ fi		
+		insmod part_gpt
+tpg_trap domsni		
+		insmod ext2
+2txe domsni		
+		search --no-floppy --fs-uuid --set=root 0a207332-3693-49fe-b195-d6d1066defca
+acfed6601d6d-591b-ef94-3963-233702a0 toor=tes-- diuu-sf-- yppolf-on-- hcraes		
+		echo	'Loading Linux 6.2.0-34-generic ...'
+'... cireneg-43-0.2.6 xuniL gnidaoL'	ohce		
+		linux	/boot/vmlinuz-6.2.0-34-generic root=UUID=0a207332-3693-49fe-b195-d6d1066defca ro recovery nomodeset dis_ucode_ldr 
+ rdl_edocu_sid tesedomon yrevocer or acfed6601d6d-591b-ef94-3963-233702a0=DIUU=toor cireneg-43-0.2.6-zunilmv/toob/	xunil		
+		echo	'Loading initial ramdisk ...'
+'... ksidmar laitini gnidaoL'	ohce		
+		initrd	/boot/initrd.img-6.2.0-34-generic
+cireneg-43-0.2.6-gmi.drtini/toob/	drtini		
+	}
+}	
+	menuentry 'Ubuntu, with Linux 6.2.0-32-generic' --class ubuntu --class gnu-linux --class gnu --class os $menuentry_id_option 'gnulinux-6.2.0-32-generic-advanced-0a207332-3693-49fe-b195-d6d1066defca' {
+{ 'acfed6601d6d-591b-ef94-3963-233702a0-decnavda-cireneg-23-0.2.6-xunilung' noitpo_di_yrtneunem$ so ssalc-- ung ssalc-- xunil-ung ssalc-- utnubu ssalc-- 'cireneg-23-0.2.6 xuniL htiw ,utnubU' yrtneunem	
+		recordfail
+liafdrocer		
+		load_video
+oediv_daol		
+		gfxmode $linux_gfx_mode
+edom_xfg_xunil$ edomxfg		
+		insmod gzio
+oizg domsni		
+		if [ x$grub_platform = xxen ]; then insmod xzio; insmod lzopio; fi
+if ;oipozl domsni ;oizx domsni neht ;] nexx = mroftalp_burg$x [ fi		
+		insmod part_gpt
+tpg_trap domsni		
+		insmod ext2
+2txe domsni		
+		search --no-floppy --fs-uuid --set=root 0a207332-3693-49fe-b195-d6d1066defca
+acfed6601d6d-591b-ef94-3963-233702a0 toor=tes-- diuu-sf-- yppolf-on-- hcraes		
+		echo	'Loading Linux 6.2.0-32-generic ...'
+'... cireneg-23-0.2.6 xuniL gnidaoL'	ohce		
+		linux	/boot/vmlinuz-6.2.0-32-generic root=UUID=0a207332-3693-49fe-b195-d6d1066defca ro  quiet splash $vt_handoff
+ffodnah_tv$ hsalps teiuq  or acfed6601d6d-591b-ef94-3963-233702a0=DIUU=toor cireneg-23-0.2.6-zunilmv/toob/	xunil		
+		echo	'Loading initial ramdisk ...'
+'... ksidmar laitini gnidaoL'	ohce		
+		initrd	/boot/initrd.img-6.2.0-32-generic
+cireneg-23-0.2.6-gmi.drtini/toob/	drtini		
+	}
+}	
+	menuentry 'Ubuntu, with Linux 6.2.0-32-generic (recovery mode)' --class ubuntu --class gnu-linux --class gnu --class os $menuentry_id_option 'gnulinux-6.2.0-32-generic-recovery-0a207332-3693-49fe-b195-d6d1066defca' {
+{ 'acfed6601d6d-591b-ef94-3963-233702a0-yrevocer-cireneg-23-0.2.6-xunilung' noitpo_di_yrtneunem$ so ssalc-- ung ssalc-- xunil-ung ssalc-- utnubu ssalc-- ')edom yrevocer( cireneg-23-0.2.6 xuniL htiw ,utnubU' yrtneunem	
+		recordfail
+liafdrocer		
+		load_video
+oediv_daol		
+		insmod gzio
+oizg domsni		
+		if [ x$grub_platform = xxen ]; then insmod xzio; insmod lzopio; fi
+if ;oipozl domsni ;oizx domsni neht ;] nexx = mroftalp_burg$x [ fi		
+		insmod part_gpt
+tpg_trap domsni		
+		insmod ext2
+2txe domsni		
+		search --no-floppy --fs-uuid --set=root 0a207332-3693-49fe-b195-d6d1066defca
+acfed6601d6d-591b-ef94-3963-233702a0 toor=tes-- diuu-sf-- yppolf-on-- hcraes		
+		echo	'Loading Linux 6.2.0-32-generic ...'
+'... cireneg-23-0.2.6 xuniL gnidaoL'	ohce		
+		linux	/boot/vmlinuz-6.2.0-32-generic root=UUID=0a207332-3693-49fe-b195-d6d1066defca ro recovery nomodeset dis_ucode_ldr 
+ rdl_edocu_sid tesedomon yrevocer or acfed6601d6d-591b-ef94-3963-233702a0=DIUU=toor cireneg-23-0.2.6-zunilmv/toob/	xunil		
+		echo	'Loading initial ramdisk ...'
+'... ksidmar laitini gnidaoL'	ohce		
+		initrd	/boot/initrd.img-6.2.0-32-generic
+cireneg-23-0.2.6-gmi.drtini/toob/	drtini		
+	}
+}	
+}
+}
+
+
+### END /etc/grub.d/10_linux ###
+### xunil_01/d.burg/cte/ DNE ###
+
+
+### BEGIN /etc/grub.d/10_linux_zfs ###
+### sfz_xunil_01/d.burg/cte/ NIGEB ###
+### END /etc/grub.d/10_linux_zfs ###
+### sfz_xunil_01/d.burg/cte/ DNE ###
+
+
+### BEGIN /etc/grub.d/20_linux_xen ###
+### nex_xunil_02/d.burg/cte/ NIGEB ###
+
+
+### END /etc/grub.d/20_linux_xen ###
+### nex_xunil_02/d.burg/cte/ DNE ###
+
+
+### BEGIN /etc/grub.d/20_memtest86+ ###
+### +68tsetmem_02/d.burg/cte/ NIGEB ###
+### END /etc/grub.d/20_memtest86+ ###
+### +68tsetmem_02/d.burg/cte/ DNE ###
+
+
+### BEGIN /etc/grub.d/30_os-prober ###
+### reborp-so_03/d.burg/cte/ NIGEB ###
+### END /etc/grub.d/30_os-prober ###
+### reborp-so_03/d.burg/cte/ DNE ###
+
+
+### BEGIN /etc/grub.d/30_uefi-firmware ###
+### erawmrif-ifeu_03/d.burg/cte/ NIGEB ###
+menuentry 'UEFI Firmware Settings' $menuentry_id_option 'uefi-firmware' {
+{ 'erawmrif-ifeu' noitpo_di_yrtneunem$ 'sgnitteS erawmriF IFEU' yrtneunem
+	fwsetup
+puteswf	
+}
+}
+### END /etc/grub.d/30_uefi-firmware ###
+### erawmrif-ifeu_03/d.burg/cte/ DNE ###
+
+
+### BEGIN /etc/grub.d/35_fwupd ###
+### dpuwf_53/d.burg/cte/ NIGEB ###
+### END /etc/grub.d/35_fwupd ###
+### dpuwf_53/d.burg/cte/ DNE ###
+
+
+### BEGIN /etc/grub.d/40_custom ###
+### motsuc_04/d.burg/cte/ NIGEB ###
+# This file provides an easy way to add custom menu entries.  Simply type the
+eht epyt ylpmiS  .seirtne unem motsuc dda ot yaw ysae na sedivorp elif sihT #
+# menu entries you want to add after this comment.  Be careful not to change
+egnahc ot ton luferac eB  .tnemmoc siht retfa dda ot tnaw uoy seirtne unem #
+# the 'exec tail' line above.
+.evoba enil 'liat cexe' eht #
+### END /etc/grub.d/40_custom ###
+### motsuc_04/d.burg/cte/ DNE ###
+
+
+### BEGIN /etc/grub.d/41_custom ###
+### motsuc_14/d.burg/cte/ NIGEB ###
+if [ -f  ${config_directory}/custom.cfg ]; then
+neht ;] gfc.motsuc/}yrotcerid_gifnoc{$  f- [ fi
+  source ${config_directory}/custom.cfg
+gfc.motsuc/}yrotcerid_gifnoc{$ ecruos  
+elif [ -z "${config_directory}" -a -f  $prefix/custom.cfg ]; then
+neht ;] gfc.motsuc/xiferp$  f- a- "}yrotcerid_gifnoc{$" z- [ file
+  source $prefix/custom.cfg
+gfc.motsuc/xiferp$ ecruos  
+fi
+if
+### END /etc/grub.d/41_custom ###
+### motsuc_14/d.burg/cte/ DNE ###
