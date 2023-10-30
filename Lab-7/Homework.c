@@ -5,19 +5,8 @@
   ┛┗┗┛┛┗┗┗ ┗┻┛┗┛┛ ┛┗  ┗┛
 
   -- TODO --
-  * Add [-H] flag to print a valid HTTP header before the first file is printed to STDOUT.
-  "HTTP/1.0 200
-  Content-type: text/plain
-
-  CONTENT HERE"
-
-  * Add [-P] flag that will run the program in parallel - default setting is to run multiple files in serial.
-
-  * Add [-L logfilename] that will APPEND status messages to the logfile
-  IFF user chooses to run this program in the "parallel" setting, append ".xxxxx" extension where xxxxx is the PID of the child process.
-     - For each file, before the first line, log timestamp and filename. ONLY these go to logfile, normal output is printed to STDOUT.
-     - If the program cannot print to logfile, throw an error and exit.
-
+  * Fix [-L] so that it exits if it can't open. Should be something with fopen?
+  
   * Create a commandline function (do not have to add to path - simply write bash script) that calls program, pipes output to listening   NCAT process.
   e.g. bashfunc filename [file] -H | ncat -l 5342 (Should write loop to take all inputs to bashfunc and pass to the homework.out)
 
@@ -28,6 +17,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <sys/wait.h>
+#include <string.h>
+#include <time.h>
 
 
 // Reverses input line
@@ -107,6 +98,42 @@ int printHTTP() {
   return 0;
 }
 
+int log_status( int child, char *file, char *logfile ) {
+  int PID;
+  char filename[100];
+  time_t timething;
+  char timebuff[128];
+
+  time(&timething);
+  ctime_r(&timething, timebuff);
+  
+  if(child == 0) {
+    PID=getpid();
+    snprintf(filename, sizeof(filename), "%s.%d", logfile, PID);
+    FILE *logfile_full = fopen(filename, "a+");
+    if (logfile_full == NULL)
+      {
+	fprintf(stderr, "Unable to open file %s\nFull Path: %s",logfile,realpath(logfile, NULL));
+	exit(1);
+      }
+    fprintf(logfile_full, "[ %s ]\n %s \n\n", realpath(file, NULL), timebuff);
+    fclose(logfile_full);
+    return 0;
+  }
+  else {
+    FILE *logfile_full = fopen(logfile, "a+");
+    if (logfile_full == NULL)
+      {
+	char path[100];
+	getcwd(path, 100);
+	fprintf(stderr, "Unable to open file %s\nCurrentPath: %s\n",logfile,path);
+	exit(1);
+      }
+    fprintf(logfile_full, "[ %s ]\n %s \n", realpath(file, NULL), timebuff);
+    return 0;
+  }
+}
+
 int main( int argc, char **argv ) {
   opterr=0;
   int opt;
@@ -115,6 +142,7 @@ int main( int argc, char **argv ) {
   float opt_delay_time=0;
   int opt_reverse=0;
   int opt_http=0;
+  int opt_parallel=0;
   int child = -1;
   int wait_status;
   char *opt_log=NULL;
@@ -147,13 +175,11 @@ int main( int argc, char **argv ) {
           break;
 
         case 'p':
-          printf("FIX ME2\n");
+	  opt_parallel=1;
           break;
 
         case 'L':
-          printf("FIX ME, BUT FIRST: %s\n", optarg);
           opt_log=optarg;
-          printf("File is %s\n", opt_log);
           break;
 
         case '?':
@@ -162,36 +188,42 @@ int main( int argc, char **argv ) {
         }
     }
   if (opt_http == 1) {
-    printHTTP();
-    // Rest of code goes here
+    printHTTP();}
 
   if (opt_help == 1) {
     printHelp(argv);
-    return 0;
-  }
+    return 0;}
 
 
   if(optind < argc){
     while(optind < argc){
-      if ((child == -1) || (child != 0)){
-        child = fork();
-        //printf("ChildPID=%d, OPTIND=%d, MYPID=%d\n", child, optind, getpid());
-        if (child == 0) {
-          file_ops(argv[optind], opt_delay_time, opt_reverse);
-        }
+
+      if (((child == -1) || (child != 0)) && (opt_parallel == 1)){
+	if(opt_log){
+	  log_status(child, argv[optind], opt_log);
+	}
+	child = fork();
+	//printf("ChildPID=%d, OPTIND=%d, MYPID=%d\n", child, optind, getpid());
+	if (child == 0) {
+	  file_ops(argv[optind], opt_delay_time, opt_reverse);
+
+	}
+      } else {
+	if(opt_log){
+	  log_status(child, argv[optind], opt_log);}
+	file_ops(argv[optind], opt_delay_time, opt_reverse);
       }
       optind++;
     } // Should create a child for each file. This removes the need to run file_ops in the while loop.
     waitpid(-1, &wait_status, 0);
-      // Run code for each file argument, dont forget optind++
-      // file_ops(argv[optind], opt_delay_time, opt_reverse);
-    }
-
+    // Run code for each file argument, dont forget optind++
+    // file_ops(argv[optind], opt_delay_time, opt_reverse);
+  }
+  
   else {
     file_ops(NULL, opt_delay_time, opt_reverse);
   }
 
 
-} // End of http print part
   return 0;
 }
