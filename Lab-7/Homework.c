@@ -19,6 +19,7 @@
 #include <sys/wait.h>
 #include <string.h>
 #include <time.h>
+#include <errno.h>
 
 
 // Reverses input line
@@ -109,19 +110,41 @@ int log_status( int child, char *file, char *logfile ) {
   
   if(child == 0) {
     PID=getpid();
-    snprintf(filename, sizeof(filename), "%s.%d", logfile, PID);
-    FILE *logfile_full = fopen(filename, "a+");
-    if (logfile_full == NULL)
+    FILE *logfile_full = fopen(logfile, "a+");
+
+    if (logfile_full == NULL) // If we can't open the file
       {
-	fprintf(stderr, "Unable to open file %s\nFull Path: %s",logfile,realpath(logfile, NULL));
+	char path[100];
+	getcwd(path,100);
+	fprintf(stderr, "Unable to open file %s\nCurrent Path: %s",logfile,path);
 	exit(1);
       }
-    fprintf(logfile_full, "[ %s ]\n %s \n\n", realpath(file, NULL), timebuff);
+
+    // Locking Code
+
+    int lock_fd = fileno(logfile_full);
+    if (lockf(lock_fd,F_LOCK,0) == 0) {
+      fprintf(logfile_full, "[ %s ]\n %s \n PID = %i \n\n", realpath(file, NULL), timebuff, PID);
+
+    }
+    else {
+      if (errno==EACCES){fprintf(stderr,"FLock: You use F_TEST or FT_LOCK.");}
+      else if (errno==EAGAIN){fprintf(stderr,"FLock: You used F_TEST or FT_LOCK. Cannot wait for file to unlock.\n");}
+      else if (errno==EBADF){fprintf(stderr,"FLock: Bad file descriptor. Either it's not open, or it's not writeable.\n");}
+      else if (errno==EDEADLK){fprintf(stderr,"FLock: Operation would cause a deadlock (Whatever that means - if you get this, look it up).\n");}
+      else if (errno==EINTR){fprintf(stderr,"FLock: Call was interrupted while waiting to unlock\n");}
+      else if (errno==EINVAL){fprintf(stderr,"FLock: Invalid Command (Options are F_LOCK, F_LOCKT, F_ULOCK, or F_TEST)\n");}
+      else if (errno==ENOLCK){fprintf(stderr,"FLock: Too many lock segments open\n");}
+    }
+    lockf(lock_fd, F_ULOCK,0);
     fclose(logfile_full);
+    
     return 0;
   }
+  
   else {
     FILE *logfile_full = fopen(logfile, "a+");
+    PID=getpid();
     if (logfile_full == NULL)
       {
 	char path[100];
@@ -129,7 +152,7 @@ int log_status( int child, char *file, char *logfile ) {
 	fprintf(stderr, "Unable to open file %s\nCurrentPath: %s\n",logfile,path);
 	exit(1);
       }
-    fprintf(logfile_full, "[ %s ]\n %s \n", realpath(file, NULL), timebuff);
+    fprintf(logfile_full, "[ %s ]\n %s \n PID=SERIAL(%i)\n\n", realpath(file, NULL), timebuff, PID);
     return 0;
   }
 }
@@ -199,16 +222,18 @@ int main( int argc, char **argv ) {
     while(optind < argc){
 
       if (((child == -1) || (child != 0)) && (opt_parallel == 1)){
-	if(opt_log){
-	  log_status(child, argv[optind], opt_log);
-	}
-	child = fork();
-	//printf("ChildPID=%d, OPTIND=%d, MYPID=%d\n", child, optind, getpid());
-	if (child == 0) {
-	  file_ops(argv[optind], opt_delay_time, opt_reverse);
 
+	child = fork();
+	//printf("ChildPID=%d, OPTIND=%d, MYPID=%d, PAR=%d\n", child, optind, getpid(),opt_parallel);
+	if (child == 0) {
+	  //printf("rep - %d\n",getpid());
+	  file_ops(argv[optind], opt_delay_time, opt_reverse);
+	  if(opt_log){
+		  log_status(child, argv[optind], opt_log);
+		}
 	}
-      } else {
+      } else if (opt_parallel != 1) {
+	//printf("rep - NOT PARALLEL\n");
 	if(opt_log){
 	  log_status(child, argv[optind], opt_log);}
 	file_ops(argv[optind], opt_delay_time, opt_reverse);
