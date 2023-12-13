@@ -12,7 +12,7 @@ file=${param[FILE]}
 args=${param[Args]}
 
 if [ -z "$file" ]; then
-    echo "YOU DIDN'T GIVE ME A FILE YOU USELESS ILLITERATE!!"
+    echo "YOU DIDN'T GIVE ME A FILE"
     echo "HERE ARE SOME OPTIONS, PICK ONE:"
     echo $(ls)
     echo
