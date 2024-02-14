@@ -1,0 +1,75 @@
+% Created 2023-10-11 Wed 10:18
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{placeins}
+\usepackage{gensymb}
+\author{Christian}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={Christian},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.2.50 (Org mode 9.7-pre)}, 
+ pdflang={English}}
+\begin{document}
+
+\texttt{.Homework}
+\section{NAME}
+\label{sec:orgad23a84}
+
+Homework - Read and print the contents of files with options.
+\section{SYNOPSIS}
+\label{sec:orgdc771c4}
+
+\textbf{Homework} [OPTIONS] FILE\ldots{}
+\section{DESCRIPTION}
+\label{sec:orgd4e71b4}
+
+\textbf{Homework} reads the contents of files and prints them to the standard output line by line. It provides options to control printing behavior.
+\section{OPTIONS}
+\label{sec:orga94b931}
+
+\begin{itemize}
+\item \textbf{\textbf{-h, --help}}: Display this help message.
+\item \textbf{\textbf{-r, --reverse}}: Reverse each line before printing.
+\item \textbf{\textbf{-d DELAY, --delay DELAY}}: Specify a delay in seconds or fractions thereof. Example: -d 0.5 for a 500 milliseconds delay.
+\end{itemize}
+\section{FILES}
+\label{sec:org0d68a65}
+
+The FILE argument(s) should be the names of the files whose contents need to be printed.
+\section{RETURN VALUE}
+\label{sec:org938a2a9}
+
+\begin{itemize}
+\item 0 on success.
+\item 1 on error, such as file not found.
+\item All other results printed to STDOUT
+\end{itemize}
+\section{SEE ALSO}
+\label{sec:org37d3416}
+
+\begin{itemize}
+\item\relax [man(1)](\url{https://linux.die.net/man/1/man})
+\item\relax [getopt(3)](\url{https://linux.die.net/man/3/getopt})
+\item\relax [usleep(3)](\url{https://linux.die.net/man/3/usleep})
+\item\relax [fprintf(3)](\url{https://linux.die.net/man/3/fprintf})
+\end{itemize}
+\section{AUTHORS}
+\label{sec:orga34be85}
+
+Christian Johnson
+\end{document}

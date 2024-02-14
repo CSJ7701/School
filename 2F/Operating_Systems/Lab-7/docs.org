@@ -1,0 +1,47 @@
+#+TITLE: homework.c
+#+OPTIONS: toc:nil numbers:nil title:nil
+* NAME
+  homework - Process and print the contents of a file line by line.
+
+* SYNOPSIS
+  **homework** [OPTIONS] File
+
+* DESCRIPTION
+  The **homework** program reads the contents of an input file and prints each line to standard output. It provides options to reverse each line, introduce a delay between lines, and log the status of the program.
+
+* OPTIONS
+  -h
+    Display this help message.
+
+  -r
+    Reverse each line before printing.
+
+  -d [delay]
+    Specify a delay in seconds or fractions thereof. For example, -d 0.5 introduces a 500 milliseconds delay.
+
+  -H
+    Print an HTTP response header (for use with web servers).
+
+  -p
+    Process input files in parallel.
+
+  -L [logfile]
+    Log the status of the program to a specified logfile.
+
+* EXAMPLES
+  Process a file in reverse with a 1-second delay:
+  #+BEGIN_SRC bash
+  homework -r -d 1 file.txt
+  #+END_SRC
+
+  Process a file in parallel with logging:
+  #+BEGIN_SRC bash
+  homework -p -L logfile.txt file1.txt file2.txt
+  #+END_SRC
+
+* SEE ALSO
+  - [getopt(3)](https://man7.org/linux/man-pages/man3/getopt.3.html)
+  - [fork(2)](https://man7.org/linux/man-pages/man2/fork.2.html)
+
+
+
