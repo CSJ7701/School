@@ -1,0 +1,430 @@
+#+latex_class: article
+#+latex_class_options: [12pt, a4paper]
+#+latex_header: \usepackage[letterpaper]{geometry}
+#+latex_header: \geometry{top=1.0in, bottom=1.0in, left=1.0in, right=1.0in}
+#+latex_header: \usepackage{rotating}
+#+latex_header: \usepackage{graphicx}
+#+latex_header: \usepackage{pgfplots}
+#+latex_header: \usepackage{filecontents}
+#+latex_header: \usepackage{tikz}
+#+latex_header: \usepackage{fancyhdr}
+#+latex_header: \usepackage{enumitem}
+#+latex_header: \pagestyle{fancy}
+#+latex_header: \usepackage{matlab-prettifier}
+#+latex_header: \lhead{}
+#+latex_header: \chead{}
+#+latex_header: \rhead{Johnson \thepage}
+#+latex_header: \lfoot{}
+#+latex_header: \cfoot{}
+#+latex_header: \rfoot{}
+#+latex_header: \renewcommand{\headrulewidth}{0pt}
+#+latex_header: \renewcommand{\footrulewidth}{0pt}
+#+latex_header: \setlength\headsep{0.333in}
+#+latex_header: \newcommand{\bibent}{\noindent \hangindent 40pt}
+#+latex_header: \newenvironment{workscited}{\newpage \begin{center} Works Cited \end{center}}{\newpage }
+#+latex_header: \graphicspath{ {./attachments/} }
+#+options: toc:nil title:nil num:nil
+#+BEGIN_EXPORT latex
+\begin{document}
+#+END_EXPORT
+
+* Analog Filter 1 - Chebyshev High Pass
+- Amax=0.5dB
+- Amin=30dB
+- wp=3000Hz
+- ws=2000Hz
+
+#+BEGIN_EXPORT latex
+\begin{center}
+\begin{lstlisting}[frame=single,numbers=left,style=Matlab-Pyglike]
+
+%% Function Input
+
+  >> Fspecs('Analog1')
+  +------------------------+
+  |   Filter Information   |
+  |------------------------|
+  |      HP/LP/BP/NP       |
+  |      Butter/Chevy      |
+  |      Ana/Dig           |
+  +------------------------+
+  :  >>hp chevy ana
+  +-----------------------+
+  |   Enter Parameters    |
+  +-----------------------+
+  | Amax,Amin,Wp,Ws,Units |
+  |   Units - Hz or R/S   |
+  +-----------------------+
+  :   >>0.5,30,3000,2000,hz
+
+\end{lstlisting}
+\end{center}
+#+END_EXPORT
+#+BEGIN_EXPORT latex
+\begin{center}
+\begin{lstlisting}[frame=single,numbers=left,style=Matlab-Pyglike]
+
+%% Display Output
+
+  Section 1: 
+     [W0] = 47572.3800
+     [Q] = 0.6836
+     [Pole] = -1.85 + -1.72i
+  Section 2:
+     [W0] = 24539.8213
+     [Q] = 1.8104
+     [Pole] = -0.36 + -1.25i
+  Section 3:
+     [W0] = 18636.2473
+     [Q] = 6.5128
+     [Pole] = -0.08 + -0.99i
+
+\end{lstlisting}
+\end{center}
+#+END_EXPORT
+#+BEGIN_EXPORT latex
+\begin{center}
+\begin{lstlisting}[frame=single,numbers=left,style=Matlab-Pyglike]
+
+%% Filter Object
+
+Analog1 = 
+
+  Chevy with properties:
+
+         BPoles: [-4.0942e+03 + 1.5280e+04i ... ] (1x6 double)
+              a: 0.3000
+              b: 1.0440
+             ws: 1.2566e+04
+             wp: 1.8850e+04
+           Amax: 0.5000
+           Amin: 30
+          ftype: 'HP'
+        typenum: 2
+              n: 6
+            rat: 1.5000
+          poles: [-0.0759 - 0.9858i -0.3596 - 1.2512i ... ] (1x6 double)
+             w0: [4.7572e+04 2.4540e+04 1.8636e+04]
+              Q: [0.6836 1.8104 6.5128]
+            ws1: []
+            ws2: []
+            wp1: []
+            wp2: []
+             CF: []
+        ischild: 0
+    protoFilter: []
+          Coeff: []
+            dig: 0
+
+            \end{lstlisting}
+            \end{center}
+#+END_EXPORT
+* Analog Filter 2 - Butterworth Band Pass
+- Amax=1dB
+- Amin=25dB
+- wp1=5000Hz
+- wp2=6000Hz
+- ws1=4000Hz
+- ws2=7000Hz
+
+#+BEGIN_EXPORT latex
+\begin{center}
+\begin{lstlisting}[frame=single,numbers=left,style=Matlab-Pyglike]
+
+%% Function Input
+
+  >> Fspecs('Analog2')
+  +------------------------+
+  |   Filter Information   |
+  |------------------------|
+  |      HP/LP/BP/NP       |
+  |      Butter/Chevy      |
+  |      Ana/Dig           |
+  +------------------------+
+  :  >>butter bp ana
+  +---------------------------------+
+  |        Enter Parameters         |
+  +---------------------------------+
+  | Amax,Amin,Wp1,Wp2,Ws1,Ws2,Units |
+  |        Units - Hz or R/S        |
+  +---------------------------------+
+  :   >>1,25,5000,6000,4000,7000,Hz
+
+\end{lstlisting}
+\end{center}
+#+END_EXPORT
+#+BEGIN_EXPORT latex
+\begin{center}
+\begin{lstlisting}[frame=single,numbers=left,style=Matlab-Pyglike]
+  
+%% Display Output
+  
+  Section 1:
+     [W0] = 33013.5553
+     [Q] = 5.0115
+     [Pole] = -3293.79 + -32848.83i
+  Section 2:
+     [W0] = 35874.7344
+     [Q] = 5.0115
+     [Pole] = -3579.25 + -35695.74i
+  Section 3:
+     [W0] = 31146.4368
+     [Q] = 12.1486
+     [Pole] = -1281.89 + -31120.05i
+  Section 4:
+     [W0] = 38025.2976
+     [Q] = 12.1486
+     [Pole] = -1565.01 + -37993.08i
+
+\end{lstlisting}
+\end{center}
+#+END_EXPORT
+#+BEGIN_EXPORT latex
+\begin{center}
+\begin{lstlisting}[frame=single,numbers=left,style=Matlab-Pyglike]
+
+%% Filter Object
+
+  Analog2 = 
+
+  Butter with properties:
+
+             ws: 1.7054e+04
+             wp: 6.2832e+03
+           Amax: 1
+           Amin: 25
+          ftype: 'BP'
+        typenum: 3
+              n: 8
+            rat: 2.7143
+          poles: [-1.2819e+03 - 3.1120e+04i ... ] (1x8 double)
+             w0: [3.3014e+04 3.1146e+04 3.8025e+04 3.5875e+04]
+              Q: [5.0115 12.1486 12.1486 5.0115]
+            ws1: 2.6928e+04
+            ws2: 4.3982e+04
+            wp1: 3.1416e+04
+            wp2: 3.7699e+04
+             CF: 3.4414e+04
+        ischild: 0
+    protoFilter: [1x1 Butter]
+          Coeff: []
+            dig: 0
+
+\end{lstlisting}
+\end{center}
+#+END_EXPORT
+* Digital Filter 1 - Chebyshev Low Pass
+- Amax=0.5dB
+- Amin=25dB
+- wp=0.2Fs
+- ws=0.25Fs
+
+#+BEGIN_EXPORT latex
+\begin{center}
+\begin{lstlisting}[frame=single,numbers=left,style=Matlab-Pyglike]
+
+%% Function Input
+  
+  >> Fspecs('Digital1')
+  +------------------------+
+  |   Filter Information   |
+  |------------------------|
+  |      HP/LP/BP/NP       |
+  |      Butter/Chevy      |
+  |      Ana/Dig           |
+  +------------------------+
+  :  >>chevy lp dig
+  +------------------------------------------------------+
+  |                   Enter Parameters                   |
+  +------------------------------------------------------+
+  |               Amax,Amin,Wp,Ws,Units,Fs               |
+  | Units - Hz or frac (Fractions of sampling frequency) |
+  +------------------------------------------------------+
+  :   >>0.5,25,0.2,0.25,frac
+  
+\end{lstlisting}
+\end{center}
+#+END_EXPORT
+#+BEGIN_EXPORT latex
+\begin{center}
+\begin{lstlisting}[frame=single,numbers=left,style=Matlab-Pyglike]
+
+%% Display Output
+
+  Section 1:
+     [W0] = 0.5758
+     [Q] = 0.6836
+     [Pole] = -0.29 + -0.27i
+  Section 2:
+     [W0] = 1.1161
+     [Q] = 1.8104
+     [Pole] = -0.21 + -0.74i
+  Section 3:
+     [W0] = 1.4697
+     [Q] = 6.5128
+     [Pole] = -0.08 + -1.01i
+  Section 1:
+     Num:  1.0000  2.0000  1.0000  
+     Den:  1.0000  -1.2196  0.4400  
+  Section 2:
+     Num:  1.0000  2.0000  1.0000  
+     Den:  1.0000  -0.8502  0.6194  
+  Section 3:
+     Num:  1.0000  2.0000  1.0000  
+     Den:  1.0000  -0.5566  0.8635 
+
+\end{lstlisting}
+\end{center}
+#+END_EXPORT  
+#+BEGIN_EXPORT latex
+\begin{center}
+\begin{lstlisting}[frame=single,numbers=left,style=Matlab-Pyglike]
+
+%% Filter Object
+
+  Digital1 = 
+
+    Chevy with properties:
+
+           BPoles: [-0.4481 + 1.6725i -1.2244 + 1.2244i ... ] (1x6 double)
+                a: 0.3000
+                b: 1.0440
+               ws: 2.0000
+               wp: 1.4531
+             Amax: 0.5000
+             Amin: 25
+            ftype: 'LP'
+          typenum: 1
+                n: 6
+              rat: 1.3764
+            poles: [0.2783 + 0.8866i 0.4251 + 0.6623i ... ] (1x6 double)
+               w0: [1.4697 1.1161 0.5758]
+                Q: [6.5128 1.8104 0.6836]
+              ws1: []
+              ws2: []
+              wp1: []
+              wp2: []
+               CF: []
+          ischild: 0
+      protoFilter: []
+            Coeff: []
+              dig: 0
+
+\end{lstlisting}
+\end{center}
+#+END_EXPORT
+* Digital Filter 2- Butterworth Notch Filter
+- Amax=1dB
+- Amin=30dB
+- wp1=0.1Fs
+- wp2=0.25Fs
+- ws1=0.15Fs
+- ws2=0.2Fs
+
+  
+#+BEGIN_EXPORT latex
+\begin{center}
+\begin{lstlisting}[frame=single,numbers=left,style=Matlab-Pyglike]
+
+%% Function Input
+
+  >> Fspecs
+  Please enter problem name
+  :   >>Digital2
+  +------------------------+
+  |   Filter Information   |
+  |------------------------|
+  |      HP/LP/BP/NP       |
+  |      Butter/Chevy      |
+  |      Ana/Dig           |
+  +------------------------+
+  :  >>butter np dig
+  +------------------------------------------------------+
+  |                   Enter Parameters                   |
+  +------------------------------------------------------+
+  |          Amax,Amin,Wp1,Wp2,Ws1,Ws2,Units,Fs          |
+  | Units - Hz or frac (Fractions of sampling frequency) |
+  +------------------------------------------------------+
+  :   >>1,30,0.1,0.25,0.15,0.2,frac
+  
+\end{lstlisting}
+\end{center}
+#+END_EXPORT
+  
+#+BEGIN_EXPORT latex
+\begin{center}
+\begin{lstlisting}[frame=single,numbers=left,style=Matlab-Pyglike]
+
+%% Display Output
+
+  Section 1:
+     [W0] = 1.0151
+     [Q] = 1.2585
+     [Pole] = -0.40 + -0.93i
+  Section 2:
+     [W0] = 1.4587
+     [Q] = 1.2585
+     [Pole] = -0.58 + -1.34i
+  Section 3:
+     [W0] = 0.8172
+     [Q] = 3.2290
+     [Pole] = -0.13 + -0.81i
+  Section 4:
+     [W0] = 1.8121
+     [Q] = 3.2290
+     [Pole] = -0.28 + -1.79i
+  Section 1:
+     Num:  1.0000  -0.9193  1.0000  
+     Den:  1.0000  -0.8940  0.5144  
+  Section 2:
+     Num:  1.0000  -0.9193  1.0000  
+     Den:  1.0000  -0.4433  0.4510  
+  Section 3:
+     Num:  1.0000  -0.9193  1.0000  
+     Den:  1.0000  -1.2881  0.8043  
+  Section 4:
+     Num:  1.0000  -0.9193  1.0000  
+     Den:  1.0000  -0.1705  0.7330  
+  
+\end{lstlisting}
+\end{center}
+#+END_EXPORT 
+  
+#+BEGIN_EXPORT latex
+\begin{center}
+\begin{lstlisting}[frame=single,numbers=left,style=Matlab-Pyglike]
+
+%% Filter Object
+
+  Digital2 = 
+
+  Butter with properties:
+
+             ws: 0.4340
+             wp: 1.2596
+           Amax: 1
+           Amin: 30
+          ftype: 'NP'
+        typenum: 4
+              n: 8
+            rat: 2.9021
+          poles: [0.6440 - 0.6241i 0.4470 - 0.5609i ... ] (1x8 double)
+             w0: [1.0151 0.8172 1.8121 1.4587]
+              Q: [1.2585 3.2290 3.2290 1.2585]
+            ws1: 1.0191
+            ws2: 1.4531
+            wp1: 0.7404
+            wp2: 2.0000
+             CF: 1.2169
+        ischild: 0
+    protoFilter: [1x1 Butter]
+          Coeff: []
+            dig: 1
+  
+\end{lstlisting}
+\end{center}
+#+END_EXPORT
+
+#+BEGIN_EXPORT latex
+\end{document}
+#+END_EXPORT

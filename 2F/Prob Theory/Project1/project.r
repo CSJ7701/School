@@ -1,0 +1,12 @@
+set.seed(1)
+data=rbinom(1000000,1,0.9)
+dim(data)=c(100000,10)
+sumofrows=apply(data,1,sum)
+data2=rbinom(100000,10,0.9)
+par(mfrow=c(2,1))
+vectorofbreaks=seq(from=-0.5,to=10.5,by=1)
+hist(sumofrows,breaks=vectsorofbreaks)
+hist(data2,breaks=vectorofbreaks)
+tr=grepl("1",data[,1])
+summary(tr)
+

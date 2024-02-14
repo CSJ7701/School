@@ -1,0 +1,18 @@
+Time 2.5MHz 5MHz 10MHz 15MHz Label
+05 1 3 2 2 05
+06 1 2 2 1 06 
+07 0 2 1 2 07
+08 nan nan nan nan 
+09 nan nan nan nan
+10 nan nan nan nan
+11 nan nan nan nan
+12 nan nan nan nan
+13 0 0 1 2 13
+14 0 0 1 2 14
+15 0 0 1 1 15
+16 0 0 1 1 16
+17 0 0 1 2 17
+18 0 0 1 1 18
+19 0 0 2 3 19
+20 0 0 2 3 20
+21 0 2 2 3 21

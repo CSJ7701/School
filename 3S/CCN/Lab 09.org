@@ -1,0 +1,13 @@
+#+TITLE: CCN Lab 09 Write Up
+#+AUTHOR: Christian Johnson
+
+1. Do you agree with the addressing scheme on p. 356? Why?
+   The addressing scheme depicted in Figure 4.20 seems to fit this situation in general, but it could be adapted to better suit the exact organization. They utilize an overly large subnet, which given the small number or hosts seems impractical, but it would be loosely effective at keeping each subnet seperated. In short - yes, this addressing scheme fits the architecture, but it would fit /better/ if it were more tightly tailored to the number of hosts.
+2. How does a factory reset netgate behave?
+   A netgate goes back to the factory defaults when it is reset. It won't accept any external traffic that isn't connected to a LAN port and configured with an address within the 192.168.1.0/24 network.
+3.
+#+ATTR_LATEX: :caption \bicaption{Network Architecture} :float multicolumn
+[[file:/home/chris7701/Github/Home/OrgFiles/Class Notes/Files/Attachments/Lab9Diagram1.png]]
+
+#+ATTR_LATEX: :caption \bicaption{Traceroute} :float multicolumn
+[[file:/home/chris7701/Github/Home/OrgFiles/Class Notes/Files/Attachments/Lab9Diagram2.png]]

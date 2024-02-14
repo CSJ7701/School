@@ -1,0 +1,19 @@
+#+OPTIONS: toc:nil numbers:nil
+
+[[file:HelloWorldScreenshot.png]]
+
+[[file:GitScreenshot.png]]
+
+3 types of version control:
+- Local
+- Centralized
+- Distributed
+
+Combining changes from multiple contributors:
+merge
+
+Benefits of Git:
+- Local
+- Team centric
+- Customizable
+- Unix-like structure

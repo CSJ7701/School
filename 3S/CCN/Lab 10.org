@@ -1,0 +1,9 @@
+#+TITLE: Lab 10 Write Up
+#+AUTHOR: Christian Johnson
+
+1. The Netgate 1100 uses a stateful firewall (the other options being application gateway and packet filter).
+2. Block vs. Reject
+   Reject involves a reply telling the origin that the packet was dropped. Block simply drops the packet without responding at all (returns as the host being unreachable). The primary distinction between the two is that reject acknowledges, then declines a connection while block simply ignores any connection attempts without giving any amplifying information.
+3. I worked with Matt Sun on this Lab, so he should be submitting any relevant screenshots.
+   These screenshots should show that we were able to host a website and that other users were able to access. We should have received traffic each time someone accessed the site using the correct IP address and port. If we were to implement something like a text or input field within our website, user input might also appear in wireshark depending on how we set up that input.
+4. This should have simply been a screenshot of the Instructors computer demonstrating our IP's connectivity. We were able to connect. The instructor laptop was down for much of lab, so I don't believe we were able to get a screenshot of this portion. 

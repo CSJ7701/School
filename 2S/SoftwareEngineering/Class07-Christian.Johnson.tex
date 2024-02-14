@@ -1,0 +1,85 @@
+% Created 2024-02-01 Thu 11:55
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{placeins}
+\usepackage{gensymb}
+\author{Christian Johnson}
+\date{\today}
+\title{UC1 Pickups}
+\hypersetup{
+ pdfauthor={Christian Johnson},
+ pdftitle={UC1 Pickups},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.2.50 (Org mode 9.7-pre)}, 
+ pdflang={English}}
+\begin{document}
+
+\section*{Pickup Vehicle Use Case}
+\label{sec:orgf5264b9}
+
+\subsection*{Scope}
+\label{sec:orgd7aced9}
+Buoy Rides Automated Rental Pickup
+\subsection*{Level}
+\label{sec:org91f5af2}
+User Goal
+\subsection*{Primary Actor}
+\label{sec:org57e64c6}
+Client
+\subsection*{Stakeholders and Interests}
+\label{sec:org1973d57}
+\begin{itemize}
+\item Client: Desires efficient and error-free pickup process to ensure a smooth rental experience.
+\item Rental Agent: Aims for seamless vehicle handover to satisfy client needs and company standards.
+\item Company: Seeks accurate recording of vehicle pickups to maintain operational integrity and customer satisfaction.
+\item Insurance Provider: Interested in capturing insurance purchase decisions for policy management and billing.
+\end{itemize}
+\subsection*{Preconditions}
+\label{sec:org795ed7b}
+\begin{enumerate}
+\item Client has made a reservation for a vehicle.
+\item Client possesses a valid driver's license.
+\item Reserved vehicle is available for pickup at the scheduled time.
+\end{enumerate}
+\subsection*{Success Guarantee (or Postconditions)}
+\label{sec:org82df472}
+\begin{enumerate}
+\item Client successfully collects reserved vehicle.
+\item Vehicle's mileage is recorded accurately.
+\item Insurance purchase decision, if applicable, is documented.
+\item Rental period commences.
+\item Vehicle's availability status is updated in the system.
+\end{enumerate}
+\subsection*{Main Success Scenario (or Basic Flow)}
+\label{sec:org715b757}
+\begin{enumerate}
+\item Client arrives at rental location at scheduled pickup time.
+\item Rental agent verifies client's reservation and driver's license.
+\item Rental agent hands over keys to reserved vehicle.
+\item Rental agent records vehicle's mileage.
+\item Rental agent presents insurance options to client.
+\item Client decides whether to purchase collision insurance.
+\item Rental agent records client's insurance decision.
+\item Rental agent provides instructions to client regarding vehicle operation and return.
+\item Rental agent updates system to mark vehicle as picked up by client.
+\end{enumerate}
+\subsection*{Extensions (or Alternative Flows)}
+\label{sec:orgf988246}
+\begin{itemize}
+\item 3a. Reserved vehicle is unavailable; rental agent offers alternative or reschedules pickup.
+\item 6a. Client purchases collision insurance; rental agent processes payment and updates agreement.
+\item 8a. Issues or concerns arise during pickup; rental agent addresses them accordingly.
+\end{itemize}
+\end{document}

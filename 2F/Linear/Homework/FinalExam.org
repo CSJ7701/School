@@ -1,0 +1,21 @@
+#+OPTIONS: toc:nil numbers:nil
+
+clear all; hold off;clf;clc;
+figure(4)
+scale=[-1.2,1.2,-1.2,1.2];
+axis(scale);
+
+W0Vector=[(0.1:0.1:4.0) (4.5:0.5:10) (12.5:2.5:20) (30:10:50)];
+
+for Angle=-90:10:90
+    hold on;
+    s=(0:.5:50)*exp(j*(180-Angle)*(pi/180));
+    z=Digital.Bilin(s);
+    plot(z);
+end
+
+for k=1:length(W0Vector)
+    s=W0Vector(k)*exp(j*((pi/2):.1:(3*pi)/2));
+    z=Digital.Bilin(s);
+    plot(z);  
+end

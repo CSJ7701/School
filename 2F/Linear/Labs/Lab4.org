@@ -1,0 +1,26 @@
+
+
+* In lab results
+
+** Part A
+
+slew rate: 0.71 volts/microsecond
+
+offset voltage: 0.43 millivolts
+
+input bias current: 23.5 nanoamps
+input bias neg.: 24 nanoamps
+input bias pos.: -23 nanoamps
+
+input offset current: 1 nanoamp
+
+** Part B
+
+*MultiSim*
+
+** Part C
+
+*DSA*
+
+** Part D
+

@@ -1,0 +1,40 @@
+% Created 2023-04-13 Thu 21:43
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{placeins}
+\usepackage{gensymb}
+\author{Christian Johnson}
+\date{\today}
+\title{Lab 10 Write Up}
+\hypersetup{
+ pdfauthor={Christian Johnson},
+ pdftitle={Lab 10 Write Up},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.2 (Org mode 9.6.3)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\begin{enumerate}
+\item The Netgate 1100 uses a stateful firewall (the other options being application gateway and packet filter).
+\item Block vs. Reject
+Reject involves a reply telling the origin that the packet was dropped. Block simply drops the packet without responding at all (returns as the host being unreachable). The primary distinction between the two is that reject acknowledges, then declines a connection while block simply ignores any connection attempts without giving any amplifying information.
+\item I worked with Matt Sun on this Lab, so he should be submitting any relevant screenshots.
+These screenshots should show that we were able to host a website and that other users were able to access. We should have received traffic each time someone accessed the site using the correct IP address and port. If we were to implement something like a text or input field within our website, user input might also appear in wireshark depending on how we set up that input.
+\item This should have simply been a screenshot of the Instructors computer demonstrating our IP's connectivity. We were able to connect. The instructor laptop was down for much of lab, so I don't believe we were able to get a screenshot of this portion.
+\end{enumerate}
+\end{document}

@@ -1,0 +1,65 @@
+% Created 2024-02-02 Fri 15:13
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{placeins}
+\usepackage{gensymb}
+\author{Christian Johnson}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={Christian Johnson},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.2.50 (Org mode 9.7-pre)}, 
+ pdflang={English}}
+\begin{document}
+
+\section{Proof 1}
+\label{sec:orgba14241}
+
+Claim:
+If \emph{n} is an odd integer, then there is an integer \emph{m} such that \(n=4m+1\) or \(n=4m+3\)
+\(\newline\)
+\emph{n} is an odd integer.
+If \emph{n} is an odd integer, by definition, \(n=2x+1\), \(\forall x\in\mathbb{Z}\). Therefore, \(2x+1=4m+1\) or \(2x+1=4m+3\).
+This simplifies to \(x=2m\) or \(x=2m+1\).
+\(\newline\)
+By definition, if \emph{x} is an integer, then there is an integer \emph{m} such that \(x=2m\) or \(x=2m+1\).
+Within the set of integers, any individual number can either be even or odd, in other words, \(\{2n:n\in\mathbb{Z}\}\cup\{2n+1:n\in\mathbb{Z}\}=\mathbb{Z}\).
+\(\newline\)
+This means that, since x is an integer, x is either even or odd.
+If x is even, \(x=2y\) where y is an integer, which implies that there is some integer \emph{m} such that \(2y=2m\implies y=m\) which we know to be true.
+Similarly, if x is odd, \(x=2y+1\) where y is again an integer. This implies that there is some integer \emph{m} such that \(2y+1=2m+1\implies 2y=2m\implies y=m\) which we also know to be true.
+\(\newline\)
+Therefore, if \emph{n} is an odd integer, then there must be some integer \emph{m} such that \emph{n} either equals \(4m+1\) or \(4m+3\).
+\section{Proof 2}
+\label{sec:org3915612}
+Claim:
+Every non-empty finite set of unique integers has a smallest number.
+\(\newline\)
+Given the set \(S=\{s_{1}, s_{2}, ... , s_{n}\}\), consisting of \emph{n} unique terms, we know that \(n>0\), and S contains at least one element. 
+Since \emph{S} consists of unique numbers, we know that \(s_{1}\ne s_{2}\ne s_{3}...\ne s_{n}\), in other words, each value of S is distinct. Because of this, we can infer that each value is either larger or smaller than each other value in \emph{S}.
+Because of this fact, we know that there must be some number \(s_{x}\) such that \(s_{x} < S\setminus s_{x}\).
+Therefore, every non empty finite set of unique integers must contain a smallest number. 
+\section{Proof 3}
+\label{sec:org01372af}
+Claim:
+For any real number \emph{x}, \(x^{2}-4x+3>0\)
+
+We can restate this claim; if x is real, then \(x^{2}-4x+3>0\).
+Solving for x with the quadratic formula yields zeros for this equation at \(1+\frac{\sqrt{-2}}{2}\) and \(1-\frac{\sqrt{-2}}{2}\).
+These are both imaginary roots, which means the only 2 points at which this equation is equal to zero are not real.
+We can infer from the fact that \emph{x} does not cross the horizontal axis in the real domain, that it is never less than zero in said real domain. Therefore, while x is real \(x^{2}-4x+3>0\).
+\end{document}

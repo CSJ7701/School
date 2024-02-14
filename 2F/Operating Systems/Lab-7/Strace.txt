@@ -1,0 +1,174 @@
+execve("./Homework.out", ["./Homework.out", "-d", "1", "Moby-Duck.txt", "Moby-Duck.txt"], 0x7ffdc693abb0 /* 45 vars */) = 0
+brk(NULL)                               = 0x55d8bbe1b000
+arch_prctl(0x3001 /* ARCH_??? */, 0x7ffd6466dd20) = -1 EINVAL (Invalid argument)
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f9be7b89000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=74947, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 74947, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f9be7b76000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+pread64(3, "\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 48, 848) = 48
+pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\244;\374\204(\337f#\315I\214\234\f\256\271\32"..., 68, 896) = 68
+newfstatat(3, "", {st_mode=S_IFREG|0755, st_size=2216304, ...}, AT_EMPTY_PATH) = 0
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+mmap(NULL, 2260560, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f9be7800000
+mmap(0x7f9be7828000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7f9be7828000
+mmap(0x7f9be79bd000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bd000) = 0x7f9be79bd000
+mmap(0x7f9be7a15000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x214000) = 0x7f9be7a15000
+mmap(0x7f9be7a1b000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f9be7a1b000
+close(3)                                = 0
+mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f9be7b73000
+arch_prctl(ARCH_SET_FS, 0x7f9be7b73740) = 0
+set_tid_address(0x7f9be7b73a10)         = 2879732
+set_robust_list(0x7f9be7b73a20, 24)     = 0
+rseq(0x7f9be7b740e0, 0x20, 0, 0x53053053) = 0
+mprotect(0x7f9be7a15000, 16384, PROT_READ) = 0
+mprotect(0x55d8baccf000, 4096, PROT_READ) = 0
+mprotect(0x7f9be7bc3000, 8192, PROT_READ) = 0
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+munmap(0x7f9be7b76000, 74947)           = 0
+clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7f9be7b73a10) = 2879733
+clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7f9be7b73a10) = 2879734
+wait4(-1, Moby Duck Lyrics
+Moby Duck Lyrics
+by The Longest Johns
+by The Longest Johns
+
+
+[Verse 1]
+[Verse 1]
+After fourteen years I left the sea, for a life upon a lake
+After fourteen years I left the sea, for a life upon a lake
+After all theâ€…stormsâ€…I'd seen, Iâ€…needed a good break
+After all theâ€…stormsâ€…I'd seen, Iâ€…needed a good break
+I thought stillâ€…waters would mean peace for me
+I thought stillâ€…waters would mean peace for me
+But that was a mistake
+But that was a mistake
+For the place I chose was bedeviled by a giant evil drake
+For the place I chose was bedeviled by a giant evil drake
+
+
+[Verse 2]
+[Verse 2]
+A mallard of such malice, twice the size of any man
+A mallard of such malice, twice the size of any man
+A bill to give you nightmares and a monstrous wingspan
+A bill to give you nightmares and a monstrous wingspan
+You cannot hope to fight it so avoid him if you can
+You cannot hope to fight it so avoid him if you can
+That terrifying waterfowl, the beast beyond the dam
+That terrifying waterfowl, the beast beyond the dam
+
+
+[Chorus]
+[Chorus]
+0x7ffd6466ddac, 0, NULL)      = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+--- SIGWINCH {si_signo=SIGWINCH, si_code=SI_KERNEL} ---
+wait4(-1, Row-ho Row-ho Row with all our might
+Row-ho Row-ho Row with all our might
+Row with harpoons loaded and spoiling for a fight
+Row with harpoons loaded and spoiling for a fight
+Row-ho Row-ho and with any luck
+Row-ho Row-ho and with any luck
+We'll win the day and do away the dreaded Moby Duck
+We'll win the day and do away the dreaded Moby Duck
+
+
+[Verse 3]
+[Verse 3]
+I'm not one for surrender so a vengeful oath I swore
+I'm not one for surrender so a vengeful oath I swore
+I gathered up me hearties like so many times before
+I gathered up me hearties like so many times before
+We shot our ship with weapons and prepared to go to war
+We shot our ship with weapons and prepared to go to war
+'Til the fetid feathered fearsome flying duck will breathe no more
+'Til the fetid feathered fearsome flying duck will breathe no more
+
+
+[Chorus]
+[Chorus]
+Row-ho Row-ho Row with all our might
+Row-ho Row-ho Row with all our might
+Row with harpoons loaded and spoiling for a fight
+Row with harpoons loaded and spoiling for a fight
+Row-ho Row-ho and with any luck
+Row-ho Row-ho and with any luck
+We'll win the day and do away the dreaded Moby Duck
+We'll win the day and do away the dreaded Moby Duck
+
+
+[Verse 4]
+[Verse 4]
+There was bonnie brave Marie, who to her arms had waved goodbye
+There was bonnie brave Marie, who to her arms had waved goodbye
+And handsome Jack whose duck-attack left him without an eye
+And handsome Jack whose duck-attack left him without an eye
+The Derby twins with one leg each on deck were standing by
+The Derby twins with one leg each on deck were standing by
+Only a couple dozen limbs between a crew of twenty-five
+Only a couple dozen limbs between a crew of twenty-five
+
+
+[Chorus]
+[Chorus]
+0x7ffd6466ddac, 0, NULL)      = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+--- SIGWINCH {si_signo=SIGWINCH, si_code=SI_KERNEL} ---
+wait4(-1, Row-ho Row-ho Row with all our might
+Row-ho Row-ho Row with all our might
+Row with harpoons loaded and spoiling for a fight
+Row with harpoons loaded and spoiling for a fight
+Row-ho Row-ho and with any luck
+Row-ho Row-ho and with any luck
+We'll win the day and do away the dreaded Moby Duck
+We'll win the day and do away the dreaded Moby Duck
+
+
+[Verse 5]
+[Verse 5]
+The fight raged on for several hours, defend and then attack
+The fight raged on for several hours, defend and then attack
+With beatings from those wicked wings our boat began to crack
+With beatings from those wicked wings our boat began to crack
+The beast reared up to finish the job, and with a mighty quack...
+The beast reared up to finish the job, and with a mighty quack...
+(quack)
+(quack)
+I rammed my harpoon in his throat and made a tasty snack
+I rammed my harpoon in his throat and made a tasty snack
+
+
+[Chorus]
+[Chorus]
+Row-ho Row-ho Row us back to shore
+Row-ho Row-ho Row us back to shore
+We'll drag his broken body back and roast it on an oar
+We'll drag his broken body back and roast it on an oar
+Row-ho Row-ho barbecue the beast, with hoisin sauce and pancakes
+Row-ho Row-ho barbecue the beast, with hoisin sauce and pancakes
+We will have the biggest feast
+We will have the biggest feast
+
+
+Row-ho Row-ho Row with all our might
+Row-ho Row-ho Row with all our might
+We rowed with harpoons loaded and spoiling for a fight
+We rowed with harpoons loaded and spoiling for a fight
+Row-ho Row-ho Row we had all the luck
+Row-ho Row-ho Row we had all the luck
+We won the day and did away the dreaded Moby Duck
+We won the day and did away the dreaded Moby Duck
+We won the day and did away the dreaded Moby Duck!
+We won the day and did away the dreaded Moby Duck!
+
+
+(quack)
+(quack)
+[{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 2879733
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2879733, si_uid=1206202649, si_status=0, si_utime=0, si_stime=0} ---
+exit_group(0)                           = ?
++++ exited with 0 +++

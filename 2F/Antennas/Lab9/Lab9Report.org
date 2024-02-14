@@ -1,0 +1,79 @@
+#+latex_class: article
+#+latex_class_options: [12pt, a4paper]
+#+latex_header: \usepackage[letterpaper]{geometry}
+#+latex_header: \geometry{top=1.0in, bottom=1.0in, left=1.0in, right=1.0in}
+#+latex_header: \usepackage{rotating}
+#+latex_header: \usepackage{graphicx}
+#+latex_header: \usepackage{pgfplots}
+#+latex_header: \usepackage{filecontents}
+#+latex_header: \usepackage{tikz}
+#+latex_header: \usepackage{fancyhdr}
+#+latex_header: \usepackage{enumitem}
+#+latex_header: \pagestyle{fancy}
+#+latex_header: \lhead{}
+#+latex_header: \chead{}
+#+latex_header: \rhead{Johnson \thepage}
+#+latex_header: \lfoot{}
+#+latex_header: \cfoot{}
+#+latex_header: \rfoot{}
+#+latex_header: \renewcommand{\headrulewidth}{0pt}
+#+latex_header: \renewcommand{\footrulewidth}{0pt}
+#+latex_header: \setlength\headsep{0.333in}
+#+latex_header: \newcommand{\bibent}{\noindent \hangindent 40pt}
+#+latex_header: \newenvironment{workscited}{\newpage \begin{center} Works Cited \end{center}}{\newpage }
+#+latex_header: \graphicspath{ {./attachments/} }
+#+options: toc:nil title:nil num:nil
+#+BEGIN_EXPORT latex
+\begin{document}
+\begin{flushleft}
+Christian Johnson\\
+\vspace{2mm}Dr. Paul Crilly\\
+\vspace{2mm}Antennas and Propogation\\
+\vspace{2mm}December 03 2023\\
+\vspace{4mm}\begin{center}
+Lab 9 Report
+\end{center}
+\vspace{1mm}\setlength{\parindent}{0.5in}
+#+END_EXPORT
+
+# Essay Content goes here
+
+* Abstract :ignore:
+#+BEGIN_EXPORT latex
+\begin{abstract}
+#+END_EXPORT
+In this Antennas and Propagation Laboratory Exercise, our group utilized Yagi antennas in conjunction with the Agilent 9912A Field Fox Analyzer to locate a hidden transmitter operating at 146.5 MHz on our campus. Employing radio direction finding techniques, we aimed to efficiently determine the transmitter's location. The report provides a concise overview of our methodology, results, and insights.
+#+BEGIN_EXPORT latex
+\end{abstract}
+#+END_EXPORT
+
+* Introduction
+Radio direction finding is a critical aspect of wireless communication, allowing the determination of the location of a radio frequency source. In our Antennas and Propagation Laboratory Exercise, we delved into the practical application of this concept using Yagi antennas. At very high frequencies (VHF), the Yagi antenna's high front-to-back and front-to-side ratio makes it an invaluable tool for locating radio frequency (RF) sources. The primary objective of this exercise was to employ our newly constructed Yagi antennas in conjunction with the Agilent 9912A Field Fox Analyzer to locate a hidden transmitter operating at 146.5 MHz on our campus.
+* Procedure
+Our methodology involved setting up the N9912A to receive signals from 144 to 148 MHz, activating the averaging option, and configuring the bandwidth to minimize the impact of minor signal variations on our ability to determine the bearing of the hidden transmitter. Each group, comprising individuals who had participated in the construction of the Yagi antennas, was tasked with locating a hidden "fox" transmitter, which emitted an intermittent 146.5 MHz beacon. A member from a different group concealed the transmitter in a location at least 1000 feet away, ensuring a challenging search. The importance of differentiating the fox's signal from other RF sources, including multipath signals, signals from other foxes, and users on the 144 MHz band, was emphasized.
+* Results and Conclusions
+Our findings revealed the effectiveness of the Yagi antennas in locating the hidden transmitter. The time taken to pinpoint the fox was just under 5 minutes, showcasing the efficiency of our radio direction finding approach. However, challenges emerged in the form of multipath signals and interference from other foxes or users on the 144 MHz band. These incidents prompted us to refine our search process and try a second time, resulting in a marginally reduced time and contributing to an enhanced skill set in locating RF sources. Insights gained from the exercise were documented, highlighting the importance of factors such as front-to-back and front-to-side ratios in Yagi antennas.
+
+# Place /notes/ or /bib/ sections here if needed
+
+#+BEGIN_EXPORT latex
+\newpage
+\begin{center}
+Appendices
+\end{center}
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.4\textwidth]{Fox.jpg}
+\caption{Transmitter Hiding Location}
+\end{figure}
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.7\textwidth]{FieldFox.jpg}
+\caption{Field Fox Graph}
+\end{figure}
+\newpage
+#+END_EXPORT
+
+#+BEGIN_EXPORT latex
+\end{document}
+#+END_EXPORT

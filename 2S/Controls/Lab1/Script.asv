@@ -1,0 +1,31 @@
+
+%% Open Loop Transfer Function
+s=zpk('s'); % Set 's' = laplace variable
+Motor=tf(2.083,[1, 1.71]); % Find the transfer function for motor block
+G=(Motor*0.1)/s; % Finds G, theta/Ea
+
+%% Open Loop Unity Step Response
+OLoopUnitStep=step(G); % Finds the Open Loop Unity Step Response 
+plot(OLoopUnitStep)
+xlabel('Time');
+ylabel('Angle');
+title('Open Loop Unity Step Response')
+%% Unit Step Response
+syms 's'
+G=0.2083/(s+1.71);
+ilaplace(G)
+%% Verifying the original transfer function
+syms 't'
+laplace(0.2083*exp(-1.71*t))*(0.1/s);
+%% Lab Summary 
+%{
+This lab focused on correcting antenna angle. Typically, when an antennas
+position is disturbed, it has trouble correcting in order to return to its
+original orientation. 
+We solve this problem using the system outlined in the lab packet, which
+will take the current position as an input and correct to match the desired
+position. 
+%}
+%% Linear
+
+%

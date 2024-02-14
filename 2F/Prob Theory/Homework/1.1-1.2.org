@@ -1,0 +1,70 @@
+#+OPTIONS: toc:nil num:nil
+
+* 30
+6 universities, 2 years. $\newline$
+A - # of ways to select hosts if they can not both be held at the same university.
+
+6 choices in year 1, 5 in year 2. $6*5 = 30$
+
+B - # of ways to select hosts if they /may/ both be at the same university. $\newline$
+6 choices year 1, 6 year 2. $6*6=36$
+
+* 34
+15 multiple choice questions, 3 choices each.
+Num of unique answers. $\newline$
+3 choices each, 15 times. $3^{15} = 14348907$
+
+* 36
+4 stops from 10 cities
+Number of different trips.
+
+A - order matters
+$10*9*8*7$ since the choices decrease each time.
+
+B - order does not matter
+That's just a combination - $\binom{10}{4} = \frac{10!}{(10-4)!4!}$
+
+* 40
+
+A - # of ways for 5 people to get on a bus $\newline$
+$5!$
+
+B - if two people refuse to follow each other$\newline$
+Should be num of ways the total can line up, less the number of combinations that include the 2 people next toe each other.$\newline$
+$(5! - \text{something})\newline$
+If theyre together they move as a unit, so can be treated as one.$\newline$
+$5!-4!$
+
+* 42
+
+A - Permutations of the word "great"$\newline$
+5 unique letter - $5!$
+
+B - the word "greet"$\newline$
+5 letters, 2 are duplicates of each other. $\frac{5!}{2!}$
+
+* 43
+
+A - permutations of "statistics"
+10 letters, 3 "s" 3 "t" 2 "i"
+$\frac{10!}{3!3!2!}$
+
+B - How many begin and end with "s"$\newline$
+We can treat this as the word "tatistic" and place the extra s's at the beginning and end.$\newline$
+8 letters, 3 "t", 2"i" - $\frac{8!}{3!2!}$
+
+* 46
+
+20 question true false$\newline$
+A - 7 right, 13 wrong$\newline$
+This is like the theorem we discussed in class, where when you pick one number, the opposite case is the same.
+$\therefore \binom{20}{7}$$\newline$
+B - $\binom{20}{10}$
+C - At least 17 are right - this would be 17, or 18, or 19...
+$\therefore \binom{20}{17}+\binom{20}{18} + \binom{20}{19}+\binom{20}{20}$
+
+* 51
+
+Num of ways 1 "a", 3 "b", 2 "c", 1"f" can be distributed among 7 students.
+Its just 7 choose 1 and 7-1 choose 3 and...
+$\binom{7}{1}\binom{6}{3}\binom{3}{2}\binom{1}{1}$

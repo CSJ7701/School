@@ -1,0 +1,84 @@
+% Created 2023-10-11 Wed 10:29
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{placeins}
+\usepackage{gensymb}
+\author{Christian}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={Christian},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.2.50 (Org mode 9.7-pre)}, 
+ pdflang={English}}
+\begin{document}
+
+\texttt{.Homework}
+\section{NAME}
+\label{sec:org5f1dc26}
+
+Homework - Read and print the contents of files with options.
+\section{SYNOPSIS}
+\label{sec:org691cf6e}
+
+\textbf{Homework} [OPTIONS] [FILE\ldots{}]
+\section{DESCRIPTION}
+\label{sec:orga2b8332}
+
+\textbf{Homework} reads the contents of the specified input file(s) and prints them to STDOUT. Each line can be reversed and a delay can be added between each line. If no files are provided, the program can read from the standard input (stdin).
+\section{OPTIONS}
+\label{sec:org113dbbf}
+
+\begin{itemize}
+\item \textbf{\textbf{-h, --help}}: Display this help message.
+\item \textbf{\textbf{-r, --reverse}}: Reverse each line before printing.
+\item \textbf{\textbf{-d DELAY, --delay DELAY}}: Specify a delay in seconds or fractions thereof. Example: -d 0.5 for a 500 milliseconds delay.
+\end{itemize}
+\section{FILE}
+\label{sec:org28756a4}
+
+The name(s) of the file(s) to be processed. If no files are provided, the program will read from the standard input (stdin).
+\section{RETURN VALUE}
+\label{sec:orgf9ec34b}
+
+\begin{itemize}
+\item 0 on success.
+\item 1 on failure.
+\end{itemize}
+\section{EXAMPLES}
+\label{sec:orga129032}
+
+\begin{itemize}
+\item Homework -r -d 0.5 file1.txt file2.txt
+Read the contents of file1.txt and file2.txt, reverse each line, and print with a delay of 0.5 seconds between each line.
+
+\item Homework -d 1.0 -r -h
+Display the help message.
+
+\item cat file.txt | Homework -r -d 0.5
+Read the contents of file.txt from the standard input (stdin), reverse each line, and print with a delay of 0.5 seconds between each line.
+\end{itemize}
+\section{SEE ALSO}
+\label{sec:orgc21d0f7}
+
+\begin{itemize}
+\item\relax [man(1)](\url{https://linux.die.net/man/1/man})
+\item\relax [cat(1)](\url{https://linux.die.net/man/1/cat})
+\item\relax [getopt(3)](\url{https://linux.die.net/man/3/getopt})
+\item\relax [usleep(3)](\url{https://linux.die.net/man/3/usleep})
+\item\relax [fopen(3)](\url{https://linux.die.net/man/3/fopen})
+\end{itemize}
+\end{document}

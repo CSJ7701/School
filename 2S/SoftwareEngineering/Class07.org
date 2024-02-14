@@ -1,0 +1,48 @@
+#+TITLE: UC1 Pickups
+#+OPTIONS: num:nil toc:nil title:nil
+#+export_file_name: Class07-Christian.Johnson.pdf
+
+* Pickup Vehicle Use Case
+
+** Scope
+   Buoy Rides Automated Rental Pickup
+
+** Level
+   User Goal
+
+** Primary Actor
+   Client
+
+** Stakeholders and Interests
+   - Client: Desires efficient and error-free pickup process to ensure a smooth rental experience.
+   - Rental Agent: Aims for seamless vehicle handover to satisfy client needs and company standards.
+   - Company: Seeks accurate recording of vehicle pickups to maintain operational integrity and customer satisfaction.
+   - Insurance Provider: Interested in capturing insurance purchase decisions for policy management and billing.
+
+** Preconditions
+   1. Client has made a reservation for a vehicle.
+   2. Client possesses a valid driver's license.
+   3. Reserved vehicle is available for pickup at the scheduled time.
+
+** Success Guarantee (or Postconditions)
+   1. Client successfully collects reserved vehicle.
+   2. Vehicle's mileage is recorded accurately.
+   3. Insurance purchase decision, if applicable, is documented.
+   4. Rental period commences.
+   5. Vehicle's availability status is updated in the system.
+
+** Main Success Scenario (or Basic Flow)
+   1. Client arrives at rental location at scheduled pickup time.
+   2. Rental agent verifies client's reservation and driver's license.
+   3. Rental agent hands over keys to reserved vehicle.
+   4. Rental agent records vehicle's mileage.
+   5. Rental agent presents insurance options to client.
+   6. Client decides whether to purchase collision insurance.
+   7. Rental agent records client's insurance decision.
+   8. Rental agent provides instructions to client regarding vehicle operation and return.
+   9. Rental agent updates system to mark vehicle as picked up by client.
+
+** Extensions (or Alternative Flows)
+   - 3a. Reserved vehicle is unavailable; rental agent offers alternative or reschedules pickup.
+   - 6a. Client purchases collision insurance; rental agent processes payment and updates agreement.
+   - 8a. Issues or concerns arise during pickup; rental agent addresses them accordingly.

@@ -1,0 +1,27 @@
+#+OPTIONS: toc:nil numbers:nil
+
+1. E - Increase or Stay
+2. A - On the jw axis
+3. A - Zero dB
+4. B - Zero
+5. A - True
+6. D
+7. D - s=0
+8. A - s=0/s=+-jwz
+9. A - Stable
+10. D - The Unit Circle
+11. C - 1,-2,1
+12. B - It would depend on the filters specifications.
+13. C - IIR and Unstable
+14. C - 5
+15. D
+16. D - -2dB at CF
+17. B  
+18. B
+19. A
+20. B
+   
+
+
+I affirm that I have not received help on this exam, and that all work is my own.
+_Christian Johnson_

@@ -1,0 +1,115 @@
+#+TITLE: SST Notes
+
+
+
+* Study / Review
+** Chapter 1
+** Chapter 2
+** Chapter 3
+** Chapter 4
+** Chapter 5
+Frequency and Magnitude Response - conversions from $H[z]$ to $H[e^{j\omega}]$
+
+* Previous
+
+* Everlasting Exponential
+$y(t) = h(t)*e^{st} = \int_{-\infty}^{\infty}{h{\tau}e^{s(t-\tau)}d\tau$
+$=e^{st}\int_{-\infty}^{\infty}{h(\tau)e^{-s\tau}d\tau$ - This is the Transfer Function - $H(s)$
+
+As a result:
+$y(t) = H(s)e^{st} = H(s)[Cos(bt)+jSin(bt)]e^{at}$
+
+Let $a=0$ and $b=w$
+$s=jw$ -> $y(t)=H(jw)Cos(wt)+jH(jw)Sin(wt) = y_{real}(t) + y_{imag}(t)$
+
+| Input (x(t))   | Output (y(t))                         |
+|----------------+---------------------------------------|
+| Cos(wt)        | Re{H(jw)e^{jwt}}                      |
+| Cos(wt)        | \Abs{H(jw)}Cos(wt+\angle{H(jw)}       |
+| Cos(wt+\theta) | \Abs{H(jw)Cos(wt+\theta+\angle{H(jw)} |
+
+** Example
+- $$H(s) = \frac{s+2}{s^{2}+5s+4}$$
+- $$x(t) = 5Cos(2t+30\degree)$$
+  Find the response, $y(t)$
+  $$H(j2) = \frac{j2+2}{(j2)^{2}+5(j2)+4 = 0.28\angle -45\degree$$
+  $$y(t) = 5(0.28)Cos(2t+30\degree - 45\degree) = 1.4Cos(2t-15\degree)$$
+
+* Frequency Response
+$H(jw) = |H(jw)|e^{j\angle{H(jw)}}$
+Absolute Value - Magnitude Response
+Exponential - Phase Response
+
+** Example
+- $H(s) = \frac{s+0.1}{s+5}$
+
+- Find magnitude and phase response
+- Find response to $x(t) = Cos(2t)$
+
+  a)
+  $H(jw) = \frac{jw+0.1}{jw+5}$
+  $|H(jw)| = \frac{\sqrt{(jw)^{2}+(0.1)^{2}}}{\sqrt{(jw)^{2}+5^{2}}} = \frac{\sqrt{w^{2}+0.01}}{\sqrt{w^{2}+25}}$ - Magnitude
+  $\angle{H(jw)} = \frac{Tan^{-1}(\frac{w}{0.1})}{Tan^{-1}(\frac{w}{5})} = Tan^{-1}(\frac{w}{5})$ - Phase Response
+
+  b)
+  Just plug in 2 for w. Its calculator work.
+
+* Vector Plots
+
+$H(s) = \frac{P(s)}{Q(s)} = b_{0}\frac{(s-z_{1})(s-z_{2})...(s-z_{n})}{(s-\lambda_{1})(s-\lambda_{2})...(s-\lambda_{n})}$
+
+* Steady State Response
+Remember: $H(s) = \frac{P(s)}{Q(s)} = \frac{(s-z_{1})(s-z_{2})...(s-z_{n})}{(s-\lambda_{1})(s-\lambda_{2})...(s-\lambda_{n})}$
+$X(s) = \frac{1}{s-j\omega}$
+
+$Y(s) = H(s)X(s) = \frac{P(s)}{(s-\lambda_{1})(s-\lambda_{2})...(s-\lambda_{n})}$
+Partial Fraction Decomp: $Y(s) = \frac{P(j\omega)}{(j\omega-\lambda_{1})(j\omega-\lambda_{2})...(j\omega-\lambda_{n})}=\frac{P(j\omega)}{Q(j\omega)}=H(j\omega)$
+
+$y_{ss}(t) = H(j\omega)e^{j\omega t}u(t)$
+$y_{ss}(t)=Re[H(j\omega)e^{j\omega t}u(t)] = |H(j\omega)|Cos(\omega t+\angle{H(j\omega)})u(t)$
+
+** Example
+Let $H(s)=\frac{s+2}{s^{2}+5s+4}\,\,;\,\,x(t)=2+5Cos(2t+30\degree)$
+Find the Steady State Response
+
+
+
+
+
+
+$x_{1}(t)=2\,\,;\,\,w_{1}=0$
+$H(jo)=\frac{1}{2}\angle{0\degree}$
+--> $y{1}(t)=2(\frac{1}{2})$
+
+$x_{2}(t) = 5Cos(2t+30\degree)\,\,;\,\,w_{1}=2$
+$H(j2)=0.28\angle{-45\degree}$
+--> $y_{2}(t)=5(0.28)Cos(2t+30\degree-45\degree)$
+
+* Bilateral Laplace
+$x_{1}(t) = e^{-at}u(t)$
+$x_{2}(t) = -e^{-at}u(-t)$
+$\mathbb{L}[x_{1}(t)] = \frac{1}{s+a}\,\,Re[s]>a$
+$\mathbb{L}[x_{2}(t)]=\frac{1}{s+a}\,\,Re[s]<-a$
+$x_1$-> Causal, RIght Sided, Pole lies on left side of ROC
+$x_2$ -> Non Causal, Left sided, Pole lies on right side of ROC
+
+Steps:
+- Split $x(t)$ into Causal and Anti-Causal Regions
+- Take Unilateral Transforms of $x_{c}(t)$ - causal and $x_{a}(t)$ - anti-causal
+- $X_{a}(s)\rightarrow X_{a}(-s)$
+
+** Example
+$X(s) = \frac{-3}{(s+2)(s-1)} = \frac{A}{s+2} +\frac{B}{s-1} = \frac{1}{s+2} -\frac{1}{s-1}$
+A. Find $x(t)$ given $-2<Re(s)<1$
+B. Find $x(t)$ given $Re(s)>1$
+
+A.
+$X(s) = X_{c}(t)+X_{a}(t)$
+$Ae^{-2t}u(t)+e^{t}u(t) = e^{-2t}+e^{t}u(t)$
+
+[[file:c:/Users/Christian/Documents/GitHub/OrgFiles/Class Notes/Gimp/SST2 17MAR23.png]]
+
+[[file:c:/Users/Christian/Documents/GitHub/OrgFiles/Class Notes/Gimp/SST 17MAR23.png]]
+
+B.
+$e^{-2t}u(t)-e^{t}u(t)$

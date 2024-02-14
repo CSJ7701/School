@@ -1,0 +1,27 @@
+
+
+#+BEGIN_src matlab
+  wp=40000;
+  wo1=1.0174*wp; q1 = 15.15209;
+  wo2=0.7759*wp; q2 = 1.717;
+  wo3=0.4112*wp; q3 = 0.666;
+
+  VD = 10^(-0.4/20);
+
+  n1=[0 0 wo1^2];
+  n2=[0 0 wo2^2];
+  n3=[0 0 wo3^2];
+  d1=[1 wo1/q1 wo1^2];
+  d2=[1 wo2/q2 wo2^2];
+  d3=[1 wo3/q3 wo3^2];
+
+  b=logspace(3,5,1000);
+  H1=freqs(n1,d1,b);
+  H2=freqs(n2,d2,b);
+  H3=freqs(n3,d3,b);
+  H=VD*H1.*H2.*H3;
+
+  semilogx(H1);semilogx(H2);semilogx(H3);semilogx(H);
+#+end_src
+
+#+RESULTS:

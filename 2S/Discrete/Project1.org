@@ -1,0 +1,160 @@
+#+OPTIONS: TOC:nil num:nil
+#+TITLE: Project 1: Python Truth Tables
+#+AUTHOR: Christian Johnson & Aidan Andersen
+#+latex_header: \usepackage{amsmath}
+#+latex_header: \usepackage{listings}
+#+latex_header: \lstset{frame=single, breaklines=true}
+
+#+begin_export latex
+\newpage
+#+end_export
+
+* Python                                                          :noexport:
+#+begin_src python :session DP1
+
+  import pandas as pd
+  import io
+  from sympy import *
+
+  def ConvertToLatex(df, alignment="c"):
+      numcolumns=df.shape[1]
+      numRows=df.shape[0]
+      output=io.StringIO()
+      colFormat=("%s|%s" % (alignment, alignment*numcolumns))
+      #Write Header
+      output.write("\\begin{tabular}{%s}\n" % colFormat)
+      columnLabels=["\\textbf{%s}" % label for label in df.columns]
+      output.write(" & %s\\\\\\hline\n" % " & ".join(columnLabels))
+      # Date Lines
+      for i in range(numRows):
+          output.write("\\textbf{%s} & %s\\\\\n"
+                       % (df.index[i], " & ".join([str(val) for val in df.iloc[i]])))
+
+      # Write footer
+      output.write("\\end{tabular}")
+      return output.getvalue()                   
+
+#+end_src
+
+#+RESULTS:
+: None
+
+* Proof 1
+#+begin_export latex
+$p\lor(\lnot q)$\newline
+$(t\lor s)\implies(p\lor r)$\newline
+$(\lnot r)\lor(t\lor s)$\newline
+$\underline{p\implies(t\lor s)}$\newline
+$(p\land r)\implies(q\lor r)$\newline\newline
+#+end_export
+This simplifies to:
+#+begin_export latex
+\newline
+p\lor(\lnot q)\newline
+p\implies(p\lor r)\newline
+\underline{p\implies(t\lor s)}\newline
+(p\land r)\implies (q\lor r)
+\newline\newline
+\textbf{Given hypotheses:}
+\newline
+\indent\textbf{1. } $$p\lor (\lnot q)$$ \\
+\indent\textbf{2. } $(t\lor s) \implies (p\lor r)$\\
+\indent\textbf{3.} $(\lnot r) \lor (t\lor s)$\\
+\indent\textbf{4.} $p \implies (q\lor r)$\\
+\newline
+\textbf{Claim:} $(p \land r) \implies (q\lor r)$\newline
+\newline
+\textbf{Proof:}
+\begin{itemize}
+\item Assume $p \land r$. \textit{(Claim)}
+\item From 1., we have $p$. \textit{(Conjunction elimination)}
+\item Apply hypothesis 4 to $p$, which implies $q\lor r$. \textit{(Modus Ponens)}
+\item Since $r$ is also true, $q\lor r$ holds. \textit{(Disjunctive Syllogism)}
+\item Therefore, $(p\land r)\implies (q\lor r)$ is established
+\end{itemize}
+\newline\newline
+This conclusion can be shown in the truth table on the next 2 pages.
+\newpage
+\begin{lstlisting}[language=Python]
+  variables=['p', 'q', 'r', 's', 't']
+  expression1=lambda p,r: p and r
+  expression2=lambda q,r: q or r
+  expression3=lambda p,q,r: Implies(p&r,q|r)
+  data=[]
+
+  for p in (True, False):
+      for q in (True, False):
+          for r in (True, False):
+              for t in (True, False):
+                  for s in (True, False):
+                      result1=expression1(p,r)
+                      result2=expression2(q,r)
+                      result3=expression3(p,q,r)
+                      data.append([p,q,r,t,s,result1,result2,result3])
+  df=pd.DataFrame(data, columns=['p','q','r','s','t','p and r','q or r','(p and r) implies (q or r)'])
+  ConvertToLatex(df)
+\end{lstlisting}
+#+end_export
+
+
+#+begin_src python :results file :file Project1Export1.tex :exports none :session DP1
+
+    variables=['p', 'q', 'r', 's', 't']
+    expression1=lambda p,r: p and r
+    expression2=lambda q,r: q or r
+    expression3=lambda p,q,r: Implies(p&r,q|r)
+    data=[]
+
+    for p in (True, False):
+        for q in (True, False):
+            for r in (True, False):
+                for t in (True, False):
+                    for s in (True, False):
+                        result1=expression1(p,r)
+                        result2=expression2(q,r)
+                        result3=expression3(p,q,r)
+                        data.append([p,q,r,t,s,result1,result2,result3])
+    df=pd.DataFrame(data, columns=['p','q','r','s','t','p and r','q or r','(p and r) implies (q or r)'])
+    ConvertToLatex(df)
+
+
+#+end_src
+
+#+RESULTS:
+[[file:Project1Export1.tex]]
+
+#+begin_export latex
+\newpage
+\hspace{-2cm}\input{Project1Export1.tex}
+\newpage
+#+end_export
+
+* Proof 2
+
+#+begin_export latex
+$p\lor(\lnot q)$\\
+$(t\lor s)\implies(p\lor r)$ \\
+$(\lnot r)\lor(t\lor s)$ \\
+$\underline{p\iff(t\lor s)}$\\
+$(q\lor r)\implies(p\lor r)$\\
+\newline\newline
+#+end_export
+This can be simplified to:
+#+begin_export latex
+\newline
+$p\lor(\lnot q)$ \\
+$p\implies (p\lor r)$ \\
+$\underline{(\lnot r)\lor(t\lor s)}$ \\
+$(q\lor r)\implies(p\lor r)$\\
+\newline\newline
+\textbf{Given hypotheses:}\newline
+\indent\textbf{1.} $p\lor(\lnot q)$\\
+\indent\textbf{2.} $p\implies(p\lor r)$\\
+\indent\textbf{3.} $(\lnot r)\lor(t\lor s)$\\
+\textbf{Claim:} $(q\lor r)\implies(p\lor r)$
+\textbf{Proof:}\newline
+\begin{itemize}
+\item Assume $q\lor r$.  \textit{(Claim)}
+\item From 1, we know p, since 
+#+end_export
+

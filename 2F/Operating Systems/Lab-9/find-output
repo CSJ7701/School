@@ -1,0 +1,6 @@
+Command - find /var/www/html
+
+Output:
+
+/var/www/html
+/var/www/html/index.html

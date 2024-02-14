@@ -1,0 +1,80 @@
+% Created 2023-10-24 Tue 08:18
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{placeins}
+\usepackage{gensymb}
+\author{Christian}
+\date{\today}
+\title{Enhanced Homework Program Manual}
+\hypersetup{
+ pdfauthor={Christian},
+ pdftitle={Enhanced Homework Program Manual},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.2.50 (Org mode 9.7-pre)}, 
+ pdflang={English}}
+\begin{document}
+
+\section{NAME}
+\label{sec:org59d775d}
+homework-fork - Process files using multiple child processes with different delays and line reversal.
+\section{SYNOPSIS}
+\label{sec:org692eed8}
+\textbf{\textbf{homework-fork}} [OPTIONS] FILE\ldots{}
+\section{DESCRIPTION}
+\label{sec:orgecef3c4}
+The `homework-fork` program processes input files using multiple child processes. Each child process has its own delay and can reverse lines before printing them. The parent process waits for all child processes to complete their tasks.
+\section{OPTIONS}
+\label{sec:orge436785}
+\begin{itemize}
+\item \textbf{\textbf{-h}}
+Display the help message.
+
+\item \textbf{\textbf{-r}}
+Reverse each line before printing.
+
+\item \textbf{\textbf{-d [delay]}}
+Specify a delay in seconds or fractions thereof. For example, `-d 0.5` adds a 500 milliseconds delay between lines.
+\end{itemize}
+\section{FILE}
+\label{sec:orgbbd75c2}
+Input files to be processed. Multiple files can be provided, and options can be in any order.
+\section{EXIT STATUS}
+\label{sec:org420983e}
+0: Successful execution
+1: An error occurred
+\section{EXAMPLES}
+\label{sec:org49aa7f4}
+\begin{itemize}
+\item Process a file with a 1-second delay and line reversal:
+\begin{verbatim}
+homework_fork -r -d 1 file.txt
+\end{verbatim}
+
+\item Process multiple files using forks:
+\begin{verbatim}
+homework_fork -d 0.5 file1.txt file2.txt
+\end{verbatim}
+\end{itemize}
+\section{SEE ALSO}
+\label{sec:org9ef07e6}
+\begin{itemize}
+\item `man fork`
+\item `man waitpid`
+\item `man getline`
+\end{itemize}
+\section{NOTES}
+\label{sec:org48f55be}
+This program creates a child process for each file argument, making it suitable for parallel processing. Each child has its own delay and can reverse lines.
+\end{document}
