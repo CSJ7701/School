@@ -1,4 +1,4 @@
-% Created 2024-02-12 Mon 14:28
+% Created 2024-02-20 Tue 09:01
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -17,6 +17,7 @@
 \usepackage{amsmath}
 \usepackage{listings}
 \lstset{frame=single, breaklines=true}
+\usepackage{outline}
 \author{Christian Johnson \& Aidan Andersen}
 \date{\today}
 \title{Project 1: Python Truth Tables}
@@ -32,35 +33,21 @@
 \maketitle
 \newpage
 \section*{Proof 1}
-\label{sec:org56a9383}
+\label{sec:org636193d}
 $p\lor(\lnot q)$\newline
 $(t\lor s)\implies(p\lor r)$\newline
 $(\lnot r)\lor(t\lor s)$\newline
 $\underline{p\implies(t\lor s)}$\newline
 $(p\land r)\implies(q\lor r)$\newline\newline
-This simplifies to:
-\newline
-p\lor(\lnot q)\newline
-p\implies(p\lor r)\newline
-\underline{p\implies(t\lor s)}\newline
-(p\land r)\implies (q\lor r)
-\newline\newline
-\textbf{Given hypotheses:}
-\newline
-\indent\textbf{1. } $$p\lor (\lnot q)$$ \\
-\indent\textbf{2. } $(t\lor s) \implies (p\lor r)$\\
-\indent\textbf{3.} $(\lnot r) \lor (t\lor s)$\\
-\indent\textbf{4.} $p \implies (q\lor r)$\\
-\newline
 \textbf{Claim:} $(p \land r) \implies (q\lor r)$\newline
 \newline
 \textbf{Proof:}
 \begin{itemize}
-\item Assume $p \land r$. \textit{(Claim)}
-\item From 1., we have $p$. \textit{(Conjunction elimination)}
-\item Apply hypothesis 4 to $p$, which implies $q\lor r$. \textit{(Modus Ponens)}
-\item Since $r$ is also true, $q\lor r$ holds. \textit{(Disjunctive Syllogism)}
-\item Therefore, $(p\land r)\implies (q\lor r)$ is established
+\item Assume $p \land r$. \textit{(Assumption)}
+\item Since $p$, and $p\lor(\lnot q)$, q. \textit{(Disjunctive Syllogism)}
+\item Given p and r, and having concluded q, then infer $(p\land r) \implies (q\lor r)$
+
+
 \end{itemize}
 \newline\newline
 This conclusion can be shown in the truth table on the next 2 pages.
@@ -90,7 +77,7 @@ This conclusion can be shown in the truth table on the next 2 pages.
 \hspace{-2cm}\input{Project1Export1.tex}
 \newpage
 \section*{Proof 2}
-\label{sec:org1bb2236}
+\label{sec:org45cf2ac}
 
 $p\lor(\lnot q)$\\
 $(t\lor s)\implies(p\lor r)$ \\
@@ -98,20 +85,61 @@ $(\lnot r)\lor(t\lor s)$ \\
 $\underline{p\iff(t\lor s)}$\\
 $(q\lor r)\implies(p\lor r)$\\
 \newline\newline
-This can be simplified to:
-\newline
-$p\lor(\lnot q)$ \\
-$p\implies (p\lor r)$ \\
-$\underline{(\lnot r)\lor(t\lor s)}$ \\
-$(q\lor r)\implies(p\lor r)$\\
-\newline\newline
-\textbf{Given hypotheses:}\newline
-\indent\textbf{1.} $p\lor(\lnot q)$\\
-\indent\textbf{2.} $p\implies(p\lor r)$\\
-\indent\textbf{3.} $(\lnot r)\lor(t\lor s)$\\
-\textbf{Claim:} $(q\lor r)\implies(p\lor r)$
-\textbf{Proof:}\newline
+\textbf{Claim:} $(q\lor r)\implies(p\lor r)$\newline
+\textbf{Proof:}
 \begin{itemize}
-\item Assume $q\lor r$.  \textit{(Claim)}
-\item 
+\item Assume $q\lor r$.  \textit{(Assumption)}
+\item There are 3 cases to this assumption, q, r, or q and r. \textit{(Proof by cases)}\newline
+If q:
+\begin{enumerate}
+\item If q, then not $\lnot q$ \textit{(Definition)}
+\item Since $p\lor(\lnot q)$ and not $\lnot q$, then p.
+\end{enumerate}\newline
+If r:
+\begin{enumerate}
+\item If not r, then $t\lor s$ from $(\lnot r)\lor(t\lor s)$ \textit{(Disjunction)}
+\item If $(t\lor s)$ then p, from $p \iff (t\lor s)$
+\end{enumerate}
+If q and r:
+\begin{enumerate}
+\item If q and r, then then not $\lnot q$ and not $\lnot r$.
+\item As shown in both previous cases, not $\lnot q$ and not $\lnot r$ both imply p.
+\end{enumerate}
+\item In all cases, p is true, $\therefore(q\lor r)\implies(p\lor r)$
+\end{itemize}
+This is shown in the truth table on the next few pages.\
+In the truth table, I substiture $(p \lor \lnot r)$ for p.
+This is because I faced issues running $q\lor r \implies p\lor r$.
+Specifically, whenever p and r were both false, the conclusion was false.
+Examining the given conditions, I did not believe that this situation was possible.
+I eventually realized that, since $(t\lor s)\implies p$, I could simplify and arrive at $(\lnot r)\lor p$.
+\newpage
+\begin{lstlisting}[language=Python]
+  variables=['p', 'q', 'r', 's', 't']
+  expression1=lambda q,r: q or r
+  expression2=lambda p,r: p or r
+  claim_expression=lambda q,r,p: Implies(q or r, (p or not r) or r)
+
+  data=[]
+
+  for p in (True, False):
+      for q in (True, False):
+          for r in (True, False):
+              for t in (True, False):
+                  for s in (True, False):
+                      result1=expression1(q,r)
+                      result2=expression2(p,r)
+                      claim_result=claim_expression(q,r,p)
+                      data.append([p,q,r,t,s,result1,result2,claim_result])
+                      
+  df=pd.DataFrame(data, columns=['p','q','r','t','s','q|r','p|r','(q|r) implies ((p|r`)|r)'])
+          
+  ConvertToLatex(df)
+      
+\end{lstlisting}
+
+
+\newpage
+\hspace{-2cm}\input{Project1Export2.tex}
+\newpage
 \end{document}
