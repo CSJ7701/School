@@ -1,0 +1,14 @@
+#+OPTIONS: toc:nil title:nil
+
+
+1. Solved Already
+
+2.
+    a. States: S1, Standby, S1
+    b. Actions: None
+3.
+   a. States: S2, S1, S2, Ready, A1, S1
+   b. Actions: actA, actB, actP, actA
+4.
+   a. States: S3, S4, Ready, A1, S1, Standby, S1
+   b. Actions: activity1, actP, actA, actQ
