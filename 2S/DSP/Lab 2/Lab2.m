@@ -282,6 +282,88 @@ window) should be how we achieve windowing.
 It should effectively "taper" the edges
 %}
 %%
-stem(Signal)
-sig_freq=fft(Signal);
-stem(fftshift(sig_freq))
+load('hunt.mat')
+N=1024;
+windowed=Signal.*hanning(N).';
+Y=abs(fftshift(fft(windowed))); % Plotting this isn't helpful. 
+
+% Attempt 1
+%[~, i]=findpeaks(Y); % Find local peaks from Y and output their index
+%magnitudes=abs(Y(i));
+% Originally I got 280 contacts.
+
+% Attempt 2
+[~, i]=findpeaks(Y, MinPeakHeight=0.000001*max(abs(Y)));
+fprintf('Number of target: %d\n', length(i))
+% Now I get 4.
+% This seems more reasonable. Should check graph to visually verify
+stem(Y)
+% Graph shows more than 4, so I adjusted multiplier from 0.1 to 0.00001.
+% New answer: 6. Adding another 0 changes to 22, and 1 more changes to 218.
+% This seems like a drastic change - 22 seems like the most reasonable
+% answer (Since I can't imaging 218 being correct, but overshooting seems
+% like the best option. I can't think of any mathematical way to determine
+% what I should choose as a multiplier, but this does seem as though I
+% should be able to determine a logical multiplier in a simpler fashion
+
+% Contacts: 22
+magnitudes=abs(Y(i));
+frequencies=Y(i);
+%{
+magnitudes =
+
+  Columns 1 through 19
+
+    0.0256    0.0002    0.0003    0.0003    0.0003    0.0003    0.0004    0.0004    0.0005  217.4413  230.5689  230.5689  217.4413    0.0005    0.0004    0.0004    0.0003    0.0003    0.0003
+
+  Columns 20 through 22
+
+    0.0003    0.0002    0.0256
+
+
+frequencies =
+
+  Columns 1 through 19
+
+    0.0256    0.0002    0.0003    0.0003    0.0003    0.0003    0.0004    0.0004    0.0005  217.4413  230.5689  230.5689  217.4413    0.0005    0.0004    0.0004    0.0003    0.0003    0.0003
+
+  Columns 20 through 22
+
+    0.0003    0.0002    0.0256
+%}
+
+%% 
+%{
+Windows are used to mitigate two primary issues: spectral leakage and
+frequency resolution.
+Spectral leakage occurs when the frequency ocntent of a signal is
+misaligned from the discrete frequency "bins" in the FFT. This can cause
+energy from the signal to "leak" into adjacent frequency bins. Windows are
+used to "taper" the edges of the signal, reducing this leakage at the
+borders of a signal and suppressing spectral leakage. Windows can help to
+improve frequency resolution by narrowing the main lobe of the window's
+frequency response - this can help the user to more easily differentiate
+between tightly spaced components.
+
+In this project, we explored relative advantages and drawbacks to using
+rectangular windows vs hanning windows. A rectangular window can provide
+poor frequency resolution because of its wide main lobe and tendency to
+induce spectral leakage. While it seemed to do a good job representing the
+original signal amplitude, it made it somewhat difficult to interpret the
+frequency information. Hanning windows provide better frequency resolution
+by reducing spectral leakage and tapering the window. Hanning windows do
+perform slightly worse when it comes to representing signal amplitude
+however. 
+
+Using these concepts, we applied windowing techniques to sonar data in
+order to improve frequency resolution and reduce spectral leakage. By
+comparing the results obtained with regular and hanning windows, we
+observed how the choice of window affects the detection and
+characterization of sonar targets. We were able to determine a number of
+hypothetical sonar targets using the improved resolution provided by the
+hanning window.
+
+I got some information online when I was looking for context/explanations.
+https://community.sw.siemens.com/s/article/window-types-hanning-flattop-uniform-tukey-and-exponential
+https://dsp.stackexchange.com/questions/208/what-should-be-considered-when-selecting-a-windowing-function-when-smoothing-a-t
+%}
