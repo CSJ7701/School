@@ -200,17 +200,88 @@ component.
 N=1024;
 C=10;
 n=0:(N-1);
-xn=cos(2*pi*C*n/n);
+xn=cos(2*pi*C*n/N);
 figure(6);
 stem(xn);
-% There appears to only be one cycle, its just one large sample
+% There appear to be 11 samples
 
 Y=fft(xn);
 
 figure(7);
+stem(n,abs(Y))
+% There is one peak at X=1014 Y=512
+
+%%
+C=15;
+xn=cos(2*pi*C*n/N);
+figure(8)
+Y=fft(xn);
+stem(n,abs(Y))
+% This time the peak is at (1009, 512)
+%%
+n=(-N/2:(N/2-1));
+xn=cos(2*pi*C*n/N);
+figure(9)
+Y=fft(xn);
+stem(n,abs(Y))
+hold on;
+fftshift(Y);
+stem(n, abs(fftshift(Y)))
+hold off;
+%%
+N=1024;
+C=10.5;
+n=0:(N-1);
+xn=cos(2*pi*C*n/N);
+Y=fft(xn);
+figure(10)
+stem(xn)
+figure(11)
 stem(n, abs(Y))
 
-stem(n, abs(Y));
-title('Magnitude of Y versus n');
-xlabel('n');
-ylabel('|Y|');
+%{
+This "bin leakage" is clearly not an accurate representation for the
+frequency of the system. There are frequency components that are
+represented in the graph that are not present, and if this were a more
+complicated signal with smaller frequency components, the bin leakage could
+likely obscure some of those smaller components.
+%}
+%%
+y=xn.*hanning(N).';
+Y=fft(y);
+figure(12)
+stem(n, abs(Y))
+
+
+%{
+The Hanning window seems to "smooth" the window. Since it is applied to the
+signal before it is transformed, it must apply this "smoothing" affect in
+the time domain. It seems to reduce the leakage from the previous plot and
+make the side lobes slightly smaller. 
+%}
+
+%%
+
+clear; clf;
+subplot(2,1,1);
+N=16;
+n=0:(N-1);
+x=hanning(N);
+stem(n,x);
+grid;
+
+subplot(2,1,2)
+nn=-N/2:(N/2-1);
+X=fftshift(fft(hanning(N)));
+stem(nn, abs(X));
+grid;
+
+%{
+Dot multiplying a time domain vector by a data taper window (hanning
+window) should be how we achieve windowing.
+It should effectively "taper" the edges
+%}
+%%
+stem(Signal)
+sig_freq=fft(Signal);
+stem(fftshift(sig_freq))
