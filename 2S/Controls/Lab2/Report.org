@@ -1,0 +1,13 @@
+#+begin_src emacs-lisp
+  (defun my-tangle-and-export-pdf ()
+    "Tangle the current Org file and export to PDF."
+    (interactive)
+    (when (string= (file-name-nondirectory buffer-file-name) "Report.org")
+      (org-babel-tangle)
+      (org-latex-export-to-pdf)))
+#+end_src
+
+
+#+begin_src latex tangle:"fill file here"
+
+#+end_src
