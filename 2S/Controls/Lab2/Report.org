@@ -146,22 +146,22 @@
   % *** GRAPHICS RELATED PACKAGES ***
   %
   \ifCLASSINFOpdf
-    % \usepackage[pdftex]{graphicx}
+    \usepackage[pdftex]{graphicx}
     % declare the path(s) where your graphic files are
-    % \graphicspath{{../pdf/}{../jpeg/}}
+    \graphicspath{{/home/csj7701/School/2S/Lab2/Lab2 - Copy/}}
     % and their extensions so you won't have to specify these with
     % every instance of \includegraphics
-    % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+    \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
   \else
     % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
     % will default to the driver specified in the system graphics.cfg if no
     % driver is specified.
-    % \usepackage[dvips]{graphicx}
+    \usepackage[dvips]{graphicx}
     % declare the path(s) where your graphic files are
-    % \graphicspath{{../eps/}}
+    \graphicspath{{/home/csj7701/School/2S/Lab2/Lab2 - Copy/}}
     % and their extensions so you won't have to specify these with
     % every instance of \includegraphics
-    % \DeclareGraphicsExtensions{.eps}
+    \DeclareGraphicsExtensions{.jpg}
   \fi
   % graphicx was written by David Carlisle and Sebastian Rahtz. It is
   % required if you want graphics, photos, etc. graphicx.sty is already
@@ -340,6 +340,7 @@
 
   % correct bad hyphenation here
   \hyphenation{op-tical net-works semi-conduc-tor}
+  \graphicspath{ {/home/csj7701/School/2S/Controls/Lab2/Lab2 - Copy/} }
 
 
 
@@ -436,18 +437,84 @@
 
 
   \section{Introduction}
-  % no \IEEEPARstart
-  This demo file is intended to serve as a ``starter file''
-  for IEEE Computer Society conference papers produced under \LaTeX\ using
-  IEEEtran.cls version 1.8b and later.
-  % You must have at least 2 lines in the paragraph with the drop letter
-  % (should never be an issue)
-  I wish you the best of success.
+  DC Motors are an integral part of our daily life. Offering precise control and actuation, they are typically used in transportation, consumer electronics, medical devices, and heavy machinery. Within the United States Coast Guard (USCG), DC motors play a crucial role, not only in propulsion systems for cutters and small boats, but also in smaller auxiliary tasks. From powering pulley systems used in helicopter operations to winches used in lowering small-boats from a boat deck, DC motors form the backbone of many critical operations within the USCG.
 
+  This laboratory experiment served as an exploration into the function and control of basic DC motors, particularly focusing on the SRV02 DC motor system. Delving into the principles of automatic control systems, this experiment aimed to provide students with practical insights into system identification, verification, and validation processes. Through hands on experimentation and analysis, students gained a deeper understanding of how to model and analyze the dynamic behavior of such systems, preparing them for future challenges in engineering and control system design.
+
+  Building upon the foundation of theoretical knowledge and real world applications, this lab aimed to bridge the gap between classroom learning and practical implementation; empowering students with the skills necessary to tackle complex engineering problems in the field of automatic control systems.
   \section{Theory}
+  In this lab, modeling software enabled us to visualize the behavior of a hardware motor. A SRV02 DC motor can be modeled as a continuous-time transfer function, obtained from measured and simulated motor speed. A transfer function is a mathematical model of linear, time-invariant electrical, mechanical, and electromechanical systems; it is generally defined as $G(s)=\frac{C(s)}{R(s)}$. Referenced throughout this report, $\Omega(s)$ is defined as the angular velocity, $V(s)$ represents the motor input voltage, $K$ denotes the system gains, and $T$ signifies the time constant. These estimations were found using a modeling process reliant on QUARC software and Matlab.
 
+  One of the primary problems identified and solved within this lab was the practical estimation of $K$ and $\tau$, which play important roles in the dynamic response of the motor. Solving this problem, and finding values for $K$ and $\tau$ requires a multi-step process. The first step in this process involved the steady-state gain; found by running the system with constant input voltage. Adjusting the system parameters in the given Simulink file helped approximate a frequency close to zero; which, once compiled and applied to the SRV02 motor, began rotating in a single direction, capturing graphs of the motors speed in Matlab. In the figure, the yellow trace represents measured speed, while blue represents simulated speed. This process was repeated twice in order to calculate and record a reliable average.
+
+  Through careful analysis, this data helped calculate the steady-state gain. This gain serves as a fundamental parameter in understanding motor performance and behavior. The next step to this analysis process, calculating frequency response, required us to apply a sine wave input, iterating through a range of frequency inputs in order to calculate the resulting range of amplitudes. Using Matlab to analyze this data, we generated a bode magnitude plot from the maximum speed and gain, analyzing this plot in order to find cutoff frequency and $\tau$. Finally, altering the input waveform to a square wave, we applied a step input to the system, measuring shaft speed as system output. This is known as the bump test, and the resulting graph of input and output signals provided the final data we needed in order to calculate $K$ and $\tau$. 
 
   \section{Results}
+
+  \subsection{Frequency Response}
+  The first component of the experiment involved applying sine wave inputs to the SRV02 DC motor and recording the corresponding output speed at varying frequencies. This data was used to construct bode magnitude plots. These plots are shown below.
+
+  \begin{figure}[!t]
+    \centering
+    \includegraphics[width=2.5in]{LinearFrequencyResponse.jpg}
+    \caption{Linear Frequency Response over a range of frequencies}
+    \label{fig_sim}
+  \end{figure}
+
+  \begin{figure}[!t]
+    \centering
+    \includegraphics[width=2.5in]{LogFrequencyResponse.jpg}
+    \caption{Logarithmic Frequency Response over a range of frequencies}
+    \label{fig_sim}
+  \end{figure}
+
+  Using these bode plots and equation 1 below, the steady state gain of the system was found to be in a range between 1.6276 and 0.18855 in linear units, and between 4.2311 and -14.4915 in logarithmic.
+  \begin{equation}
+    K_{e,f}=:|G(j\omega)=|\frac{\Omega_{max-avg}(j\omega)}{V_m(j\omega)}|
+  \end{equation}
+  $\tau$ was found visually to be 0.0024 for both linear and logarithmic plots. These values are extrapolated directly from the bode plot, which visualizes the frequency at which the gain begins to decrease, and the phase begins to shift.
+
+  \subsection{Step Response}
+
+  The next portion of the experiment involved applying a step input voltage to the SRV02 DC motor and recording the corresponding shaft speed, organizing the data into a step response plot. Using Matlab, the step response plot is transformed into the time response.
+  \begin{equation}
+    K_{e,b}=\frac{\delta y}{\delta u}=:\frac{y_{ss}-y{0}}{u_{max}-u_{min}}
+  \end{equation}
+  \begin{equation}
+    y(t_{1})=0.63y_{ss}+y_{0}
+  \end{equation}
+  \begin{equation}
+    \tau_{e,b}=t_{1}-t_{0}
+  \end{equation}
+
+  System gain can be calculated from equation 2 above, and utilizing Matlab's \textit{ginput} function, we can find inputs to equations 3 and 4 in order to calculate $\tau$.
+  From these equations, the average gain was calculated as 1.68805, and the average time constant was found to be 0.04035. These values were found using the overshoot, settling time, and overall response characteristics of the step response plot.
+
+  \subsection{Validation and Verification}
+  Using the information gathered so far, we were able to form a theoretical transfer function for the motor from the frequency and step response. Compating the experimental steady state gain and time constant with the experimental values showed a relatively strong similarity between the two calculations, finding $K$ to be 1.528 and $\tau$ to be 0.0252, which produces a transfer function of $\frac{1.528}{0.0252s+1}$, compared to the results in part one and part two of this experiment.
+
+  Following this exercise, we sought to validate the simulated models performance, comparing its results to those we received from the physical system. In order to accomplish this, we first implemented the values calculated in the previous step, then we adjusted the model parameters based on experimental data in order to improve the simulation's accuracy. Using the nominal values calculate in the verification step, we generated the following graph, shown in figure 3.
+  \begin{figure}[!t]
+    \centering
+    \includegraphics[width=2.5in]{NominalFrequencyResponse.jpg}
+    \caption{Nominal Frequency Response}
+    \label{fig_sim}
+  \end{figure}
+  In figure 3, it is evident that, although the two graphs are quite similar, there is a small variation in amplitude. Factors that contribute to this difference may potentially include friction, physical imperfections in the machine itself (such as wear and tear or manufacturing imperfections), or general imperfections.
+  Next,we began adjusting variables in an attempt to reduce the difference between the two graphs. Performing this adjustment iteratively, we compared the response plots of the simulated and physical systems, seeking to match them as closely as possible. Figure 4 shows the final result of this process, and demonstrates a remarkeably close match between the simulated and physical system.
+  \begin{figure}[!t]
+    \centering
+    \includegraphics[width=2.5in]{AdjustedFrequencyResponse.jpg}
+    \caption{Adjusted Frequency Response}
+    \label{fig_sim}
+  \end{figure}
+  Using a $K$ of 1.6 and a $\tau$ of 0.0252, the adjusted simulation parameters resulted in a response that matched the experimental response almost exactly. This demonstrates the efficacy of our simulation and experimental process.
+
+  \section{Conclusion}
+  Through this experimental investigatin into steady state gain, frequency response, and step response, we have improved our insight into the SRV02 DC motor and its dynamic response. More specifically, analyzing bode magnitude plots allowed us to determine the gain ($K$) and time constant ($\tau$) for step and frequency responses. Comparing these values to the values we obtained mathematically and those from the simulated model, we attempted to determine the accuracy of our experimental techniques.
+  This experiment was not without numerous difficulties and challenges. We struggled to properly interpret our bode plots, on several occasions selecting the incorrect location on the plot and therefore obtaining incorrect values. These mistakes emphasized the importance of situational awareness when running experimental simulations.
+  Overall, the results we obtained from this series of experiments demonstrate the performance and response of the SRV02 motor, and the general effectiveness of the modeling techniques used throughout this procedure; the similarity between the theoretical predictions and experimental observations highlighting the efficacy and reliability of our modeling technique. THese finding have important implications for the design and analysis of control systems in various engineering applications, and will assist us as we explore similar systems within the United States Coast Guard and its many missions. 
+
   % An example of a floating figure using the graphicx package.
   % Note that \label must occur AFTER (or within) \caption.
   % For figures, \caption should occur after the \includegraphics.
@@ -541,13 +608,6 @@
   % Note that, LaTeX2e, unlike IEEE journals/conferences, places
   % footnotes above bottom floats. This can be corrected via the
   % \fnbelowfloat command of the stfloats package.
-
-
-
-
-  \section{Conclusion}
-  The conclusion goes here.
-
 
 
 
