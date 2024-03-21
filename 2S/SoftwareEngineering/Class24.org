@@ -1,0 +1,10 @@
+#+OPTIONS: toc:nil
+* Screenshot
+#+ATTR_LATEX: :caption \bicaption{---}
+[[file:/home/csj7701/School/2S/SoftwareEngineering/Class24.png]]
+
+* Compile and run instructions
+
+No compilation needed.
+Simply navigate to the file's directory, and run the command =python Class24=.
+If this does not work or throws an error, you may need to rename the file to =Class24.py=, then run the command =python Class24.py=, since D2L does not allow me to submit files with a =*.py= extension.

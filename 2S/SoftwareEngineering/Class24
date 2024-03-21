@@ -1,0 +1,26 @@
+class CaptainKirk(object):
+    def __new__(cls):
+        if not hasattr(cls, 'instance'):
+            cls.instance=super(CaptainKirk, cls).__new__(cls)
+        return cls.instance
+
+    def set_num(self, number: int):
+        self.number=number
+
+    def print_num(self):
+        print("Number:",self.number)
+
+if __name__ == "__main__":
+    WilliamShatner=CaptainKirk()
+    ChrisPine=CaptainKirk()
+
+    number=5
+    print(f"Setting William's number to {number}")
+    WilliamShatner.set_num(number)
+    print()
+    print("William's Number:")
+    WilliamShatner.print_num()
+    print("Chris's Number:")
+    ChrisPine.print_num()
+    print()
+    print("Are William and Chris the same?", WilliamShatner is ChrisPine)
