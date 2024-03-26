@@ -1,0 +1,877 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      -->
+<title>Lab3</title>
+<meta name="generator" content="MATLAB 23.2">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2024-03-25">
+<meta name="DC.source" content="Lab3.m">
+<style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style>
+</head>
+<body>
+<div class="content">
+<h2>Contents</h2>
+<div>
+<ul>
+<li>
+<a href="#1">Title Page</a>
+</li>
+<li>
+<a href="#2">Part A</a>
+</li>
+<li>
+<a href="#3">Effect of Damping Ratio &amp; Natural Frequency of the Pole Locations</a>
+</li>
+<li>
+<a href="#4">Part C: Effect of Pole Location on Step and Frequency Response</a>
+</li>
+<li>
+<a href="#6">Part C part e</a>
+</li>
+<li>
+<a href="#8">Conclusion</a>
+</li>
+</ul>
+</div>
+<h2 id="1">Title Page</h2>
+<pre class="codeinput">import <span class="string">mlreportgen.report.*</span>
+rpt=Report(<span class="string">'output'</span>, <span class="string">'pdf'</span>)
+tp = TitlePage();
+tp.Title = <span class="string">'LAB 3: Standard 2nd Order System Identification'</span>;
+tp.Subtitle = <span class="string">'Automatic Control Systems (1331)'</span>;
+tp.Author = <span class="string">'Christian Johnson &amp; Riley Thorburn'</span>;
+tp.Publisher = <span class="string">'Dr. Emami'</span>;
+tp.PubDate = date();
+add(rpt,tp);
+close(rpt)
+rptview(rpt)
+</pre>
+<pre class="codeoutput">
+rpt = 
+
+  Report with properties:
+
+      OutputPath: 'output'
+            Type: 'pdf'
+     PackageType: []
+    TemplatePath: []
+          Locale: []
+           Debug: 0
+          Layout: [1&times;1 mlreportgen.report.ReportLayout]
+        Document: [0&times;0 mlreportgen.dom.Document]
+         Context: [0&times;1 containers.Map]
+
+</pre>
+<h2 id="2">Part A</h2>
+<pre class="codeinput">L=(47*10^(-3));
+C=(0.22*10^(-6));
+R=500;
+
+
+Tftop=[1/(L*C)];
+s=zpk(<span class="string">'s'</span>);
+Tfbot=(s^2+(R/L)*s+(1/(C*L)));
+
+Tf=Tftop/Tfbot;
+figure(1);
+step(Tf)
+grid <span class="string">on</span>;
+figure(2);
+bode(Tf);
+grid <span class="string">on</span>;
+<span class="comment">% Part D</span>
+
+<span class="comment">% The issue with the step response graph is that it is underdamped. You can</span>
+<span class="comment">% solve this by adding lossy elements into the circuit.</span>
+</pre>
+<img vspace="5" hspace="5" src="Lab3_01.png" alt=""> <img vspace="5" hspace="5" src="Lab3_02.png" alt=""> <h2 id="3">Effect of Damping Ratio &amp; Natural Frequency of the Pole Locations</h2>
+<pre class="codeinput">[poles, ~]=pzmap(Tf);
+
+figure (3);
+grid <span class="string">on</span>;
+zeta=0:0.25:1;
+ Labels = <span class="string">'\Zeta='</span> + string(zeta);
+<span class="keyword">for</span> i = 1:length(zeta)
+    Wn=8400;
+    Tftop=(Wn^2);
+    Tfbot=(s^2+(2*zeta(i)*Wn)*s+(Wn^2));
+    Tf(i)=Tftop/Tfbot;
+    hold <span class="string">on</span>
+    pzmap(Tf(i));
+
+    legend(Labels);
+
+
+<span class="keyword">end</span>
+hold <span class="string">off</span>
+
+figure(4);
+Wn=7000:500:10000;
+zeta=.54
+ Labels = <span class="string">'\Wn='</span> + string(Wn);
+ hold <span class="string">on</span>;
+<span class="keyword">for</span> i=1:length(Wn)
+
+    Tftop=(Wn(i)^2);
+    Tfbot=(s^2+(2*zeta*Wn(i))*s+(Wn(i)^2));
+    Tf=Tftop/Tfbot;
+
+    pzmap(Tf)
+    legend(Labels);
+
+<span class="keyword">end</span>
+hold <span class="string">off</span>
+
+<span class="comment">% Analysis for Part B (part b and c)</span>
+
+<span class="comment">% The effect of damping ratio on location of poles: as damping ratio gets</span>
+<span class="comment">% larger, the pole's real and complex values get larger. The poles are</span>
+<span class="comment">% increasing at a decreasing rate.</span>
+
+<span class="comment">%The effect of natural frequency on location of poles: As natural frequency</span>
+<span class="comment">%increases, the pole's real and complex values are approaching zero.</span>
+
+<span class="comment">% Problem:</span>
+</pre>
+<pre class="codeoutput">Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+
+zeta =
+
+    0.5400
+
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+</pre>
+<img vspace="5" hspace="5" src="Lab3_03.png" alt=""> <img vspace="5" hspace="5" src="Lab3_04.png" alt=""> <h2 id="4">Part C: Effect of Pole Location on Step and Frequency Response</h2>
+<pre class="codeinput">figure (5);
+grid <span class="string">on</span>;
+zeta=0:0.25:1.5;
+ Labels = <span class="string">'\Zeta='</span> + string(zeta);
+<span class="keyword">for</span> i = 1:length(zeta)
+    Wn=8400;
+    Tftop=(Wn^2);
+    Tfbot=(s^2+(2*zeta(i)*Wn)*s+(Wn^2));
+    Tf(i)=Tftop/Tfbot;
+    hold <span class="string">on</span>
+    step(Tf(i),0.0025);
+
+    legend(Labels);
+
+
+<span class="keyword">end</span>
+hold <span class="string">off</span>
+<span class="comment">% As damping ratio increases, the system goes from undamped to overdamped.</span>
+<span class="comment">% The Overshoot percentage starts to decrease and the settling time</span>
+<span class="comment">% decreases up to the point that zeta=1 and then it starts to increase</span>
+<span class="comment">% again.</span>
+figure (6);
+grid <span class="string">on</span>;
+zeta=0:0.25:1.5;
+ Labels = <span class="string">'\Zeta='</span> + string(zeta);
+<span class="keyword">for</span> i = 1:length(zeta)
+    Wn=8400;
+    Tftop=(Wn^2);
+    Tfbot=(s^2+(2*zeta(i)*Wn)*s+(Wn^2));
+    Tf(i)=Tftop/Tfbot;
+    hold <span class="string">on</span>
+  bode(Tf(i));
+
+    legend(Labels);
+
+
+<span class="keyword">end</span>
+hold <span class="string">off</span>
+
+<span class="comment">% Damping ratio on frequency response: As damping ratio increases, there is</span>
+<span class="comment">% a decrease in the maximum magnitude. The real component of the pole</span>
+<span class="comment">% increase. This will smooth the phase response and prevent the vertical</span>
+<span class="comment">% discontuinity when zeta=0;</span>
+</pre>
+<pre class="codeoutput">Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+</pre>
+<img vspace="5" hspace="5" src="Lab3_05.png" alt=""> <img vspace="5" hspace="5" src="Lab3_06.png" alt=""> <pre class="codeinput">figure(7);
+Wn=7000:500:10000;
+zeta=.54
+ Labels = <span class="string">'\Wn='</span> + string(Wn);
+ hold <span class="string">on</span>;
+<span class="keyword">for</span> i=1:length(Wn)
+
+    Tftop=(Wn(i)^2);
+    Tfbot=(s^2+(2*zeta*Wn(i))*s+(Wn(i)^2));
+    Tf=Tftop/Tfbot;
+
+   step(Tf)
+    legend(Labels);
+
+<span class="keyword">end</span>
+hold <span class="string">off</span>
+<span class="comment">%Effect of natural frequencies on step responses: As you increase the</span>
+<span class="comment">%natural frequency there is a linear delay of the maximum amplitude in the</span>
+<span class="comment">%step response. All of the responses are underdamped.</span>
+figure(8);
+Wn=7000:500:10000;
+zeta=.54
+ Labels = <span class="string">'\Wn='</span> + string(Wn);
+ hold <span class="string">on</span>;
+<span class="keyword">for</span> i=1:length(Wn)
+
+    Tftop=(Wn(i)^2);
+    Tfbot=(s^2+(2*zeta*Wn(i))*s+(Wn(i)^2));
+    Tf=Tftop/Tfbot;
+
+    bode(Tf)
+    legend(Labels);
+
+<span class="keyword">end</span>
+hold <span class="string">off</span>
+
+<span class="comment">%  Effect of natural frequency on frequency response: At low frequencies,</span>
+<span class="comment">%  all of the responses have the same amplitude. At high frequencies an</span>
+<span class="comment">%  increase in wn causes a subsequent increase in amplitude. For Phase, the</span>
+<span class="comment">%  responses are all close to zero for low frequencies and as frequency</span>
+<span class="comment">%  increases the phase starts to deviate</span>
+</pre>
+<pre class="codeoutput">
+zeta =
+
+    0.5400
+
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+
+zeta =
+
+    0.5400
+
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+Warning: Ignoring extra legend entries. 
+</pre>
+<img vspace="5" hspace="5" src="Lab3_07.png" alt=""> <img vspace="5" hspace="5" src="Lab3_08.png" alt=""> <h2 id="6">Part C part e</h2>
+<pre class="codeinput">L=(47*10^(-3));
+C=(0.22*10^(-6));
+s=tf(<span class="string">'s'</span>);
+
+figure(9);
+
+zeta=0:0.25:1.5;
+hold <span class="string">on</span>;
+<span class="keyword">for</span> i = 1:length(zeta)
+    R(i)=(2*zeta(i)*L)*(1/sqrt(L*C));
+    Tftop=(1/(L*C));
+    Tfbot(i)=(s^2+(R(i)/L)*s+(1/(C*L)));
+    Tf(i)=Tftop/Tfbot(i);
+    hold <span class="string">on</span>;
+    figure(9)
+    step(Tf(i), 0.005);
+
+
+    Labels = <span class="string">'\R='</span> + string(R);
+    legend(Labels)
+
+<span class="keyword">end</span>
+hold <span class="string">off</span>;
+
+<span class="comment">% Underdamped: R= Between 231-693 ohms</span>
+<span class="comment">% Overdamped: R=1155+</span>
+<span class="comment">% Undamped: R=0-231 ohms</span>
+<span class="comment">% Critically damped: R=924</span>
+
+<span class="comment">% Zeta is used, R is calculated using a range of zeta values, that way</span>
+<span class="comment">% "guess and check" is not the method used to find resistance values.</span>
+<span class="comment">% Underdamped, overdamped, and undamped was found by graph characteristics</span>
+<span class="comment">% such as OS percentage. Critically damped does not have any visually</span>
+<span class="comment">% unique characterisitcs, we looked for repeated poles on the real axis in</span>
+<span class="comment">% order to find where it was critically damped. The resistance overall is</span>
+<span class="comment">% changing the zeta value or damping frequency, which has an effect on step</span>
+<span class="comment">% response. The resistance amd damping frequency have a direct relationship</span>
+<span class="comment">% so as R increases, so does zeta and the step response will change as was</span>
+<span class="comment">% analyzed previouslly in this lab.</span>
+</pre>
+<pre class="codeoutput">Warning: Error updating Legend.
+
+ String scalar or character vector must have valid interpreter syntax:
+\R=0
+ 
+Warning: Error updating Legend.
+
+ String scalar or character vector must have valid interpreter syntax:
+\R=0
+ 
+Warning: Error updating Legend.
+
+ String scalar or character vector must have valid interpreter syntax:
+\R=231.1041
+ 
+Warning: Error updating Legend.
+
+ String scalar or character vector must have valid interpreter syntax:
+\R=0
+ 
+Warning: Error updating Legend.
+
+ String scalar or character vector must have valid interpreter syntax:
+\R=231.1041
+ 
+Warning: Error updating Legend.
+
+ String scalar or character vector must have valid interpreter syntax:
+\R=462.2081
+ 
+Warning: Error updating Legend.
+
+ String scalar or character vector must have valid interpreter syntax:
+\R=0
+ 
+Warning: Error updating Legend.
+
+ String scalar or character vector must have valid interpreter syntax:
+\R=231.1041
+ 
+Warning: Error updating Legend.
+
+ String scalar or character vector must have valid interpreter syntax:
+\R=462.2081
+ 
+Warning: Error updating Legend.
+
+ String scalar or character vector must have valid interpreter syntax:
+\R=693.3122
+ 
+Warning: Error updating Legend.
+
+ String scalar or character vector must have valid interpreter syntax:
+\R=0
+ 
+Warning: Error updating Legend.
+
+ String scalar or character vector must have valid interpreter syntax:
+\R=231.1041
+ 
+Warning: Error updating Legend.
+
+ String scalar or character vector must have valid interpreter syntax:
+\R=462.2081
+ 
+Warning: Error updating Legend.
+
+ String scalar or character vector must have valid interpreter syntax:
+\R=693.3122
+ 
+Warning: Error updating Legend.
+
+ String scalar or character vector must have valid interpreter syntax:
+\R=924.4163
+ 
+Warning: Error updating Legend.
+
+ String scalar or character vector must have valid interpreter syntax:
+\R=0
+ 
+Warning: Error updating Legend.
+
+ String scalar or character vector must have valid interpreter syntax:
+\R=231.10407
+ 
+Warning: Error updating Legend.
+
+ String scalar or character vector must have valid interpreter syntax:
+\R=462.20814
+ 
+Warning: Error updating Legend.
+
+ String scalar or character vector must have valid interpreter syntax:
+\R=693.31221
+ 
+Warning: Error updating Legend.
+
+ String scalar or character vector must have valid interpreter syntax:
+\R=924.41628
+ 
+Warning: Error updating Legend.
+
+ String scalar or character vector must have valid interpreter syntax:
+\R=1155.5203
+ 
+</pre>
+<img vspace="5" hspace="5" src="Lab3_09.png" alt=""> <pre class="codeinput">pos=((1.59-1)/1)*100
+zeta=(-log(pos/100))/sqrt(pi^2+log(pos/100)^2)
+Ts=17
+wn=4/(Ts*zeta)
+
+s=tf(<span class="string">'s'</span>)
+G=(wn^2)/((s^2)+(2*wn*zeta*s)+(wn^2))
+figure(11)
+step(G)
+num=(wn^2);
+den=[1,2*wn*zeta,wn^2];
+<span class="comment">% State Space</span>
+[A,B,C,d]=tf2ss(num, den)
+
+<span class="comment">%{
+</span><span class="comment">Measured normalized heading, measured by hand then verify with matlab the
+</span><span class="comment">response from the heading.
+</span><span class="comment">Solved with system, found the settling time..
+</span><span class="comment">Problem was that the ship was swinging back and forth (it will eventully
+</span><span class="comment">stabilize) and we do not know how the ship responds to input. From that
+</span><span class="comment">swinging, we were given a normalized step response from which we were able
+</span><span class="comment">to determine a transfer function for the ships motion. We saw that given
+</span><span class="comment">very little information, we were able to accurately model the ships
+</span><span class="comment">behavior and get very close to perfectly modeling the ship's step response
+</span><span class="comment">graph.
+</span><span class="comment">.
+</span><span class="comment">%}</span>
+</pre>
+<pre class="codeoutput">
+pos =
+
+   59.0000
+
+
+zeta =
+
+    0.1656
+
+
+Ts =
+
+    17
+
+
+wn =
+
+    1.4206
+
+
+s =
+ 
+  s
+ 
+Continuous-time transfer function.
+
+G =
+ 
+          2.018
+  ----------------------
+  s^2 + 0.4706 s + 2.018
+ 
+Continuous-time transfer function.
+
+A =
+
+   -0.4706   -2.0181
+    1.0000         0
+
+
+B =
+
+     1
+     0
+
+
+C =
+
+         0    2.0181
+
+
+d =
+
+     0
+
+</pre>
+<img vspace="5" hspace="5" src="Lab3_10.png" alt=""> <h2 id="8">Conclusion</h2>
+<pre class="codeinput">
+<span class="comment">%{
+</span><span class="comment">This lab started by analzying the transfer function for a simple RLC
+</span><span class="comment">circuit. The step and frequency response were plotted and analyzed. It was
+</span><span class="comment">clear from their plots that the basic system modeled was underdamped. The
+</span><span class="comment">next part of this lab dealt with the effect of damping ratio and natural
+</span><span class="comment">frequency on the pole locations. After the s-plane plot poles were found
+</span><span class="comment">for the continous time transfer function, a for loop was created that
+</span><span class="comment">varied the values of zeta over the given range. Additionally, the natural
+</span><span class="comment">frequency was also varied through the use of a for loop and plotted. Both
+</span><span class="comment">plots were analyzed. They showed that as damping ratio gets larger,
+</span><span class="comment">the pole's real and complex values get larger.
+</span><span class="comment">The effect of natural frequency on location of poles: As natural
+</span><span class="comment">frequency increased, we saw pole magnitude begin to approach zero.
+</span><span class="comment">%}</span>
+</pre>
+<p class="footer">
+<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2023b</a>
+<br>
+</p>
+</div>
+<!--
+##### SOURCE BEGIN #####
+%% Title Page
+import mlreportgen.report.*
+rpt=Report('output', 'pdf')
+tp = TitlePage();
+tp.Title = 'LAB 3: Standard 2nd Order System Identification';
+tp.Subtitle = 'Automatic Control Systems (1331)';
+tp.Author = 'Christian Johnson & Riley Thorburn';
+tp.Publisher = 'Dr. Emami';
+tp.PubDate = date();
+add(rpt,tp);
+close(rpt)
+rptview(rpt)
+ %% Part A
+L=(47*10^(-3));
+C=(0.22*10^(-6));
+R=500;
+
+
+Tftop=[1/(L*C)];
+s=zpk('s');
+Tfbot=(s^2+(R/L)*s+(1/(C*L)));
+
+Tf=Tftop/Tfbot; 
+figure(1); 
+step(Tf)
+grid on;
+figure(2);
+bode(Tf);
+grid on; 
+% Part D
+
+% The issue with the step response graph is that it is underdamped. You can
+% solve this by adding lossy elements into the circuit. 
+
+%% Effect of Damping Ratio & Natural Frequency of the Pole Locations
+
+
+
+[poles, ~]=pzmap(Tf);
+
+figure (3);
+grid on;
+zeta=0:0.25:1;
+ Labels = '\Zeta=' + string(zeta);
+for i = 1:length(zeta)
+    Wn=8400;    
+    Tftop=(Wn^2);
+    Tfbot=(s^2+(2*zeta(i)*Wn)*s+(Wn^2));
+    Tf(i)=Tftop/Tfbot;
+    hold on
+    pzmap(Tf(i));
+   
+    legend(Labels); 
+    
+    
+end
+hold off
+
+figure(4); 
+Wn=7000:500:10000;
+zeta=.54
+ Labels = '\Wn=' + string(Wn);
+ hold on;
+for i=1:length(Wn)
+
+    Tftop=(Wn(i)^2);
+    Tfbot=(s^2+(2*zeta*Wn(i))*s+(Wn(i)^2));
+    Tf=Tftop/Tfbot;
+ 
+    pzmap(Tf)
+    legend(Labels); 
+    
+end
+hold off
+    
+% Analysis for Part B (part b and c)
+
+% The effect of damping ratio on location of poles: as damping ratio gets
+% larger, the pole's real and complex values get larger. The poles are
+% increasing at a decreasing rate. 
+
+%The effect of natural frequency on location of poles: As natural frequency
+%increases, the pole's real and complex values are approaching zero. 
+
+% Problem: 
+
+
+%%  Part C: Effect of Pole Location on Step and Frequency Response
+
+figure (5);
+grid on;
+zeta=0:0.25:1.5;
+ Labels = '\Zeta=' + string(zeta);
+for i = 1:length(zeta)
+    Wn=8400;    
+    Tftop=(Wn^2);
+    Tfbot=(s^2+(2*zeta(i)*Wn)*s+(Wn^2));
+    Tf(i)=Tftop/Tfbot;
+    hold on
+    step(Tf(i),0.0025);
+   
+    legend(Labels); 
+    
+    
+end
+hold off
+% As damping ratio increases, the system goes from undamped to overdamped.
+% The Overshoot percentage starts to decrease and the settling time
+% decreases up to the point that zeta=1 and then it starts to increase
+% again.
+figure (6);
+grid on;
+zeta=0:0.25:1.5;
+ Labels = '\Zeta=' + string(zeta);
+for i = 1:length(zeta)
+    Wn=8400;    
+    Tftop=(Wn^2);
+    Tfbot=(s^2+(2*zeta(i)*Wn)*s+(Wn^2));
+    Tf(i)=Tftop/Tfbot;
+    hold on
+  bode(Tf(i));
+   
+    legend(Labels); 
+    
+    
+end
+hold off
+
+% Damping ratio on frequency response: As damping ratio increases, there is
+% a decrease in the maximum magnitude. The real component of the pole
+% increase. This will smooth the phase response and prevent the vertical
+% discontuinity when zeta=0; 
+%%
+figure(7); 
+Wn=7000:500:10000;
+zeta=.54
+ Labels = '\Wn=' + string(Wn);
+ hold on;
+for i=1:length(Wn)
+
+    Tftop=(Wn(i)^2);
+    Tfbot=(s^2+(2*zeta*Wn(i))*s+(Wn(i)^2));
+    Tf=Tftop/Tfbot;
+ 
+   step(Tf)
+    legend(Labels); 
+    
+end
+hold off
+%Effect of natural frequencies on step responses: As you increase the
+%natural frequency there is a linear delay of the maximum amplitude in the
+%step response. All of the responses are underdamped. 
+figure(8); 
+Wn=7000:500:10000;
+zeta=.54
+ Labels = '\Wn=' + string(Wn);
+ hold on;
+for i=1:length(Wn)
+
+    Tftop=(Wn(i)^2);
+    Tfbot=(s^2+(2*zeta*Wn(i))*s+(Wn(i)^2));
+    Tf=Tftop/Tfbot;
+ 
+    bode(Tf)
+    legend(Labels); 
+    
+end
+hold off
+
+%  Effect of natural frequency on frequency response: At low frequencies,
+%  all of the responses have the same amplitude. At high frequencies an
+%  increase in wn causes a subsequent increase in amplitude. For Phase, the
+%  responses are all close to zero for low frequencies and as frequency
+%  increases the phase starts to deviate 
+
+%% Part C part e
+
+L=(47*10^(-3));
+C=(0.22*10^(-6));
+s=tf('s');
+
+figure(9);
+
+zeta=0:0.25:1.5;
+hold on;
+for i = 1:length(zeta)
+    R(i)=(2*zeta(i)*L)*(1/sqrt(L*C));
+    Tftop=(1/(L*C));
+    Tfbot(i)=(s^2+(R(i)/L)*s+(1/(C*L)));
+    Tf(i)=Tftop/Tfbot(i); 
+    hold on;
+    figure(9)
+    step(Tf(i), 0.005);
+   
+  
+    Labels = '\R=' + string(R);     
+    legend(Labels)
+
+end 
+hold off; 
+
+% Underdamped: R= Between 231-693 ohms 
+% Overdamped: R=1155+
+% Undamped: R=0-231 ohms
+% Critically damped: R=924
+
+% Zeta is used, R is calculated using a range of zeta values, that way
+% "guess and check" is not the method used to find resistance values.
+% Underdamped, overdamped, and undamped was found by graph characteristics
+% such as OS percentage. Critically damped does not have any visually
+% unique characterisitcs, we looked for repeated poles on the real axis in
+% order to find where it was critically damped. The resistance overall is
+% changing the zeta value or damping frequency, which has an effect on step
+% response. The resistance amd damping frequency have a direct relationship
+% so as R increases, so does zeta and the step response will change as was
+% analyzed previouslly in this lab. 
+
+%%
+
+pos=((1.59-1)/1)*100
+zeta=(-log(pos/100))/sqrt(pi^2+log(pos/100)^2)
+Ts=17
+wn=4/(Ts*zeta)
+
+s=tf('s')
+G=(wn^2)/((s^2)+(2*wn*zeta*s)+(wn^2))
+figure(11)
+step(G)
+num=(wn^2);
+den=[1,2*wn*zeta,wn^2];
+% State Space
+[A,B,C,d]=tf2ss(num, den)
+
+%{
+Measured normalized heading, measured by hand then verify with matlab the
+response from the heading.
+Solved with system, found the settling time..
+Problem was that the ship was swinging back and forth (it will eventully
+stabilize) and we do not know how the ship responds to input. From that
+swinging, we were given a normalized step response from which we were able
+to determine a transfer function for the ships motion. We saw that given
+very little information, we were able to accurately model the ships
+behavior and get very close to perfectly modeling the ship's step response
+graph. 
+.
+%}
+
+
+%% Conclusion 
+
+%{
+This lab started by analzying the transfer function for a simple RLC 
+circuit. The step and frequency response were plotted and analyzed. It was
+clear from their plots that the basic system modeled was underdamped. The 
+next part of this lab dealt with the effect of damping ratio and natural
+frequency on the pole locations. After the s-plane plot poles were found 
+for the continous time transfer function, a for loop was created that 
+varied the values of zeta over the given range. Additionally, the natural
+frequency was also varied through the use of a for loop and plotted. Both
+plots were analyzed. They showed that as damping ratio gets larger,
+the pole's real and complex values get larger. 
+The effect of natural frequency on location of poles: As natural
+frequency increased, we saw pole magnitude begin to approach zero.
+%}
+%%
+
+
+
+
+
+
+
+
+
+
+
+##### SOURCE END #####
+-->
+</body>
+</html>
