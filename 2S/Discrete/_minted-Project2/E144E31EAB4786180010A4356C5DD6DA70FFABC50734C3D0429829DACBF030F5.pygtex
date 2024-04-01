@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{math} \PYG{k+kn}{import} \PYG{n}{factorial}
+
+\PYG{k}{def} \PYG{n+nf}{Pascal}\PYG{p}{(}\PYG{n}{numRows}\PYG{p}{):}
+    \PYG{n}{triangle}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{numRows}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{):}
+        \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{numRows}\PYG{o}{\PYGZhy{}}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{):}
+            \PYG{n}{triangle}\PYG{o}{+=}\PYG{l+s+s2}{\PYGZdq{}  \PYGZdq{}}
+        \PYG{c+c1}{\PYGZsh{} loop to get elements of row i}
+        \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{):}
+            \PYG{c+c1}{\PYGZsh{} nCr = n!/((n\PYGZhy{}r)!*r!)}
+            \PYG{n}{triangle}\PYG{o}{+=}\PYG{p}{(} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{factorial}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}\PYG{o}{//}\PYG{p}{(}\PYG{n}{factorial}\PYG{p}{(}\PYG{n}{j}\PYG{p}{)}\PYG{o}{*}\PYG{n}{factorial}\PYG{p}{(}\PYG{n}{i}\PYG{o}{\PYGZhy{}}\PYG{n}{j}\PYG{p}{)))} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}   \PYGZdq{}} \PYG{p}{)}
+
+        \PYG{n}{triangle}\PYG{o}{+=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{\PYGZdq{}}
+
+    \PYG{k}{return} \PYG{n}{triangle}
+\end{Verbatim}

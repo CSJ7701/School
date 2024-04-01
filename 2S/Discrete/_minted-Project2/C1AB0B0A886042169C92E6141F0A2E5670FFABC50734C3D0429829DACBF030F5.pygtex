@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{my\PYGZus{}set}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}a\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}b\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}c\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}d\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}e\PYGZsq{}}\PYG{p}{\PYGZcb{}}
+\PYG{n}{seta}\PYG{o}{=}\PYG{n}{powerset}\PYG{p}{(}\PYG{n}{my\PYGZus{}set}\PYG{p}{)}
+\PYG{n}{seta}
+\end{Verbatim}

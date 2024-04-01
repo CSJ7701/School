@@ -1,6 +1,6 @@
 #+TITLE: Project 2
 #+AUTHOR: Christian Johnson /and Aidan Andersen
-
+#+LATEX_HEADER: \usepackage{minted}
 
 #+begin_export latex
 \newpage
@@ -9,7 +9,8 @@
 
 
 * Python Code
-#+NAME: 
+#+NAME:
+#+ATTR_LATEX: :options frame=single
 #+begin_src python :session Discrete-Project2
   from math import factorial
 
@@ -21,7 +22,9 @@
           # loop to get elements of row i
           for j in range(i+1):
               # nCr = n!/((n-r)!*r!)
-              triangle+=( str(factorial(i)//(factorial(j)*factorial(i-j))) + "   " )
+              num=factorial(i)
+              den=factorial(j)*factorial(i-j)
+              triangle+=( str(num//den) + "   " )
 
           triangle+="\n"
 
@@ -34,11 +37,13 @@
 
 ** $(s-t)^{10}$
 
+#+ATTR_LATEX: :options frame=single
 #+begin_src python :session Discrete-Project2 :exports both
   Pascal(10)
 #+end_src
 
 #+RESULTS:
+#+ATTR_LATEX: :options frame=single
 #+begin_example
                       1   
                     1   1   
@@ -57,6 +62,7 @@
 $s^{10}+10s^{9}t+45s^{8}t^2+120s^7t^3+210s^6t^4+252s^5t^5+210s^4t^6+120s^3t^7+45s^2t^8+10st^9+t^{10}$
 
 ** $(2x+y)^5$
+#+ATTR_LATEX: :options frame=single
 #+begin_src python :session Discrete-Project2 :exports both
   Pascal(5)
 #+end_src
@@ -75,6 +81,7 @@ $2x^{5}+5(2x)^{4}y+10(2x)^{3}y^{2}+10(2x)^{2}y^{3}+5(2x)y^{4}+y^{5}$
 * List elements of a power set
 
 ** Python
+#+ATTR_LATEX: :options frame=single, breaklines=true
 #+begin_src python :session Discrete-Project2
   from itertools import chain, combinations
 
@@ -88,48 +95,71 @@ $2x^{5}+5(2x)^{4}y+10(2x)^{3}y^{2}+10(2x)^{2}y^{3}+5(2x)y^{4}+y^{5}$
 #+RESULTS:
 
 ** $(a,b,c,d,e)$
-
-#+begin_src python :session Discrete-Project2 :exports both
+#+ATTR_LATEX: :options frame=single, breaklines=true
+#+begin_src python :session Discrete-Project2 :results value verbatim code
   my_set={'a','b','c','d','e'}
   seta=powerset(my_set)
   seta
 #+end_src
 
-#+RESULTS:
-| a |   |   |   |   |
-| b |   |   |   |   |
-| e |   |   |   |   |
-| c |   |   |   |   |
-| d |   |   |   |   |
-| a | b |   |   |   |
-| a | e |   |   |   |
-| a | c |   |   |   |
-| a | d |   |   |   |
-| b | e |   |   |   |
-| b | c |   |   |   |
-| b | d |   |   |   |
-| e | c |   |   |   |
-| e | d |   |   |   |
-| c | d |   |   |   |
-| a | b | e |   |   |
-| a | b | c |   |   |
-| a | b | d |   |   |
-| a | e | c |   |   |
-| a | e | d |   |   |
-| a | c | d |   |   |
-| b | e | c |   |   |
-| b | e | d |   |   |
-| b | c | d |   |   |
-| e | c | d |   |   |
-| a | b | e | c |   |
-| a | b | e | d |   |
-| a | b | c | d |   |
-| a | e | c | d |   |
-| b | e | c | d |   |
-| a | b | e | c | d |
+#+ATTR_LATEX: :options frame=single, breaklines=true
+#+begin_src python
+[(), ('b',), ('a',), ('d',), ('e',), ('c',), ('b', 'a'), ('b', 'd'), ('b', 'e'), ('b', 'c'), ('a', 'd'), ('a', 'e'), ('a', 'c'), ('d', 'e'), ('d', 'c'), ('e', 'c'), ('b', 'a', 'd'), ('b', 'a', 'e'), ('b', 'a', 'c'), ('b', 'd', 'e'), ('b', 'd', 'c'), ('b', 'e', 'c'), ('a', 'd', 'e'), ('a', 'd', 'c'), ('a', 'e', 'c'), ('d', 'e', 'c'), ('b', 'a', 'd', 'e'), ('b', 'a', 'd', 'c'), ('b', 'a', 'e', 'c'), ('b', 'd', 'e', 'c'), ('a', 'd', 'e', 'c'), ('b', 'a', 'd', 'e', 'c')]
+#+end_src
 
+#+ATTR_LATEX: :options frame=single, breaklines=true
 #+begin_src python :session Discrete-Project2 :exports both
 len(seta)
 #+end_src
 #+RESULTS:
 : 32
+
+** $(2,4,6,8,10,one)$
+#+ATTR_LATEX: :options frame=single, breaklines=true
+#+begin_src python :session Discrete-Project2 :results value verbatim code
+
+  my_set={2,4,6,8,10,'one'}
+  setb=powerset(my_set)
+  setb
+#+end_src
+
+#+ATTR_LATEX: :options frame=single, breaklines=true
+#+begin_src python
+[(), (2,), (4,), (6,), (8,), (10,), ('one',), (2, 4), (2, 6), (2, 8), (2, 10), (2, 'one'), (4, 6), (4, 8), (4, 10), (4, 'one'), (6, 8), (6, 10), (6, 'one'), (8, 10), (8, 'one'), (10, 'one'), (2, 4, 6), (2, 4, 8), (2, 4, 10), (2, 4, 'one'), (2, 6, 8), (2, 6, 10), (2, 6, 'one'), (2, 8, 10), (2, 8, 'one'), (2, 10, 'one'), (4, 6, 8), (4, 6, 10), (4, 6, 'one'), (4, 8, 10), (4, 8, 'one'), (4, 10, 'one'), (6, 8, 10), (6, 8, 'one'), (6, 10, 'one'), (8, 10, 'one'), (2, 4, 6, 8), (2, 4, 6, 10), (2, 4, 6, 'one'), (2, 4, 8, 10), (2, 4, 8, 'one'), (2, 4, 10, 'one'), (2, 6, 8, 10), (2, 6, 8, 'one'), (2, 6, 10, 'one'), (2, 8, 10, 'one'), (4, 6, 8, 10), (4, 6, 8, 'one'), (4, 6, 10, 'one'), (4, 8, 10, 'one'), (6, 8, 10, 'one'), (2, 4, 6, 8, 10), (2, 4, 6, 8, 'one'), (2, 4, 6, 10, 'one'), (2, 4, 8, 10, 'one'), (2, 6, 8, 10, 'one'), (4, 6, 8, 10, 'one'), (2, 4, 6, 8, 10, 'one')]
+#+end_src
+
+#+begin_src python :session Discrete-Project2 :exports both
+  len(setb)
+#+end_src
+
+#+RESULTS:
+: 64
+
+** $(a, 1, b, 2, c, 3, 6, 9, 12, 15, 4, 8, 16)$
+
+#+begin_src python :session Discrete-Project2 :exports both
+
+  my_set={'a', 1, 'b', 2, 'c', 3, 6, 9, 12, 15, 4, 8, 16}
+  setc=powerset(my_set)
+  len(setc)
+  
+#+end_src
+
+#+RESULTS:
+: 8192
+
+** $(3, 1, 24, 5, 9, 10, 11, 16, 29, 37, 54, 42, 18)$
+
+#+begin_src python :session Discrete-Project2 :exports both
+
+  my_set={3, 1, 24, 5, 9, 10, 11, 16, 29, 37, 54, 42, 18}
+  setd=powerset(my_set)
+  len(setd)
+
+#+end_src
+
+#+RESULTS:
+: 8192
+
+** Function to find powerset length
+In general, the length of a powerset will be $2^{n}$, where n is the number of elements in a set.

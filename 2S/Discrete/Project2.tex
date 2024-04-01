@@ -1,4 +1,4 @@
-% Created 2024-04-01 Mon 13:41
+% Created 2024-04-01 Mon 14:39
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -12,8 +12,10 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\usepackage{minted}
 \usepackage{placeins}
 \usepackage{gensymb}
+\usepackage{minted}
 \author{Christian Johnson /and Aidan Andersen}
 \date{\today}
 \title{Project 2}
@@ -34,8 +36,8 @@
 
 
 \section{Python Code}
-\label{sec:org25cd054}
-\begin{verbatim}
+\label{sec:orga2c43bb}
+\begin{minted}[,frame=single]{python}
 from math import factorial
 
 def Pascal(numRows):
@@ -46,22 +48,24 @@ def Pascal(numRows):
         # loop to get elements of row i
         for j in range(i+1):
             # nCr = n!/((n-r)!*r!)
-            triangle+=( str(factorial(i)//(factorial(j)*factorial(i-j))) + "   " )
+            num=factorial(i)
+            den=factorial(j)*factorial(i-j)
+            triangle+=( str(num//den) + "   " )
 
         triangle+="\n"
 
     return triangle
-\end{verbatim}
+\end{minted}
 
 \section{Print Pascal's Triangle}
-\label{sec:orgb60caa6}
+\label{sec:org8da48fe}
 
 \subsection{\((s-t)^{10}\)}
-\label{sec:orgc6341a1}
+\label{sec:orge7c80de}
 
-\begin{verbatim}
+\begin{minted}[,frame=single]{python}
 Pascal(10)
-\end{verbatim}
+\end{minted}
 
 \begin{verbatim}
                     1   
@@ -81,10 +85,10 @@ Pascal(10)
 \(s^{10}+10s^{9}t+45s^{8}t^2+120s^7t^3+210s^6t^4+252s^5t^5+210s^4t^6+120s^3t^7+45s^2t^8+10st^9+t^{10}\)
 
 \subsection{\((2x+y)^5\)}
-\label{sec:org30ec46f}
-\begin{verbatim}
+\label{sec:orga8ec93b}
+\begin{minted}[,frame=single]{python}
 Pascal(5)
-\end{verbatim}
+\end{minted}
 
 \begin{verbatim}
           1   
@@ -100,40 +104,87 @@ Pascal(5)
 \(2x^{5}+5(2x)^{4}y+10(2x)^{3}y^{2}+10(2x)^{2}y^{3}+5(2x)y^{4}+y^{5}\)
 
 \section{List elements of a power set}
-\label{sec:org9c7ac69}
+\label{sec:orgf011d74}
 
 \subsection{Python}
-\label{sec:org0c932de}
-\begin{verbatim}
+\label{sec:org9f69656}
+\begin{minted}[,frame=single, breaklines=true]{python}
 from itertools import chain, combinations
 
 def powerset(given):
     s=list(given)
     result=chain.from_iterable(combinations(s,r) for r in range(len(s)+1))
-    return result
+    return list(result)
 
-# example
-my_set={1,2,3,4}
-str(list(powerset(my_set)))
+\end{minted}
+
+\subsection{\((a,b,c,d,e)\)}
+\label{sec:org419acb5}
+\begin{minted}[,frame=single, breaklines=true]{python}
+my_set={'a','b','c','d','e'}
+seta=powerset(my_set)
+seta
+\end{minted}
+
+\begin{minted}[,frame=single, breaklines=true]{python}
+[(), ('b',), ('a',), ('d',), ('e',), ('c',), ('b', 'a'), ('b', 'd'), ('b', 'e'), ('b', 'c'), ('a', 'd'), ('a', 'e'), ('a', 'c'), ('d', 'e'), ('d', 'c'), ('e', 'c'), ('b', 'a', 'd'), ('b', 'a', 'e'), ('b', 'a', 'c'), ('b', 'd', 'e'), ('b', 'd', 'c'), ('b', 'e', 'c'), ('a', 'd', 'e'), ('a', 'd', 'c'), ('a', 'e', 'c'), ('d', 'e', 'c'), ('b', 'a', 'd', 'e'), ('b', 'a', 'd', 'c'), ('b', 'a', 'e', 'c'), ('b', 'd', 'e', 'c'), ('a', 'd', 'e', 'c'), ('b', 'a', 'd', 'e', 'c')]
+\end{minted}
+
+\begin{minted}[,frame=single, breaklines=true]{python}
+len(seta)
+\end{minted}
+\begin{verbatim}
+32
 \end{verbatim}
 
-\begin{center}
-\begin{tabular}{rrll}
-1 &  &  & \\[0pt]
-2 &  &  & \\[0pt]
-3 &  &  & \\[0pt]
-4 &  &  & \\[0pt]
-1 & 2 &  & \\[0pt]
-1 & 3 &  & \\[0pt]
-1 & 4 &  & \\[0pt]
-2 & 3 &  & \\[0pt]
-2 & 4 &  & \\[0pt]
-3 & 4 &  & \\[0pt]
-1 & 2 & 3 & \\[0pt]
-1 & 2 & 4 & \\[0pt]
-1 & 3 & 4 & \\[0pt]
-2 & 3 & 4 & \\[0pt]
-1 & 2 & 3 & 4\\[0pt]
-\end{tabular}
-\end{center}
+\subsection{\((2,4,6,8,10,one)\)}
+\label{sec:org17f22cf}
+\begin{minted}[,frame=single, breaklines=true]{python}
+
+my_set={2,4,6,8,10,'one'}
+setb=powerset(my_set)
+setb
+\end{minted}
+
+\begin{minted}[]{python}
+len(setb)
+\end{minted}
+
+\begin{verbatim}
+64
+\end{verbatim}
+
+\subsection{\((a, 1, b, 2, c, 3, 6, 9, 12, 15, 4, 8, 16)\)}
+\label{sec:org8795b36}
+
+\begin{minted}[]{python}
+
+my_set={'a', 1, 'b', 2, 'c', 3, 6, 9, 12, 15, 4, 8, 16}
+setc=powerset(my_set)
+len(setc)
+
+\end{minted}
+
+\begin{verbatim}
+8192
+\end{verbatim}
+
+\subsection{\((3, 1, 24, 5, 9, 10, 11, 16, 29, 37, 54, 42, 18)\)}
+\label{sec:orga9bd081}
+
+\begin{minted}[]{python}
+
+my_set={3, 1, 24, 5, 9, 10, 11, 16, 29, 37, 54, 42, 18}
+setd=powerset(my_set)
+len(setd)
+
+\end{minted}
+
+\begin{verbatim}
+8192
+\end{verbatim}
+
+\subsection{Function to find powerset length}
+\label{sec:orgf78f8ce}
+In general, the length of a powerset will be \(2^{n}\), where n is the number of elements in a set.
 \end{document}

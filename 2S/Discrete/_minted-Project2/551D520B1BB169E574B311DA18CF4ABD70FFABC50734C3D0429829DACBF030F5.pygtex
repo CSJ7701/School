@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\PYG{n}{my\PYGZus{}set}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{l+m+mi}{6}\PYG{p}{,}\PYG{l+m+mi}{8}\PYG{p}{,}\PYG{l+m+mi}{10}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}one\PYGZsq{}}\PYG{p}{\PYGZcb{}}
+\PYG{n}{setb}\PYG{o}{=}\PYG{n}{powerset}\PYG{p}{(}\PYG{n}{my\PYGZus{}set}\PYG{p}{)}
+\PYG{n}{setb}
+\end{Verbatim}

@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{itertools} \PYG{k+kn}{import} \PYG{n}{chain}\PYG{p}{,} \PYG{n}{combinations}
+
+\PYG{k}{def} \PYG{n+nf}{powerset}\PYG{p}{(}\PYG{n}{given}\PYG{p}{):}
+    \PYG{n}{s}\PYG{o}{=}\PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{given}\PYG{p}{)}
+    \PYG{n}{result}\PYG{o}{=}\PYG{n}{chain}\PYG{o}{.}\PYG{n}{from\PYGZus{}iterable}\PYG{p}{(}\PYG{n}{combinations}\PYG{p}{(}\PYG{n}{s}\PYG{p}{,}\PYG{n}{r}\PYG{p}{)} \PYG{k}{for} \PYG{n}{r} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{s}\PYG{p}{)}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{))}
+    \PYG{k}{return} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{result}\PYG{p}{)}
+
+\end{Verbatim}
