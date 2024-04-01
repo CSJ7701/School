@@ -1,0 +1,68 @@
+% Created 2024-04-01 Mon 09:18
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{placeins}
+\usepackage{gensymb}
+\author{Christian Johnson /and Aidan Andersen}
+\date{\today}
+\title{Project 2}
+\hypersetup{
+ pdfauthor={Christian Johnson /and Aidan Andersen},
+ pdftitle={Project 2},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.3 (Org mode 9.6.15)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\newpage
+
+
+
+\section{Python Code}
+\label{sec:org73b4cc1}
+\begin{verbatim}
+
+def Pascal(order):
+    for i in range(order):
+        for j in range(order-i+1):
+            # for left spacing
+            print(end=" ")
+
+        for j in range(i+1):
+
+            # nCr = n!/((n-r)!*r!)
+            print(factorial(i)//(factorial(j)*factorial(i-j)), end=" ")
+
+        # for new line
+        print()
+
+\end{verbatim}
+
+\section{Print Pascal's Triangle}
+\label{sec:org644142c}
+
+\subsection{\((s-t)^{10}\)}
+\label{sec:org945094f}
+
+\begin{verbatim}
+
+Pascal(5)
+
+
+\end{verbatim}
+\end{document}
