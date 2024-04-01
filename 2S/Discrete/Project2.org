@@ -15,7 +15,7 @@
 
   def Pascal(numRows):
       triangle=""
-      for i in range(numRows):
+      for i in range(numRows+1):
           for j in range(numRows-i+1):
               triangle+="  "
           # loop to get elements of row i
@@ -34,11 +34,8 @@
 
 ** $(s-t)^{10}$
 
-#+begin_src python :session Discrete-Project2
-
+#+begin_src python :session Discrete-Project2 :exports both
   Pascal(10)
-  
-
 #+end_src
 
 #+RESULTS:
@@ -53,4 +50,86 @@
         1   7   21   35   35   21   7   1   
       1   8   28   56   70   56   28   8   1   
     1   9   36   84   126   126   84   36   9   1   
+  1   10   45   120   210   252   210   120   45   10   1   
 #+end_example
+
+*Binomial Expansion*:
+$s^{10}+10s^{9}t+45s^{8}t^2+120s^7t^3+210s^6t^4+252s^5t^5+210s^4t^6+120s^3t^7+45s^2t^8+10st^9+t^{10}$
+
+** $(2x+y)^5$
+#+begin_src python :session Discrete-Project2 :exports both
+  Pascal(5)
+#+end_src
+
+#+RESULTS:
+:             1   
+:           1   1   
+:         1   2   1   
+:       1   3   3   1   
+:     1   4   6   4   1   
+:   1   5   10   10   5   1   
+
+*Binomial Expansion*:
+$2x^{5}+5(2x)^{4}y+10(2x)^{3}y^{2}+10(2x)^{2}y^{3}+5(2x)y^{4}+y^{5}$
+
+* List elements of a power set
+
+** Python
+#+begin_src python :session Discrete-Project2
+  from itertools import chain, combinations
+
+  def powerset(given):
+      s=list(given)
+      result=chain.from_iterable(combinations(s,r) for r in range(len(s)+1))
+      return list(result)
+
+#+end_src
+
+#+RESULTS:
+
+** $(a,b,c,d,e)$
+
+#+begin_src python :session Discrete-Project2 :exports both
+  my_set={'a','b','c','d','e'}
+  seta=powerset(my_set)
+  seta
+#+end_src
+
+#+RESULTS:
+| a |   |   |   |   |
+| b |   |   |   |   |
+| e |   |   |   |   |
+| c |   |   |   |   |
+| d |   |   |   |   |
+| a | b |   |   |   |
+| a | e |   |   |   |
+| a | c |   |   |   |
+| a | d |   |   |   |
+| b | e |   |   |   |
+| b | c |   |   |   |
+| b | d |   |   |   |
+| e | c |   |   |   |
+| e | d |   |   |   |
+| c | d |   |   |   |
+| a | b | e |   |   |
+| a | b | c |   |   |
+| a | b | d |   |   |
+| a | e | c |   |   |
+| a | e | d |   |   |
+| a | c | d |   |   |
+| b | e | c |   |   |
+| b | e | d |   |   |
+| b | c | d |   |   |
+| e | c | d |   |   |
+| a | b | e | c |   |
+| a | b | e | d |   |
+| a | b | c | d |   |
+| a | e | c | d |   |
+| b | e | c | d |   |
+| a | b | e | c | d |
+
+#+begin_src python :session Discrete-Project2 :exports both
+len(seta)
+#+end_src
+#+RESULTS:
+: 32
