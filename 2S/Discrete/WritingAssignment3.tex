@@ -1,4 +1,4 @@
-% Created 2024-03-30 Sat 10:57
+% Created 2024-04-09 Tue 10:06
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -12,13 +12,14 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\usepackage{minted}
 \usepackage{placeins}
 \usepackage{gensymb}
-\author{Christian Johnson \and ???}
-\date{\today}
+\author{Christian Johnson \and Aidan Andersen}
+\date{April 7, 2024}
 \title{Writing Assignment 3}
 \hypersetup{
- pdfauthor={Christian Johnson \and ???},
+ pdfauthor={Christian Johnson \and Aidan Andersen},
  pdftitle={Writing Assignment 3},
  pdfkeywords={},
  pdfsubject={},
@@ -31,13 +32,13 @@
 
 \(\newpage\)
 \section{\textbf{Division Algorithm}}
-\label{sec:orga2a1d5a}
+\label{sec:org72cc9b8}
 \subsection{\textbf{Showing the Form of Square of Odd Integers}}
-\label{sec:org9bf12d7}
+\label{sec:org7a70736}
 Using the Division Algorithm, we can express any odd integer as \(\(2k+1\)\) for some integer \(\(k\)\). The square of any odd integer can be represented as \(\((2k+1)^2\)\). Expanding this expression, we get: \((2k+1)^2 = 4k^2 + 4k + 1 = 4(k^2 + k) + 1\).
 Since \(\(k^2 + k\)\) is an integer, we can denote it as \(\(m\)\), where \(\(m \in \mathbb{Z}\)\). Therefore, the square of any odd integer is of the form \(\(8m + 1\)\) for some \(\(m \in \mathbb{Z}\)\).
 \subsection{\textbf{Definition of Greatest Common Divisor (gcd)}}
-\label{sec:org48f04f0}
+\label{sec:org1974c81}
 According to the textbook (section 4.2), the greatest common divisor \(\( \text{gcd}(a, b) \)\) for any pair of positive integers \(\(a\)\) and \(\(b\)\) is defined as:\(\newline\newline\)
 \(g\), iff \(g\) is the largest common divisor of \(a\) and \(b\); that is, iff:\(\newline\)
 \begin{enumerate}
@@ -45,7 +46,7 @@ According to the textbook (section 4.2), the greatest common divisor \(\( \text{
 \item if \(c\) is any integer such that \(c|a\) and \(c|b\), then \(c\le g\).
 \end{enumerate}
 \subsection{\textbf{Finding gcd(345, 92)}}
-\label{sec:org3ac2a04}
+\label{sec:orga66c902}
 \(\text{gcd}(345, 92) = 345m+92n\) \(\newline\)
 Step 1: Apply the Division Algorithm to find quotients and remainders:
 \begin{itemize}
@@ -67,18 +68,18 @@ Step 4: Substitute the expressions for remainders into each other:
 \end{itemize}
 Step 5: Hence, \(\text{gcd}(345, 92) = 23 = 345 \times (-1) + 92 \times 4\), where \(m = -1\) and \(n = 4\).
 \section{\textbf{Exploration of Congruence Classes}}
-\label{sec:org20123bd}
+\label{sec:orgc84ec3d}
 
 \subsection{\textbf{Interpretation of Congruence Statement}}
-\label{sec:org559fc59}
+\label{sec:orgea8b8cb}
 For \(\(n > 1, n \in \mathbb{Z}\)\), the statement \(\(a \equiv b \mod n\)\) means that \(\(a\)\) and \(\(b\)\) have the same remainder when divided by \(\(n\)\).
 
 \subsection{\textbf{Verification of Congruence and Finding Other Members}}
-\label{sec:org2d8f4a9}
+\label{sec:org062cf8f}
 We verify \(4 \equiv -7 \mod 11\) by observing that \(4 - (-7) = 11\), which is divisible by \(11\). Other positive members of the congruence class \(4\) can be found by adding multiples of \(11\), such as \(15\) and \(26\).
 
 \subsection{\textbf{Partitioning Z into Congruence Classes}}
-\label{sec:orga74093c}
+\label{sec:orga8a6571}
 The relation "congruence mod \(n\)" for \(n > 1, n \in \mathbb{Z}\) partitions \(\mathbb{Z}\) into \(n\) classes, each containing integers with the same remainder when divided by \(n\). Thus, it is an equivalence relation on \(\mathbb{Z}\).\(\newpage\)
 \textbf{Explanation}:
 \begin{itemize}
@@ -102,7 +103,7 @@ The relation "congruence mod \(n\)" for \(n > 1, n \in \mathbb{Z}\) partitions \
 \end{itemize}
 
 \subsection{\textbf{Explanation of Remainder Classes}}
-\label{sec:org4c86671}
+\label{sec:orgac37354}
 For any \(n > 1, n \in \mathbb{Z}\), there are exactly \(n\) remainder classes. This is because when dividing any integer \(a\) by \(n\), we obtain a remainder \(r\) where \(0 \leq r < n\). Thus, there are \(n\) possible remainders, forming \(n\) remainder classes.
 Remainder classes for an arbitrary \(n\) are: \(0, 1, 2, ..., n-1\).
 \end{document}

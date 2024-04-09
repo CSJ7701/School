@@ -1,5 +1,6 @@
 #+TITLE: Writing Assignment 3
-#+AUTHOR: Christian Johnson \and ???
+#+AUTHOR: Christian Johnson \and Aidan Andersen
+#+DATE: April 7, 2024
 $\newpage$
 * *Division Algorithm*
 ** *Showing the Form of Square of Odd Integers*
