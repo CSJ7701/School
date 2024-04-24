@@ -1,0 +1,23 @@
+#+TITLE: Project 3
+#+AUTHOR: Christian Johnson \and Aidan Andersen
+
+#+begin_export latex
+\newpage
+#+end_export
+
+* Given Information
+- $c_1=257261 \pmod{303799}$
+- $c_2 = 117466\pmod{289279}$
+- $c_3=260584\pmod{410503}$
+
+RSA Moduli:
+- $n_1=303799$
+- $n_2=289729$
+- $n_3=410503$
+
+
+* Problem 1
+** Part A
+Find an $x$ with $0\le x\le n_{1}n_{2}n_{3}$ and $x\equiv c_{1}\pmod{n_1}$, $x\equiv c_{2}\pmod{n_2}$, $x\equiv c_{1}\pmod{n_2}$.
+
+
