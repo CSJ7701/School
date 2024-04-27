@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\PYG{n}{n}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mi}{303799}\PYG{p}{,}\PYG{l+m+mi}{289729}\PYG{p}{,}\PYG{l+m+mi}{410503}\PYG{p}{]}
+\PYG{n}{c}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mi}{257261}\PYG{p}{,}\PYG{l+m+mi}{117466}\PYG{p}{,}\PYG{l+m+mi}{260584}\PYG{p}{]}
+\PYG{p}{[}\PYG{n}{num}\PYG{p}{,} \PYG{n}{mod}\PYG{p}{]}\PYG{o}{=}\PYG{n}{chinese\PYGZus{}remainder\PYGZus{}theorem}\PYG{p}{(}\PYG{n}{n}\PYG{p}{,}\PYG{n}{c}\PYG{p}{)}
+\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}x=}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{num}\PYG{o}{\PYGZpc{}}\PYG{n}{mod}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}
+
+\end{Verbatim}

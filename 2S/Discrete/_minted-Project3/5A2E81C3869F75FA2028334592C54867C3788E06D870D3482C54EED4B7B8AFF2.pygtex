@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\PYG{c+c1}{\PYGZsh{} Check if GCD is a factor of PQ}
+\PYG{n}{gcd}\PYG{o}{/}\PYG{p}{(}\PYG{n}{p}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{*}\PYG{n}{p}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])}
+\PYG{c+c1}{\PYGZsh{} THEY\PYGZdq{}RE EQUAL... WHY??}
+
+\end{Verbatim}

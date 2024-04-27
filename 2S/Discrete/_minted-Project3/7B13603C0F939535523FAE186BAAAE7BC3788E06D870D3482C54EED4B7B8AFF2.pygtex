@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\PYG{n}{m}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mi}{14152019010600}\PYG{o}{**}\PYG{l+m+mi}{127}\PYG{p}{,} \PYG{l+m+mi}{14152019010605}\PYG{o}{**}\PYG{l+m+mi}{127}\PYG{p}{]}
+\PYG{c+c1}{\PYGZsh{} adjusted me: 14152019010605 to 14152019010600 in me(mod p)}
+\PYG{n}{p}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mi}{1234567891}\PYG{p}{,} \PYG{l+m+mi}{9876534323}\PYG{p}{]}
+\PYG{p}{[}\PYG{n}{num}\PYG{p}{,} \PYG{n}{mod}\PYG{p}{]}\PYG{o}{=}\PYG{n}{chinese\PYGZus{}remainder\PYGZus{}theorem}\PYG{p}{(}\PYG{n}{p}\PYG{p}{,}\PYG{n}{m}\PYG{p}{)}
+\PYG{n}{c}\PYG{o}{=}\PYG{n}{num}\PYG{o}{\PYGZpc{}}\PYG{n}{mod}
+
+\PYG{c+c1}{\PYGZsh{} Result is c(mod m1*m2)}
+\PYG{n}{f}\PYG{o}{=}\PYG{n}{c}\PYG{o}{\PYGZpc{}}\PYG{p}{(}\PYG{n}{p}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{*}\PYG{n}{p}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])}
+\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}f=}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{f}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}
+
+\end{Verbatim}

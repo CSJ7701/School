@@ -1,0 +1,31 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{egcd}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{):}
+    \PYG{k}{if} \PYG{n}{a} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n}{b}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}
+    \PYG{k}{else}\PYG{p}{:}
+        \PYG{n}{gcd}\PYG{p}{,} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y} \PYG{o}{=} \PYG{n}{egcd}\PYG{p}{(}\PYG{n}{b} \PYG{o}{\PYGZpc{}} \PYG{n}{a}\PYG{p}{,} \PYG{n}{a}\PYG{p}{)}
+        \PYG{k}{return} \PYG{n}{gcd}\PYG{p}{,} \PYG{n}{y} \PYG{o}{\PYGZhy{}} \PYG{p}{(}\PYG{n}{b} \PYG{o}{//} \PYG{n}{a}\PYG{p}{)} \PYG{o}{*} \PYG{n}{x}\PYG{p}{,} \PYG{n}{x}
+
+\PYG{k}{def} \PYG{n+nf}{mod\PYGZus{}inverse}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{m}\PYG{p}{):}
+    \PYG{n}{gcd}\PYG{p}{,} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y} \PYG{o}{=} \PYG{n}{egcd}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{m}\PYG{p}{)}
+    \PYG{k}{if} \PYG{n}{gcd} \PYG{o}{!=} \PYG{l+m+mi}{1}\PYG{p}{:}
+        \PYG{k}{raise} \PYG{n+ne}{Exception}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Modular inverse does not exist\PYGZsq{}}\PYG{p}{)}
+    \PYG{k}{else}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n}{x} \PYG{o}{\PYGZpc{}} \PYG{n}{m}
+
+\PYG{k}{def} \PYG{n+nf}{chinese\PYGZus{}remainder\PYGZus{}theorem}\PYG{p}{(}\PYG{n}{n}\PYG{p}{,} \PYG{n}{a}\PYG{p}{):}
+    \PYG{c+c1}{\PYGZsh{} Calculate N}
+    \PYG{n}{N} \PYG{o}{=} \PYG{l+m+mi}{1}
+    \PYG{k}{for} \PYG{n}{ni} \PYG{o+ow}{in} \PYG{n}{n}\PYG{p}{:}
+        \PYG{n}{N} \PYG{o}{*=} \PYG{n}{ni}
+
+    \PYG{c+c1}{\PYGZsh{} Calculate x}
+    \PYG{n}{x} \PYG{o}{=} \PYG{l+m+mi}{0}
+    \PYG{k}{for} \PYG{n}{ni}\PYG{p}{,} \PYG{n}{ai} \PYG{o+ow}{in} \PYG{n+nb}{zip}\PYG{p}{(}\PYG{n}{n}\PYG{p}{,} \PYG{n}{a}\PYG{p}{):}
+        \PYG{n}{Ni} \PYG{o}{=} \PYG{n}{N} \PYG{o}{//} \PYG{n}{ni}
+        \PYG{n}{xi} \PYG{o}{=} \PYG{n}{ai} \PYG{o}{*} \PYG{n}{mod\PYGZus{}inverse}\PYG{p}{(}\PYG{n}{Ni}\PYG{p}{,} \PYG{n}{ni}\PYG{p}{)} \PYG{o}{*} \PYG{n}{Ni}
+        \PYG{n}{x} \PYG{o}{+=} \PYG{n}{xi}
+
+    \PYG{k}{return} \PYG{n}{x} \PYG{p}{,} \PYG{n}{N}
+
+\end{Verbatim}
