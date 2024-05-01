@@ -111,7 +111,7 @@ Chinese Remainder Theorem - Given $c_1\equiv a\pmod{m_1}$ and $c_2\equiv a\pmod{
 
 
 In our case, we have $m^e\pmod{p}$ and $m^e\pmod{q}$.
-$gcd(p,q)=1\therefore\text{Relatively Prime}$
+$\\gcd(p,q)=1\therefore\text{Relatively Prime}\\$
 From this, we can see that there exists $c\pmod{p*q}$.
 #+ATTR_LATEX: :options frame=single
 #+begin_src python :session Discrete-Project-3 :exports both
@@ -170,9 +170,11 @@ From this, we can see that there exists $c\pmod{p*q}$.
 
   # Check if GCD is a factor of PQ
   gcd/(p[0]*p[1])
-  # THEY"RE EQUAL... WHY??
 
 #+end_src
 
 #+RESULTS:
 : 1.0
+
+Here, we see that $gcd(c-f, pq)$ divided by $pq$ is equal to 1.
+This indicates that $gcd(c-f,pq) == pq$, which makes sense in terms of the gcd operation, since the gcd of two numbers finds their greates common divisor. If the numbers are not already divisible by a common factor, their gcd will be the multiple of the two.

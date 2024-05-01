@@ -1,4 +1,4 @@
-% Created 2024-04-27 Sat 08:56
+% Created 2024-05-01 Wed 08:36
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -34,7 +34,7 @@
 \newpage
 
 \section{Given Information}
-\label{sec:orgf6b4b0b}
+\label{sec:orgc9cca5b}
 \textbf{Problem 1}
 \begin{itemize}
 \item \(c_1=257261 \pmod{303799}\)
@@ -56,7 +56,7 @@ RSA Moduli:
 \(m=14152019010605\)
 
 \section{Python Code}
-\label{sec:org8c0089d}
+\label{sec:org5adb492}
 
 \begin{minted}[,frame=single]{python}
 def egcd(a, b):
@@ -91,9 +91,9 @@ def chinese_remainder_theorem(n, a):
 \end{minted}
 
 \section{Problem 1}
-\label{sec:orge3c6e68}
+\label{sec:orgf0fe553}
 \subsection{Part A}
-\label{sec:orga7fa5cd}
+\label{sec:orgcac06d7}
 Find an \(x\) with \(0\le x\le n_{1}n_{2}n_{3}\) and \(x\equiv c_{1}\pmod{n_1}\), \(x\equiv c_{2}\pmod{n_2}\), \(x\equiv c_{1}\pmod{n_2}\).
 \(0\le x\le 36132219741486913\)
 
@@ -111,7 +111,7 @@ x=25990919649605545
 \end{verbatim}
 
 \subsection{Part B}
-\label{sec:orgf52e13f}
+\label{sec:org82b75a1}
 Show that \(0\le m^{3}\le n_1n_2n_3\)
 \(0\le m^3\le 36132219741486913\)
 
@@ -122,23 +122,23 @@ This means that \(m\) must be less than \(117466^3\), at the most.
 It follows that \(m\) must also be less than \(n_1*n_2*n_3\), since \(36132219741486913>117466^3\)
 
 \subsection{Part C}
-\label{sec:org8f667a5}
+\label{sec:orged220af}
 Show that \(x=m^3\).
 In part A, we found \(x\) such that \(x\equiv c_1\pmod{n_1}\), \(x\equiv c_2\pmod{n_2}\), and \(x\equiv c_3\pmod{n_3}\).
 We also know from the given information that \(m^3\equiv c_1\pmod{n_1}\), \(m^3\equiv c_2\pmod{n_2}\), and \(m^3\equiv c_3\pmod{n_3}\).
 We know, by definition, that solutions to the chinese remainder theorem are unique, therefore we can conclude that \(x=m^3\).
 
 \subsection{Part D}
-\label{sec:org579a558}
+\label{sec:org3a0fd3f}
 Decode the message \(m\).
 
 \(\\m^3=25990919649605545\\m=\sqrt[3]{25990919649605545}\\\therefore m=296215.114998\)
 
 \section{Problem 2}
-\label{sec:orgfb1e94c}
+\label{sec:orge9ba7a0}
 
 \subsection{Part A}
-\label{sec:org2520b84}
+\label{sec:orgea0f3c9}
 Find \(m^e\pmod{p}\) and \(m^e\pmod{q}\).
 Use the chinese remainder theorem to combine - \(c\equiv m^e\pmod{pq}\)
 \begin{itemize}
@@ -151,7 +151,7 @@ Chinese Remainder Theorem - Given \(c_1\equiv a\pmod{m_1}\) and \(c_2\equiv a\pm
 
 
 In our case, we have \(m^e\pmod{p}\) and \(m^e\pmod{q}\).
-\(gcd(p,q)=1\therefore\text{Relatively Prime}\)
+\(\\gcd(p,q)=1\therefore\text{Relatively Prime}\\\)
 From this, we can see that there exists \(c\pmod{p*q}\).
 \begin{minted}[,frame=single]{python}
 m=[14152019010605**127, 14152019010605**127]
@@ -170,7 +170,7 @@ result=9868895527985399785
 \end{verbatim}
 
 \subsection{Part B}
-\label{sec:orgdc8d35b}
+\label{sec:org7620b4c}
 
 
 \begin{minted}[,frame=single]{python}
@@ -212,11 +212,14 @@ GCD = 12193252149535222793
 
 # Check if GCD is a factor of PQ
 gcd/(p[0]*p[1])
-# THEY"RE EQUAL... WHY??
 
 \end{minted}
 
 \begin{verbatim}
 1.0
 \end{verbatim}
+
+
+Here, we see that \(gcd(c-f, pq)\) divided by \(pq\) is equal to 1.
+This indicates that \(gcd(c-f,pq) == pq\), which makes sense in terms of the gcd operation, since the gcd of two numbers finds their greates common divisor. If the numbers are not already divisible by a common factor, their gcd will be the multiple of the two.
 \end{document}
