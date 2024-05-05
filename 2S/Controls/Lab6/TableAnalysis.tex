@@ -1,0 +1,69 @@
+% Created 2024-05-04 Sat 08:24
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{minted}
+\usepackage{placeins}
+\usepackage{gensymb}
+\author{Christian Johnson \and Riley Thorburn}
+\date{\today}
+\title{Lab 6 Table Analysis}
+\hypersetup{
+ pdfauthor={Christian Johnson \and Riley Thorburn},
+ pdftitle={Lab 6 Table Analysis},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.3 (Org mode 9.6.15)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+
+\section{Table 1}
+\label{sec:orga8033e5}
+
+\begin{center}
+\begin{tabular}{lll}
+Item & Open Loop & Closed Loop\\[0pt]
+\hline
+Transfer Function & \(\frac{0.0087s+22.54}{0.0259s^2+s}\) & \(\frac{0.0087x+22.54}{0.02597s^2+1009s+22.54}\)\\[0pt]
+PM & \(63\degree\) & \(138\degree\)\\[0pt]
+Gain Crossover Frequency & 20 & 14.2\\[0pt]
+sd & 0.00+20i & 0.00+20i\\[0pt]
+Steady State Error & 0 & 0\\[0pt]
+\%OS & \(\infty\) & 6.36\\[0pt]
+Ts & \(\infty\) & 0.2\\[0pt]
+\(\frac{K(s+\alfa)}{s}\) & \(\frac{0.005(s+254)}{s}\) & ?????\\[0pt]
+\(K_p+\frac{K_i}{s}\) & \(0.005+\frac{12.67}{s}\) & ???\\[0pt]
+\end{tabular}
+\end{center}
+
+Here, you can see the comparison between open and closed loop systems. The closed loop system is similar to the open loop, but altered slightly because of system feedback. The table shows a higher Phase Margin in the closed loop system. The open loop system is unstable, which is why percent overshoot and settling time are both infinite, but the closed loop system is stable. We do not need to redesign this system as we did with the previous lab, since we know that a bode design will meet the specifications the first time.
+
+\section{Table 2}
+\label{sec:org71f812a}
+
+\begin{center}
+\begin{tabular}{lrl}
+Item & Real Motor & Compare\\[0pt]
+\hline
+PM & \(41.66\degree\) & Math - \(138\degree\)\\[0pt]
+Gain Crossover Frequency & 17.99 & Math - 14.3\\[0pt]
+Steady State Error & 0 & Math - 0\\[0pt]
+\%OS & 6 & Math - 6.36\\[0pt]
+Ts & 0.499 & 0.203\\[0pt]
+\end{tabular}
+\end{center}
+
+Here, we can see that the values are different between the physical motor, and the mathematical model. This is because of inefficiencies in the real-world system, such as friction or slippage. These differences can sometimes require us to redesign a system with stricter parameters. We see a larger gain crossover frequency and settling time in the real-world system, which makes intuitive sense, since those inefficiencies would cause the system to take longer to settle and would shift the point where the magnitude reaches 0.
+\end{document}

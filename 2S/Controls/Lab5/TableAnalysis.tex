@@ -1,0 +1,63 @@
+% Created 2024-05-03 Fri 18:12
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{minted}
+\usepackage{placeins}
+\usepackage{gensymb}
+\author{Christian Johnson, Riley Thorburn}
+\date{\today}
+\title{Lab 5 Tables}
+\hypersetup{
+ pdfauthor={Christian Johnson, Riley Thorburn},
+ pdftitle={Lab 5 Tables},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.3 (Org mode 9.6.15)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+
+\section{Table 2}
+\label{sec:org2b591af}
+\begin{center}
+\begin{tabular}{lrr}
+Item & Initial Design & Final Design\\[0pt]
+Closed loop TF & \(s_d=-40\pm54.57j\) & \(s_d=-80\pm(-104.19)j\)\\[0pt]
+Steady State Error & 0.0013 & 0\\[0pt]
+Percent Overshoot & 12 & 9\\[0pt]
+Settling time & 0.07 & 0.05\\[0pt]
+Kp & 76.008 & 122.045\\[0pt]
+Kd & 0.6745 & 1.146\\[0pt]
+PD K(s+a) & 0.6745(s+112.68) & 1.146(s+106.5)\\[0pt]
+PD (Kp+Kds) & 76.6745s & 122.045+1.146s\\[0pt]
+\end{tabular}
+\end{center}
+
+Here, we see the initial design compared to the final. The initial parameters were not strict enough to achieve the design parameters, and required slight adjustments before the system met specifications.
+You can see that the final design features more restrictive parameters, which force the result to better meet the requirements. We adjust percent overshoot and settling time in order to ensure that any innacuracies will still fall within requirements.
+
+\section{Table 3}
+\label{sec:org509c1ee}
+\begin{center}
+\begin{tabular}{lrl}
+Item & Real Motor & Compare\\[0pt]
+Steady State Error & 0.2146 & math model - 0.0013\\[0pt]
+Percent Overshoot & 5.66 & math model - 12\\[0pt]
+Settling Time & 0.1168 & math model - 0.07\\[0pt]
+\end{tabular}
+\end{center}
+
+Here, we see that there are significant differences between the real motor and the mathematical model. This is due largely to inefficiencies in the motor. Physical systems in general will rarely perform as well as their mathematical counterparts, because of factors like friction and slippage. Here, we see that the motor features more error, which is to be expected, and a larger settling time, which also makes sense. It is somewhat strange to see the mathematical model with a larger percent overshoot than the real system, but we were unable to determine why this occured. 
+\end{document}

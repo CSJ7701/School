@@ -1,0 +1,25 @@
+#+OPTIONS: toc:nil
+#+TITLE: Lab 5 Tables
+#+AUTHOR: Christian Johnson, Riley Thorburn
+
+* Table 2
+| Item               |     Initial Design |           Final Design |
+| Closed loop TF     | $s_d=-40\pm54.57j$ | $s_d=-80\pm(-104.19)j$ |
+| Steady State Error |             0.0013 |                      0 |
+| Percent Overshoot  |                 12 |                      9 |
+| Settling time      |               0.07 |                   0.05 |
+| Kp                 |             76.008 |                122.045 |
+| Kd                 |             0.6745 |                  1.146 |
+| PD K(s+a)          |   0.6745(s+112.68) |         1.146(s+106.5) |
+| PD (Kp+Kds)        |           76.6745s | 122.045+1.146s         |
+
+Here, we see the initial design compared to the final. The initial parameters were not strict enough to achieve the design parameters, and required slight adjustments before the system met specifications.
+You can see that the final design features more restrictive parameters, which force the result to better meet the requirements. We adjust percent overshoot and settling time in order to ensure that any innacuracies will still fall within requirements.
+
+* Table 3
+| Item               | Real Motor | Compare             |
+| Steady State Error |     0.2146 | math model - 0.0013 |
+| Percent Overshoot  |       5.66 | math model - 12     |
+| Settling Time      |     0.1168 | math model - 0.07   |
+
+Here, we see that there are significant differences between the real motor and the mathematical model. This is due largely to inefficiencies in the motor. Physical systems in general will rarely perform as well as their mathematical counterparts, because of factors like friction and slippage. Here, we see that the motor features more error, which is to be expected, and a larger settling time, which also makes sense. It is somewhat strange to see the mathematical model with a larger percent overshoot than the real system, but we were unable to determine why this occured. 
